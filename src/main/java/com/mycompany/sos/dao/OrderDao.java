@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.dao;
 
+import com.mycompany.sos.model.entities.Order;
+
 /**
  * OrderDao interface
  * 
@@ -11,4 +13,6 @@ package com.mycompany.sos.dao;
  */
 public interface OrderDao {
 
+	boolean addOrder(Order order);
+	
 }

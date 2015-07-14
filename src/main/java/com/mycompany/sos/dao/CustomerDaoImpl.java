@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.mycompany.sos.model.entities.Customer;
 
 /**
@@ -11,25 +13,22 @@ import com.mycompany.sos.model.entities.Customer;
  * @author colin
  *
  */
-
+@Repository("customerDaoImpl")
 public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public boolean addCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
 	@Override
 	public boolean editCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
 	@Override
 	public boolean deleteCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
 }
