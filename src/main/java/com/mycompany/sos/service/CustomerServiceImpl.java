@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public boolean addCustomer(Customer customer) {
 		return customerDao.addCustomer(customer);
+	}
+
+	@Override
+	public List<Customer> getCustomers() {
+		return customerDao.getCustomers();
 	}
 
 }

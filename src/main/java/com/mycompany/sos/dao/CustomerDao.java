@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.dao;
 
+import java.util.List;
+
 import com.mycompany.sos.model.entities.Customer;
 
 /**
@@ -13,6 +15,8 @@ import com.mycompany.sos.model.entities.Customer;
  */
 public interface CustomerDao {
 
+	List<Customer> getCustomers();
+	
 	boolean addCustomer(Customer customer);
 	
 	boolean editCustomer(Customer customer);
