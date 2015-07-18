@@ -4,7 +4,7 @@
 	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="com.mycompany.jpa.hibernate.entitymanager" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="com.mycompany.sos.entitymanager" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<properties>
