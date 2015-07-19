@@ -13,7 +13,7 @@
 	
 	<h1>Create Customer:</h1>
 	
-	<form:form method="POST" modelAttribute="createCustomerForm" action="/createCustomer">
+	<form:form method="POST" modelAttribute="createCustomerForm" action="createCustomer">
 		<table>
 			<tr>
 				<td>Firstname:</td>
@@ -50,6 +50,10 @@
 			<tr>
 				<td>Country:</td>
 				<td><form:input id="country" path="country" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>				
 			</tr>
 		</table>
 	</form:form>

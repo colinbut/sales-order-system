@@ -5,6 +5,7 @@ package com.mycompany.sos.dao;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -22,9 +23,33 @@ import com.mycompany.sos.model.entities.Customer;
 @Repository("customerDaoImpl")
 public class CustomerDaoImpl implements CustomerDao {
 
+	private EntityManager entityManager;
+	
+	@PostConstruct
+	public void init(){
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
+				"com.mycompany.sos.entitymanager");
+		
+		entityManager = entityManagerFactory.createEntityManager();
+	}
+	
 	@Override
 	public boolean addCustomer(Customer customer) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+		try {
+			
+			entityManager.getTransaction().begin();
+			
+			entityManager.persist(customer);
+			
+			entityManager.getTransaction().commit();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return false;
+		}
+		
+		return true;
+		
 	}
 
 	@Override
@@ -39,11 +64,6 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public List<Customer> getCustomers() {
-		
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
-				"com.mycompany.sos.entitymanager");
-		
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		List<Customer> customers = entityManager.createQuery("from customers", Customer.class).getResultList();
 		

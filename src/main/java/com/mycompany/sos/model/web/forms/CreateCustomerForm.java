@@ -75,4 +75,12 @@ public class CreateCustomerForm {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	@Override
+	public String toString() {
+		return "CreateCustomerForm [firstName=" + firstName + ", lastName="
+				+ lastName + ", dateOfBirth=" + dateOfBirth + ", emailAddress="
+				+ emailAddress + ", houseFlatNo=" + houseFlatNo + ", street="
+				+ street + ", postcode=" + postcode + ", city=" + city
+				+ ", country=" + country + "]";
+	}
 }
