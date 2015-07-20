@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycompany.sos.controller.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.dao.entities.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
-import com.mycompany.sos.web.forms.CreateCustomerForm;
 
 /**
  * @author colin

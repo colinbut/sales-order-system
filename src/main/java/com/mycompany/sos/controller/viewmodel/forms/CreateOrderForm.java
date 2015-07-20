@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.web.forms;
+package com.mycompany.sos.controller.viewmodel.forms;
 
 /**
  * @author colin
