@@ -24,13 +24,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "items")
-public class Item {
+public class ItemEntity {
 
 	private int itemId;
 	private String itemName;
 	private BigDecimal itemPrice;
 	
-	private Set<Order> orders = new HashSet<Order>();
+	private Set<OrderEntity> orders = new HashSet<OrderEntity>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,11 +62,11 @@ public class Item {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "items")
-	public Set<Order> getOrders() {
+	public Set<OrderEntity> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<Order> orders) {
+	public void setOrders(Set<OrderEntity> orders) {
 		this.orders = orders;
 	}
 

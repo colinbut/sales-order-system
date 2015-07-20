@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.dao.CustomerDao;
-import com.mycompany.sos.dao.entities.Customer;
+import com.mycompany.sos.dao.entities.CustomerEntity;
 
 /**
  * @author colin
@@ -22,12 +22,12 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao customerDao;
 	
 	@Override
-	public boolean addCustomer(Customer customer) {
+	public boolean addCustomer(CustomerEntity customer) {
 		return customerDao.addCustomer(customer);
 	}
 
 	@Override
-	public List<Customer> getCustomers() {
+	public List<CustomerEntity> getCustomers() {
 		return customerDao.getCustomers();
 	}
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.dao.entities.Customer;
+import com.mycompany.sos.dao.entities.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
 import com.mycompany.sos.web.forms.CreateCustomerForm;
 
@@ -58,7 +58,7 @@ public class CustomerController {
 		
 		System.out.println(createCustomerForm);
 		
-		Customer customer = new Customer();
+		CustomerEntity customer = new CustomerEntity();
 		customer.setFirstName(createCustomerForm.getFirstName());
 		customer.setLastName(createCustomerForm.getLastName());
 		customer.setDateOfBirth(createCustomerForm.getDateOfBirth());
@@ -75,9 +75,9 @@ public class CustomerController {
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String listCustomers(ModelMap modelMap) {
 		
-		List<Customer> customers = customerService.getCustomers();
+		List<CustomerEntity> customers = customerService.getCustomers();
 		
-		for(Customer customer : customers ) {
+		for(CustomerEntity customer : customers ) {
 			System.out.println(customer);
 		}
 		

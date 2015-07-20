@@ -21,13 +21,13 @@ import javax.persistence.Entity;
  */
 @Entity
 @Table(name = "customer_payment_details")
-public class CustomerPaymentDetail {
+public class CustomerPaymentDetailEntity {
 
 	private int paymentDetailsId;
 	private String customerReference;
 	private String cardNo;
 	private String cardExpiryDate;
-	private Customer customer;
+	private CustomerEntity customer;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,11 +69,11 @@ public class CustomerPaymentDetail {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id", nullable = false)
-	public Customer getCustomer() {
+	public CustomerEntity getCustomer() {
 		return customer;
 	}
 	
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerEntity customer) {
 		this.customer = customer;
 	}
 	

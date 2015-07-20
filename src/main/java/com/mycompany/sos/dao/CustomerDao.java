@@ -5,7 +5,7 @@ package com.mycompany.sos.dao;
 
 import java.util.List;
 
-import com.mycompany.sos.dao.entities.Customer;
+import com.mycompany.sos.dao.entities.CustomerEntity;
 
 /**
  * CustomerDao interface
@@ -15,11 +15,11 @@ import com.mycompany.sos.dao.entities.Customer;
  */
 public interface CustomerDao {
 
-	List<Customer> getCustomers();
+	List<CustomerEntity> getCustomers();
 	
-	boolean addCustomer(Customer customer);
+	boolean addCustomer(CustomerEntity customer);
 	
-	boolean editCustomer(Customer customer);
+	boolean editCustomer(CustomerEntity customer);
 	
-	boolean deleteCustomer(Customer customer);
+	boolean deleteCustomer(CustomerEntity customer);
 }

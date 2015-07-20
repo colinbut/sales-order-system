@@ -3,7 +3,7 @@
  */
 package com.mycompany.sos.service;
 
-import com.mycompany.sos.dao.entities.Order;
+import com.mycompany.sos.dao.entities.OrderEntity;
 
 /**
  * OrderService interface
@@ -13,5 +13,5 @@ import com.mycompany.sos.dao.entities.Order;
  */
 public interface OrderService {
 
-	boolean addOrder(Order order);
+	boolean addOrder(OrderEntity order);
 }

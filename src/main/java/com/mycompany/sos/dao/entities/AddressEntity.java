@@ -23,7 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "address")
-public class Address {
+public class AddressEntity {
 
 	private int addressId;
 	private int houseFlatNo;
@@ -33,7 +33,7 @@ public class Address {
 	private String country;
 	
 	// 1 : M
-	private Set<Customer> customers = new HashSet<Customer>(0);
+	private Set<CustomerEntity> customers = new HashSet<CustomerEntity>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -92,11 +92,11 @@ public class Address {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-	public Set<Customer> getCustomers() {
+	public Set<CustomerEntity> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Set<Customer> customers) {
+	public void setCustomers(Set<CustomerEntity> customers) {
 		this.customers = customers;
 	}
 

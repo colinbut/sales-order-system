@@ -5,7 +5,7 @@ package com.mycompany.sos.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.dao.entities.Item;
+import com.mycompany.sos.dao.entities.ItemEntity;
 
 /**
  * @author colin
@@ -15,7 +15,7 @@ import com.mycompany.sos.dao.entities.Item;
 public class ItemDaoImpl implements ItemDao {
 
 	@Override
-	public boolean addItem(Item item) {
+	public boolean addItem(ItemEntity item) {
 		// TODO Auto-generated method stub
 		return false;
 	}

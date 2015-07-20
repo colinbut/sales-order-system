@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.dao.OrderDao;
-import com.mycompany.sos.dao.entities.Order;
+import com.mycompany.sos.dao.entities.OrderEntity;
 
 /**
  * @author colin
@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
 	private OrderDao orderDao;
 	
 	@Override
-	public boolean addOrder(Order order) {
+	public boolean addOrder(OrderEntity order) {
 		return orderDao.addOrder(order);
 	}
 

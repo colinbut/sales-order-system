@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.dao.entities.Customer;
+import com.mycompany.sos.dao.entities.CustomerEntity;
 
 /**
  * CustomerDaoImpl class
@@ -34,7 +34,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	
 	@Override
-	public boolean addCustomer(Customer customer) {
+	public boolean addCustomer(CustomerEntity customer) {
 		try {
 			
 			entityManager.getTransaction().begin();
@@ -53,19 +53,19 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public boolean editCustomer(Customer customer) {
+	public boolean editCustomer(CustomerEntity customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
 	@Override
-	public boolean deleteCustomer(Customer customer) {
+	public boolean deleteCustomer(CustomerEntity customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
 	@Override
-	public List<Customer> getCustomers() {
+	public List<CustomerEntity> getCustomers() {
 		
-		List<Customer> customers = entityManager.createQuery("from Customer", Customer.class).getResultList();
+		List<CustomerEntity> customers = entityManager.createQuery("from Customer", CustomerEntity.class).getResultList();
 		
 		entityManager.close();
 		

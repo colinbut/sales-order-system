@@ -3,7 +3,7 @@
  */
 package com.mycompany.sos.service;
 
-import com.mycompany.sos.dao.entities.Item;
+import com.mycompany.sos.dao.entities.ItemEntity;
 
 /**
  * ItemService interface
@@ -13,5 +13,5 @@ import com.mycompany.sos.dao.entities.Item;
  */
 public interface ItemService {
 
-	boolean addItem(Item item);
+	boolean addItem(ItemEntity item);
 }

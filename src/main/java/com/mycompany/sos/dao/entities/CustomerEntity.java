@@ -29,7 +29,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "customer")
-public class Customer {
+public class CustomerEntity {
 
 	private int customerId;
 	private String firstName;
@@ -38,13 +38,13 @@ public class Customer {
 	private String email;
 
 	// M : 1
-	private Address address;
+	private AddressEntity address;
 	
 	// 1 : 1
-	private CustomerPaymentDetail customerPaymentDetail;
+	private CustomerPaymentDetailEntity customerPaymentDetail;
 	
 	// 1 : M
-	private Set<Order> orders = new HashSet<Order>(0);
+	private Set<OrderEntity> orders = new HashSet<OrderEntity>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,29 +96,29 @@ public class Customer {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_address_id")
-	public Address getAddress() {
+	public AddressEntity getAddress() {
 		return address;
 	}
 	
-	public void setAddress(Address address) {
+	public void setAddress(AddressEntity address) {
 		this.address = address;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "customer")
-	public CustomerPaymentDetail getCustomerPaymentDetail() {
+	public CustomerPaymentDetailEntity getCustomerPaymentDetail() {
 		return customerPaymentDetail;
 	}
 
-	public void setCustomerPaymentDetail(CustomerPaymentDetail customerPaymentDetail) {
+	public void setCustomerPaymentDetail(CustomerPaymentDetailEntity customerPaymentDetail) {
 		this.customerPaymentDetail = customerPaymentDetail;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-	public Set<Order> getOrders() {
+	public Set<OrderEntity> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<Order> orders) {
+	public void setOrders(Set<OrderEntity> orders) {
 		this.orders = orders;
 	}
 

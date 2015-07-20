@@ -5,7 +5,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.dao.entities.Customer;
+import com.mycompany.sos.dao.entities.CustomerEntity;
 
 /**
  * @author colin
@@ -13,7 +13,7 @@ import com.mycompany.sos.dao.entities.Customer;
  */
 public interface CustomerService {
 
-	boolean addCustomer(Customer customer);
+	boolean addCustomer(CustomerEntity customer);
 	
-	List<Customer> getCustomers();
+	List<CustomerEntity> getCustomers();
 }

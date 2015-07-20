@@ -3,7 +3,7 @@
  */
 package com.mycompany.sos.dao;
 
-import com.mycompany.sos.dao.entities.Order;
+import com.mycompany.sos.dao.entities.OrderEntity;
 
 /**
  * OrderDao interface
@@ -13,6 +13,6 @@ import com.mycompany.sos.dao.entities.Order;
  */
 public interface OrderDao {
 
-	boolean addOrder(Order order);
+	boolean addOrder(OrderEntity order);
 	
 }

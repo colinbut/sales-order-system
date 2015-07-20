@@ -26,11 +26,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "orders")
-public class Order {
+public class OrderEntity {
 
 	private int orderId;
-	private Customer customer;
-	private Set<Item> items = new HashSet<Item>(0);
+	private CustomerEntity customer;
+	private Set<ItemEntity> items = new HashSet<ItemEntity>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,11 +45,11 @@ public class Order {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id", nullable = false)
-	public Customer getCustomer() {
+	public CustomerEntity getCustomer() {
 		return customer;
 	}
 	
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerEntity customer) {
 		this.customer = customer;
 	}
 	
@@ -58,11 +58,11 @@ public class Order {
 		joinColumns = { @JoinColumn(name = "order_id", nullable = false, updatable = false)},
 		inverseJoinColumns = { @JoinColumn(name = "item_id", nullable = false, updatable = false)}
 			)
-	public Set<Item> getItems() {
+	public Set<ItemEntity> getItems() {
 		return items;
 	}
 	
-	public void setItems(Set<Item> items) {
+	public void setItems(Set<ItemEntity> items) {
 		this.items = items;
 	}
 
