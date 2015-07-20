@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.model.entities.Customer;
+import com.mycompany.sos.dao.entities.Customer;
 
 /**
  * CustomerDaoImpl class

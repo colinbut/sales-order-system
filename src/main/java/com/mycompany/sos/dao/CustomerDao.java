@@ -5,7 +5,7 @@ package com.mycompany.sos.dao;
 
 import java.util.List;
 
-import com.mycompany.sos.model.entities.Customer;
+import com.mycompany.sos.dao.entities.Customer;
 
 /**
  * CustomerDao interface

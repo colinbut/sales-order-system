@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.dao.ItemDao;
-import com.mycompany.sos.model.entities.Item;
+import com.mycompany.sos.dao.entities.Item;
 
 /**
  * @author colin

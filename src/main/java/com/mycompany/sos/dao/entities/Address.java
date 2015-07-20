@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.model.entities;
+package com.mycompany.sos.dao.entities;
 
 import java.util.HashSet;
 import java.util.Set;

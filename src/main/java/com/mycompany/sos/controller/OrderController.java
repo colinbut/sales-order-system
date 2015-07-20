@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mycompany.sos.model.web.forms.CreateOrderForm;
 import com.mycompany.sos.service.OrderService;
+import com.mycompany.sos.web.forms.CreateOrderForm;
 
 /**
  * OrderController class

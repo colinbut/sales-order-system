@@ -3,7 +3,7 @@
  */
 package com.mycompany.sos.dao;
 
-import com.mycompany.sos.model.entities.Order;
+import com.mycompany.sos.dao.entities.Order;
 
 /**
  * OrderDao interface

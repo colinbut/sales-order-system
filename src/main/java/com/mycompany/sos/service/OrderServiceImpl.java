@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.dao.OrderDao;
-import com.mycompany.sos.model.entities.Order;
+import com.mycompany.sos.dao.entities.Order;
 
 /**
  * @author colin

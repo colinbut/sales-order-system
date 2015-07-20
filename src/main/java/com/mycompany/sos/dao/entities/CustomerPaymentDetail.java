@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.model.entities;
+package com.mycompany.sos.dao.entities;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;

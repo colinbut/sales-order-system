@@ -5,7 +5,7 @@ package com.mycompany.sos.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.model.entities.Item;
+import com.mycompany.sos.dao.entities.Item;
 
 /**
  * @author colin

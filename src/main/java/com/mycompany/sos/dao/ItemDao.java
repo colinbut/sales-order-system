@@ -3,7 +3,7 @@
  */
 package com.mycompany.sos.dao;
 
-import com.mycompany.sos.model.entities.Item;
+import com.mycompany.sos.dao.entities.Item;
 
 /**
  * ItemDao interface

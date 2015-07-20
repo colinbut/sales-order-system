@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.model.web.forms;
+package com.mycompany.sos.web.forms;
 
 import java.util.Date;
 
