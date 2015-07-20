@@ -64,7 +64,7 @@ public class CustomerController {
 		customer.setDateOfBirth(createCustomerForm.getDateOfBirth());
 		customer.setEmail(createCustomerForm.getEmailAddress());
 		
-		if(customerService.addCustomer(customer)) {
+		if(!customerService.addCustomer(customer)) {
 			modelAndView.addObject("submittedCustomerForm", createCustomerForm);
 			modelAndView.setViewName("customers-createCustomerSuccess");
 		}
@@ -84,6 +84,6 @@ public class CustomerController {
 		
 		modelMap.addAttribute("customers", customers);
 		
-		return "/";
+		return "customers";
 	}
 }

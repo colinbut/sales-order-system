@@ -65,7 +65,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public List<Customer> getCustomers() {
 		
-		List<Customer> customers = entityManager.createQuery("from customers", Customer.class).getResultList();
+		List<Customer> customers = entityManager.createQuery("from Customer", Customer.class).getResultList();
 		
 		entityManager.close();
 		

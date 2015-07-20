@@ -1,4 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="taglibs.jsp" %>
+<jsp:include page="header.jsp"></jsp:include>
 <div>
 	<button id="createCustomerButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/customers/create'">
 		Create Customer
@@ -24,10 +25,11 @@
 				<td><c:out value="${customer.email}"></c:out></td>
 				<td><c:out value="${customer.address.houseFlatNo}"></c:out></td>
 				<td><c:out value="${customer.address.street}"></c:out></td>
-				<td><c:out value="${customer.address.postcode}"></c:out></td>
+				<td><c:out value="${customer.address.postCode}"></c:out></td>
 				<td><c:out value="${customer.address.city}"></c:out></td>
 				<td><c:out value="${customer.address.country}"></c:out></td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
+<jsp:include page="footer.jsp"></jsp:include>
