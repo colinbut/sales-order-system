@@ -35,4 +35,18 @@ public class CustomerPaymentDetailTransformerImpl implements CustomerPaymentDeta
 		return customerPaymentDetails;
 	}
 
+	@Override
+	public CustomerPaymentDetailEntity getEntityFromDto(
+			CustomerPaymentDetails customerPaymentDetails) {
+		
+		CustomerPaymentDetailEntity customerPaymentDetailEntity = new CustomerPaymentDetailEntity();
+		
+		customerPaymentDetailEntity.setCustomerReference(customerPaymentDetails.getCustomerReference());
+		customerPaymentDetailEntity.setCardExpiryDate(customerPaymentDetails.getCardExpiryDate());
+		customerPaymentDetailEntity.setCardNo(customerPaymentDetails.getCardNo());
+		customerPaymentDetailEntity.setCustomer(customerTransformer.getEntityFromDto(customerPaymentDetails.getCustomer()));
+		
+		return customerPaymentDetailEntity;
+	}
+
 }

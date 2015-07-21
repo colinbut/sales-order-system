@@ -20,5 +20,7 @@ public interface CustomerTransformer {
 	
 	CustomerEntity getEntityFromDto(Customer customer);
 	
-	Set<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntity);
+	Set<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntities);
+	
+	Set<CustomerEntity> getEntityListFromDtoList(Set<Customer> customers);
 }

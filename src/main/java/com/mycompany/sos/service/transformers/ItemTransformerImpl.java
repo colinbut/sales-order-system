@@ -36,8 +36,13 @@ public class ItemTransformerImpl implements ItemTransformer {
 
 	@Override
 	public ItemEntity getEntityFromDto(Item item) {
-		// TODO Auto-generated method stub
-		return null;
+		ItemEntity itemEntity = new ItemEntity();
+		
+		itemEntity.setItemName(item.getItemName());
+		itemEntity.setItemPrice(item.getItemPrice());
+		itemEntity.setOrders(orderTransformer.getEntityListFromDto(item.getOrders()));
+		
+		return itemEntity;
 	}
 
 	@Override
@@ -50,6 +55,17 @@ public class ItemTransformerImpl implements ItemTransformer {
 		}
 		
 		return items;
+	}
+
+	@Override
+	public Set<ItemEntity> getEntityListFromDtoList(Set<Item> items) {
+		
+		Set<ItemEntity> itemEntities = new HashSet<>();
+		for(Item item : items) {
+			itemEntities.add(getEntityFromDto(item));
+		}
+		
+		return itemEntities;
 	}
 
 }

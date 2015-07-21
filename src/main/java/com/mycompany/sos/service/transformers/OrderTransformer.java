@@ -21,4 +21,6 @@ public interface OrderTransformer {
 	OrderEntity getEntityFromDto(Order order);
 	
 	Set<Order> getDtoListFromEntityList(Set<OrderEntity> orderEntityList);
+	
+	Set<OrderEntity> getEntityListFromDto(Set<Order> orders);
 }

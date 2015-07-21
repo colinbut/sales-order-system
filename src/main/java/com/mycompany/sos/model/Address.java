@@ -6,7 +6,6 @@ package com.mycompany.sos.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.mycompany.sos.dao.entities.CustomerEntity;
 
 /**
  * @author colin
@@ -21,7 +20,7 @@ public class Address {
 	private String city;
 	private String country;
 	
-	private Set<CustomerEntity> customers = new HashSet<CustomerEntity>(0);
+	private Set<Customer> customers = new HashSet<Customer>(0);
 
 	public int getAddressId() {
 		return addressId;
@@ -71,11 +70,11 @@ public class Address {
 		this.country = country;
 	}
 
-	public Set<CustomerEntity> getCustomers() {
+	public Set<Customer> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Set<CustomerEntity> customers) {
+	public void setCustomers(Set<Customer> customers) {
 		this.customers = customers;
 	}
 	

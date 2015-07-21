@@ -7,6 +7,8 @@ import com.mycompany.sos.dao.entities.AddressEntity;
 import com.mycompany.sos.model.Address;
 
 /**
+ * AddressTransformer interface
+ * 
  * @author colin
  *
  */

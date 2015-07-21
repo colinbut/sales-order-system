@@ -16,5 +16,6 @@ public interface CustomerPaymentDetailTransformer {
 
 	CustomerPaymentDetails getDtoFromEntity(CustomerPaymentDetailEntity customerPaymentDetailEntity);
 	
+	CustomerPaymentDetailEntity getEntityFromDto(CustomerPaymentDetails customerPaymentDetails);
 	
 }

@@ -19,4 +19,6 @@ public interface ItemTransformer {
 	ItemEntity getEntityFromDto(Item item);
 	
 	Set<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList);
+	
+	Set<ItemEntity> getEntityListFromDtoList(Set<Item> items);
 }

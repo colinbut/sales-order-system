@@ -25,6 +25,8 @@ public class OrderTransformerImpl implements OrderTransformer {
 	@Autowired
 	private ItemTransformer itemTransformer;
 	
+	
+	
 	@Override
 	public Order getDtoFromEntity(OrderEntity orderEntity) {
 		
@@ -37,8 +39,10 @@ public class OrderTransformerImpl implements OrderTransformer {
 
 	@Override
 	public OrderEntity getEntityFromDto(Order order) {
-		// TODO Auto-generated method stub
-		return null;
+		OrderEntity orderEntity = new OrderEntity();
+		orderEntity.setCustomer(customerTransformer.getEntityFromDto(order.getCustomer()));
+		orderEntity.setItems(itemTransformer.getEntityListFromDtoList(order.getItems()));
+		return orderEntity;
 	}
 
 	@Override
@@ -50,6 +54,15 @@ public class OrderTransformerImpl implements OrderTransformer {
 		}
 		
 		return orders;
+	}
+
+	@Override
+	public Set<OrderEntity> getEntityListFromDto(Set<Order> orders) {
+		Set<OrderEntity> orderEntities = new HashSet<>();
+		for(Order order : orders){
+			orderEntities.add(getEntityFromDto(order));
+		}
+		return orderEntities;
 	}
 
 }
