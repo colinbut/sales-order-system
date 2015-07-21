@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.model.dto;
+package com.mycompany.sos.model;
 
 import java.util.Date;
 import java.util.HashSet;

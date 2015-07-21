@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.mycompany.sos.model.dto;
-
-import com.mycompany.sos.dao.entities.CustomerEntity;
+package com.mycompany.sos.model;
 
 /**
+ * CustomerPaymentDetails dto
+ * 
  * @author colin
  *
  */
@@ -15,7 +15,7 @@ public class CustomerPaymentDetails {
 	private String customerReference;
 	private String cardNo;
 	private String cardExpiryDate;
-	private CustomerEntity customer;
+	private Customer customer;
 	
 	public int getPaymentDetailsId() {
 		return paymentDetailsId;
@@ -41,10 +41,10 @@ public class CustomerPaymentDetails {
 	public void setCardExpiryDate(String cardExpiryDate) {
 		this.cardExpiryDate = cardExpiryDate;
 	}
-	public CustomerEntity getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
-	public void setCustomer(CustomerEntity customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.controller.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.dao.entities.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.service.CustomerService;
 
 /**
@@ -75,9 +76,9 @@ public class CustomerController {
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String listCustomers(ModelMap modelMap) {
 		
-		List<CustomerEntity> customers = customerService.getCustomers();
+		List<Customer> customers = customerService.getCustomers();
 		
-		for(CustomerEntity customer : customers ) {
+		for(Customer customer : customers ) {
 			System.out.println(customer);
 		}
 		

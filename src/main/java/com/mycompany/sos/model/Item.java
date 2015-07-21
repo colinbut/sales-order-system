@@ -1,15 +1,16 @@
 /**
  * 
  */
-package com.mycompany.sos.model.dto;
+package com.mycompany.sos.model;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.mycompany.sos.dao.entities.OrderEntity;
 
 /**
+ * Item dto
+ * 
  * @author colin
  *
  */
@@ -19,7 +20,7 @@ public class Item {
 	private String itemName;
 	private BigDecimal itemPrice;
 	
-	private Set<OrderEntity> orders = new HashSet<OrderEntity>();
+	private Set<Order> orders = new HashSet<Order>();
 
 	public int getItemId() {
 		return itemId;
@@ -45,11 +46,11 @@ public class Item {
 		this.itemPrice = itemPrice;
 	}
 
-	public Set<OrderEntity> getOrders() {
+	public Set<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<OrderEntity> orders) {
+	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
 }
