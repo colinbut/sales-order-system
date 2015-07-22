@@ -3,6 +3,7 @@
  */
 package com.mycompany.sos.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.controller.viewmodel.forms.CreateCustomerForm;
+import com.mycompany.sos.controller.viewmodel.modeldata.CustomerModel;
 import com.mycompany.sos.dao.entities.CustomerEntity;
+import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.service.CustomerService;
 
@@ -77,13 +80,27 @@ public class CustomerController {
 	public String listCustomers(ModelMap modelMap) {
 		
 		List<Customer> customers = customerService.getCustomers();
+		List<CustomerModel> customerList = new ArrayList<>();
 		
-		for(Customer customer : customers ) {
-			System.out.println(customer);
+		for(Customer customer : customers) {
+			CustomerModel customerModel = new CustomerModel();
+			customerModel.setCustomerName(customer.getFirstName() + " " + customer.getLastName());
+			customerModel.setDateOfBirth(customer.getDateOfBirth());
+			customerModel.setEmailAddress(customer.getEmail());
+			
+			StringBuilder fullAddress = new StringBuilder();
+			Address address = customer.getAddress();
+			fullAddress.append(address.getHouseFlatNo())
+						.append(" " + address.getStreet())
+						.append(" " + address.getPostCode())
+						.append(" " + address.getCity())
+						.append(" " + address.getCountry());
+			customerModel.setAddress(fullAddress.toString());
+			
+			customerList.add(customerModel);
 		}
 		
-		
-		modelMap.addAttribute("customers", customers);
+		modelMap.addAttribute("customers", customerList);
 		
 		return "customers";
 	}

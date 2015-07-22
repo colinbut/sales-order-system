@@ -1,33 +1,25 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
 <div>
+	<h1>Customers</h1>
 	<button id="createCustomerButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/customers/create'">
 		Create Customer
 	</button>
 	<table>
 		<tr>
-			<th>Customer Firstname</th>
-			<th>Customer Lastname</th>
-			<th>Customer DOB</th>
+			<th>Customer Name</th>
+			<th>Customer Date Of Birth</th>
 			<th>Customer Email Address</th>
-			<th>House No</th>
-			<th>Street</th>
-			<th>Postcode</th>
-			<th>City</th>
-			<th>Country</th>
+			<th>Customer Address</th>
 		</tr>
 	
 		<c:forEach items="${customers}" var="customer">
 			<tr>
-				<td><c:out value="${customer.firstName}"></c:out></td>
-				<td><c:out value="${customer.lastName}"></c:out></td>
+				<td><c:out value="${customer.customerName}"></c:out></td>
 				<td><c:out value="${customer.dateOfBirth}"></c:out></td>
-				<td><c:out value="${customer.email}"></c:out></td>
-				<td><c:out value="${customer.address.houseFlatNo}"></c:out></td>
-				<td><c:out value="${customer.address.street}"></c:out></td>
-				<td><c:out value="${customer.address.postCode}"></c:out></td>
-				<td><c:out value="${customer.address.city}"></c:out></td>
-				<td><c:out value="${customer.address.country}"></c:out></td>
+				<td><c:out value="${customer.emailAddress}"></c:out></td>
+				<td><c:out value="${customer.address}"></c:out></td>
+				
 			</tr>
 		</c:forEach>
 	</table>

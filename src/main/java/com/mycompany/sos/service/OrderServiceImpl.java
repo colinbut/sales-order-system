@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import com.mycompany.sos.dao.entities.OrderEntity;
  *
  */
 @Service("orderServiceImpl")
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired
