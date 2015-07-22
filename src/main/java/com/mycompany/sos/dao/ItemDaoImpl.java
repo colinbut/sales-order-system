@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.sos.dao.entities.ItemEntity;
@@ -18,6 +20,12 @@ public class ItemDaoImpl implements ItemDao {
 	public boolean addItem(ItemEntity item) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<ItemEntity> getItems() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

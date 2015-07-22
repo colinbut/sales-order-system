@@ -21,6 +21,10 @@ public class CreateCustomerForm {
 	private String city;
 	private String country;
 	
+	private String cardNo;
+	private String expDate;
+	private String customerReference;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -75,12 +79,32 @@ public class CreateCustomerForm {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public String getCardNo() {
+		return cardNo;
+	}
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
+	}
+	public String getExpDate() {
+		return expDate;
+	}
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+	public String getCustomerReference() {
+		return customerReference;
+	}
+	public void setCustomerReference(String customerReference) {
+		this.customerReference = customerReference;
+	}
 	@Override
 	public String toString() {
 		return "CreateCustomerForm [firstName=" + firstName + ", lastName="
 				+ lastName + ", dateOfBirth=" + dateOfBirth + ", emailAddress="
 				+ emailAddress + ", houseFlatNo=" + houseFlatNo + ", street="
 				+ street + ", postcode=" + postcode + ", city=" + city
-				+ ", country=" + country + "]";
+				+ ", country=" + country + ", cardNo=" + cardNo + ", expDate="
+				+ expDate + ", customerReference=" + customerReference + "]";
 	}
+	
 }

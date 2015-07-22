@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.dao;
 
+import java.util.List;
+
 import com.mycompany.sos.dao.entities.ItemEntity;
 
 /**
@@ -14,4 +16,6 @@ import com.mycompany.sos.dao.entities.ItemEntity;
 public interface ItemDao {
 
 	boolean addItem(ItemEntity item);
+	
+	List<ItemEntity> getItems();
 }

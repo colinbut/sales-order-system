@@ -9,4 +9,6 @@ package com.mycompany.sos.controller.viewmodel.forms;
  */
 public class CreateOrderForm {
 
+	private String customer;
+	private String items;
 }

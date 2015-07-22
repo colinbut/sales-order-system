@@ -1,7 +1,7 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
 	
-	<h1>Create Customer:</h1>
+	<h1>Create Customer</h1>
 	
 	<form:form method="POST" modelAttribute="createCustomerForm" action="createCustomer">
 		<table>
@@ -41,9 +41,25 @@
 				<td>Country:</td>
 				<td><form:input id="country" path="country" /></td>
 			</tr>
+		</table>
+		
+		<h2>Payment Details</h2>
+		<table>
+			<tr>
+				<td>Card No.</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<td>Card Exp Date:</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<td>Customer Reference</td>
+				<td><input type="text" /></td>
+			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Submit"></td>				
+				<td><input type="submit" value="Create"></td>				
 			</tr>
 		</table>
 	</form:form>

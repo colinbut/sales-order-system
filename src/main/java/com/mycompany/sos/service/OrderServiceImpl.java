@@ -3,6 +3,9 @@
  */
 package com.mycompany.sos.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.dao.OrderDao;
 import com.mycompany.sos.dao.entities.OrderEntity;
+import com.mycompany.sos.model.Order;
 
 /**
  * @author colin
@@ -25,6 +29,14 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public boolean addOrder(OrderEntity order) {
 		return orderDao.addOrder(order);
+	}
+
+	@Override
+	public List<Order> getOrders() {
+		
+		List<Order> orders = new ArrayList<Order>();
+		
+		return orders;
 	}
 
 }
