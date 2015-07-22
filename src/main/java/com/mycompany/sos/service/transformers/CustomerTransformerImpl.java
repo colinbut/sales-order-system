@@ -39,8 +39,9 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		customer.setDateOfBirth(customerEntity.getDateOfBirth());
 		customer.setEmail(customerEntity.getEmail());
 		customer.setAddress(addressTransformer.getDtoFromEntity(customerEntity.getAddress()));
-		customer.setCustomerPaymentDetails(customerPaymentDetailTransformer.getDtoFromEntity(customerEntity.getCustomerPaymentDetail()));
-		
+//		customer.setCustomerPaymentDetails(customerPaymentDetailTransformer
+//				.getDtoFromEntity(customerEntity.getCustomerPaymentDetail()));
+//		
 		return customer;
 	}
 

@@ -6,6 +6,7 @@ package com.mycompany.sos.dao;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -31,6 +32,13 @@ public class CustomerDaoImpl implements CustomerDao {
 				"com.mycompany.sos.entitymanager");
 		
 		entityManager = entityManagerFactory.createEntityManager();
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		if(entityManager.isOpen()) {
+			entityManager.close();
+		}
 	}
 	
 	@Override
@@ -65,9 +73,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public List<CustomerEntity> getCustomers() {
 		
-		List<CustomerEntity> customers = entityManager.createQuery("from Customer", CustomerEntity.class).getResultList();
-		
-		entityManager.close();
+		List<CustomerEntity> customers = entityManager.createQuery("from CustomerEntity", CustomerEntity.class).getResultList();
 		
 		return customers;
 		
