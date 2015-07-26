@@ -1,16 +1,17 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
-<div>
-	<h1>Customers</h1>
+<div id="content">
+	<br />
 	<button id="createCustomerButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/customers/create'">
 		Create Customer
 	</button>
+	<br />
 	<table>
 		<tr>
-			<th>Customer Name</th>
-			<th>Customer Date Of Birth</th>
-			<th>Customer Email Address</th>
-			<th>Customer Address</th>
+			<th>Name</th>
+			<th>Date Of Birth</th>
+			<th>Email Address</th>
+			<th>Address</th>
 		</tr>
 	
 		<c:forEach items="${customers}" var="customer">

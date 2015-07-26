@@ -8,13 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="<c:url value="css/sos.css" />" >
-
+<link rel="stylesheet" href="<c:url value="/css/sos.css" />" >
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <title>Sales Order System</title>
 </head>
 <body>
+	<div id="header">
+		<h1>Sales Order System</h1>
+	</div>
+	<div id="navigation">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="customers">Customers</a></li>
+			<li><a href="orders">Orders</a></li>
+		</ul>
+		
+	</div>
 
-<h1>Sales Order System</h1>
-
-<a href="customers">Customers</a> <a href="orders">Orders</a>

@@ -2,12 +2,57 @@
 
 body {
 	font-family: sans-serif;
+	margin:0px;
 }
+
+#header {
+	width:85%;
+	height:40px;
+	margin-top:20px;
+	margin-left:auto;
+	margin-right:auto;
+	border-bottom: 1px solid #DFE2DB;
+}
+
+#header h1 {
+	margin:0px;
+}
+
+#navigation {
+	/*border: 1px solid red;*/
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 30px;
+}
+
+a {
+	border-top: 1px solid red;	
+	border-left: 1px solid red;
+	border-right: 1px solid red; 
+}
+
+#content {
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+table {
+	width:100%;
+}
+
 
 th {
 	background-color: #585858;
+	height:50px;
+}
+
+tr {
+	border-bottom:1px solid #585849;
 }
 
 td {
 	background-color: #DFE2DB;
+	height:50px;
 }
