@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: sans-serif;
+}
+
+th {
+	background-color: #585858;
+}
+
+td {
+	background-color: #DFE2DB;
+}

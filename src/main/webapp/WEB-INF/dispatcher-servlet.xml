@@ -11,6 +11,9 @@
 		i.e. beans at the WebApplicationContext (Front Controllers etc...) excl. Controllers/Handlers 
 	-->
 	
+	<!-- load static resources like CSS & JS -->
+	<mvc:resources mapping="/**" location="/" />
+	
 	<!-- used to resolve JSP views -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
