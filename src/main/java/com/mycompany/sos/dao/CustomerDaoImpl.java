@@ -51,14 +51,26 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	
 	@Override
-	public boolean addCustomer(CustomerEntity customer) {
+	public boolean addCustomer(CustomerEntity customerEntity) {
 		try {
+			
+			logger.info("Adding new customer to database");
+			
+			if(logger.isDebugEnabled()) {
+				logger.debug(customerEntity.toString());
+			}
 			
 			entityManager.getTransaction().begin();
 			
-			entityManager.persist(customer);
+			logger.info("Saving data to database");
+			entityManager.persist(customerEntity);
+			logger.info("Persisted data to database");
 			
 			entityManager.getTransaction().commit();
+			
+			if(logger.isDebugEnabled()) {
+				logger.debug("Committed database transaction");
+			}
 		}
 		catch(Exception ex) {
 			logger.error(ex.getMessage(), ex);
@@ -82,9 +94,18 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public List<CustomerEntity> getCustomers() {
 		
-		List<CustomerEntity> customers = entityManager.createQuery("from CustomerEntity", CustomerEntity.class).getResultList();
+		logger.info("Retrieving customer list from database");
 		
-		return customers;
+		List<CustomerEntity> customerEntityList = entityManager.createQuery("from CustomerEntity", CustomerEntity.class).getResultList();
+		
+		if(!customerEntityList.isEmpty()) {
+			logger.info("Obtained customers list from database");
+		} else {
+			logger.warn("Empty customers list obtained from database");
+		}
+		
+		
+		return customerEntityList;
 		
 	}
 

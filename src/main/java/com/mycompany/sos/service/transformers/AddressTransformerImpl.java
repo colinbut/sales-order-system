@@ -40,7 +40,7 @@ public class AddressTransformerImpl implements AddressTransformer {
 		addressEntity.setPostCode(address.getPostCode());
 		addressEntity.setCity(address.getCity());
 		addressEntity.setCountry(address.getCountry());
-		addressEntity.setCustomers(customerTransformer.getEntityListFromDtoList(address.getCustomers()));
+		//addressEntity.setCustomers(customerTransformer.getEntityListFromDtoList(address.getCustomers()));
 		return addressEntity;
 	}
 

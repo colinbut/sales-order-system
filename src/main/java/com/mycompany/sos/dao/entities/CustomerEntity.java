@@ -125,10 +125,11 @@ public class CustomerEntity {
 
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", firstName="
+		return "CustomerEntity [customerId=" + customerId + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", dateOfBirth="
 				+ dateOfBirth + ", email=" + email + ", address=" + address
-				+ "]";
+				+ ", customerPaymentDetail=" + customerPaymentDetail
+				+ ", orders=" + orders + "]";
 	}
 
 	

@@ -44,7 +44,7 @@ public class CustomerPaymentDetailTransformerImpl implements CustomerPaymentDeta
 		customerPaymentDetailEntity.setCustomerReference(customerPaymentDetails.getCustomerReference());
 		customerPaymentDetailEntity.setCardExpiryDate(customerPaymentDetails.getCardExpiryDate());
 		customerPaymentDetailEntity.setCardNo(customerPaymentDetails.getCardNo());
-		customerPaymentDetailEntity.setCustomer(customerTransformer.getEntityFromDto(customerPaymentDetails.getCustomer()));
+		//customerPaymentDetailEntity.setCustomer(customerTransformer.getEntityFromDto(customerPaymentDetails.getCustomer()));
 		
 		return customerPaymentDetailEntity;
 	}

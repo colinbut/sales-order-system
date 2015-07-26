@@ -20,11 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.controller.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.controller.viewmodel.modeldata.CustomerModel;
-import com.mycompany.sos.dao.entities.AddressEntity;
-import com.mycompany.sos.dao.entities.CustomerEntity;
-import com.mycompany.sos.dao.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.model.CustomerPaymentDetails;
 import com.mycompany.sos.service.CustomerService;
 
 /**
@@ -74,41 +72,32 @@ public class CustomerController {
 			logger.debug(createCustomerForm.toString());
 		}
 		
-		/*
-		 * should move following code to Service layer
-		 */
+		if(logger.isTraceEnabled()) {
+			logger.trace("Converting form backing object to domain object (DTO)");
+		}
 		
-		// initially create customer 
-		CustomerEntity customerEntity = new CustomerEntity();
-		customerEntity.setFirstName(createCustomerForm.getFirstName());
-		customerEntity.setLastName(createCustomerForm.getLastName());
-		customerEntity.setDateOfBirth(createCustomerForm.getDateOfBirth());
-		customerEntity.setEmail(createCustomerForm.getEmailAddress());
+		Customer customer = new Customer();
+		customer.setFirstName(createCustomerForm.getFirstName());
+		customer.setLastName(createCustomerForm.getLastName());
+		customer.setDateOfBirth(createCustomerForm.getDateOfBirth());
+		customer.setEmail(createCustomerForm.getEmailAddress());
 		
-		// make the customer payment details and link to customer
-		CustomerPaymentDetailEntity customerPaymentDetailEntity = new CustomerPaymentDetailEntity();
-		customerPaymentDetailEntity.setCardNo(createCustomerForm.getCardNo());
-		customerPaymentDetailEntity.setCardExpiryDate(createCustomerForm.getExpDate());
-		customerPaymentDetailEntity.setCustomerReference(createCustomerForm.getCustomerReference());
-		customerPaymentDetailEntity.setCustomer(customerEntity);
-		customerEntity.setCustomerPaymentDetail(customerPaymentDetailEntity);
-		logger.debug(customerPaymentDetailEntity.toString());
+		Address address = new Address();
+		address.setHouseFlatNo(createCustomerForm.getHouseFlatNo());
+		address.setPostCode(createCustomerForm.getPostcode());
+		address.setStreet(createCustomerForm.getStreet());
+		address.setCountry(createCustomerForm.getCountry());
+		address.setCity(createCustomerForm.getCity());
 		
-		// make the address
-		AddressEntity addressEntity = new AddressEntity();
-		addressEntity.setHouseFlatNo(createCustomerForm.getHouseFlatNo());
-		addressEntity.setStreet(createCustomerForm.getStreet());
-		addressEntity.setPostCode(createCustomerForm.getPostcode());
-		addressEntity.setCity(createCustomerForm.getCity());
-		addressEntity.setCountry(createCustomerForm.getCountry());
-		addressEntity.getCustomers().add(customerEntity);
-		customerEntity.setAddress(addressEntity);
+		CustomerPaymentDetails customerPaymentDetails = new CustomerPaymentDetails();
+		customerPaymentDetails.setCardNo(createCustomerForm.getCardNo());
+		customerPaymentDetails.setCardExpiryDate(createCustomerForm.getExpDate());
+		customerPaymentDetails.setCustomerReference(createCustomerForm.getCustomerReference());
 		
-		logger.debug(addressEntity.toString());
-		
-		logger.debug(customerEntity.toString());
-		
-		if(customerService.addCustomer(customerEntity)) {
+		customer.setAddress(address);
+		customer.setCustomerPaymentDetails(customerPaymentDetails);
+				
+		if(customerService.addCustomer(customer)) {
 			logger.info("Successfully added customer");
 			modelAndView.addObject("submittedCustomerForm", createCustomerForm);
 			modelAndView.setViewName("customers-createCustomerSuccess");

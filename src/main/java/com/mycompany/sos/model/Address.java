@@ -20,7 +20,7 @@ public class Address {
 	private String city;
 	private String country;
 	
-	private Set<Customer> customers = new HashSet<Customer>(0);
+	//private Set<Customer> customers = new HashSet<Customer>(0);
 
 	public int getAddressId() {
 		return addressId;
@@ -70,12 +70,12 @@ public class Address {
 		this.country = country;
 	}
 
-	public Set<Customer> getCustomers() {
-		return customers;
-	}
-
-	public void setCustomers(Set<Customer> customers) {
-		this.customers = customers;
-	}
+//	public Set<Customer> getCustomers() {
+//		return customers;
+//	}
+//
+//	public void setCustomers(Set<Customer> customers) {
+//		this.customers = customers;
+//	}
 	
 }

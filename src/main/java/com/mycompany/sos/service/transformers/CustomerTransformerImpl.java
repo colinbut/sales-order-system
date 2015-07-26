@@ -9,7 +9,9 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.sos.dao.entities.AddressEntity;
 import com.mycompany.sos.dao.entities.CustomerEntity;
+import com.mycompany.sos.dao.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.model.Customer;
 
 /**
@@ -53,9 +55,13 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		customerEntity.setDateOfBirth(customer.getDateOfBirth());
 		customerEntity.setEmail(customer.getEmail());
 		
-		customerEntity.setCustomerPaymentDetail(customerPaymentDetailTransformer.getEntityFromDto(customer.getCustomerPaymentDetails()));
+		CustomerPaymentDetailEntity customerPaymentDetailEntity = customerPaymentDetailTransformer.getEntityFromDto(customer.getCustomerPaymentDetails()); 
+		customerPaymentDetailEntity.setCustomer(customerEntity);
+		customerEntity.setCustomerPaymentDetail(customerPaymentDetailEntity);		
 		
-		customerEntity.setAddress(addressTransformer.getEntityFromDto(customer.getAddress()));
+		AddressEntity addressEntity = addressTransformer.getEntityFromDto(customer.getAddress());
+		addressEntity.getCustomers().add(customerEntity);
+		customerEntity.setAddress(addressEntity);
 		
 		customerEntity.setOrders(orderTransformer.getEntityListFromDto(customer.getOrders()));
 		
