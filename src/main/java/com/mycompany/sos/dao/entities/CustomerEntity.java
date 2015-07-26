@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -94,7 +95,7 @@ public class CustomerEntity {
 		this.email = email;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "customer_address_id")
 	public AddressEntity getAddress() {
 		return address;
@@ -104,7 +105,7 @@ public class CustomerEntity {
 		this.address = address;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "customer")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "customer", cascade = {CascadeType.ALL})
 	public CustomerPaymentDetailEntity getCustomerPaymentDetail() {
 		return customerPaymentDetail;
 	}

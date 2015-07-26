@@ -47,15 +47,15 @@
 		<table>
 			<tr>
 				<td>Card No.</td>
-				<td><input type="text" /></td>
+				<td><form:input id="cardNo" path="cardNo" /></td>
 			</tr>
 			<tr>
 				<td>Card Exp Date:</td>
-				<td><input type="text" /></td>
+				<td><form:input id="expDate" path="expDate" /></td>
 			</tr>
 			<tr>
 				<td>Customer Reference</td>
-				<td><input type="text" /></td>
+				<td><form:input id="customerReference" path="customerReference" /></td>
 			</tr>
 			<tr>
 				<td></td>
