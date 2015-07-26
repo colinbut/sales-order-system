@@ -9,5 +9,6 @@
 * Hibernate ORM
 * Bean Validation
 * JSP/ JSTL
-* Bootstrap - HTML, CSS, JS
+* Bootstrap 3 - HTML, CSS, JS
 * MySQL
+* SLF4j/Log4j
