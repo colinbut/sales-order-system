@@ -83,6 +83,12 @@
 			<version>1.2</version>
 		</dependency>
 		
+		<!-- Dandelion DataTables -->
+		<dependency>
+  			<groupId>com.github.dandelion</groupId>
+  			<artifactId>datatables-jsp</artifactId>
+  			<version>1.0.0</version>
+		</dependency>
 		
 
 	</dependencies>

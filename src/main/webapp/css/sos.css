@@ -27,9 +27,9 @@ body {
 }
 
 a {
-	border-top: 1px solid red;	
+	/** border-top: 1px solid red;	
 	border-left: 1px solid red;
-	border-right: 1px solid red; 
+	border-right: 1px solid red; */ 
 }
 
 #content {
@@ -45,14 +45,27 @@ table {
 
 th {
 	background-color: #585858;
-	height:50px;
+	height:25px;
 }
 
 tr {
-	border-bottom:1px solid #585849;
+	/*border-bottom:1px solid #585849;*/
+	border-bottom:1px solid grey;
 }
 
 td {
-	background-color: #DFE2DB;
-	height:50px;
+	/*background-color: #DFE2DB;*/
+	height:30px;
+}
+
+.myOdd {
+	background-color: yellow;	
+}
+
+.myEven {
+	background-color: green;
+}
+
+.error {
+	color: #ff0000;
 }

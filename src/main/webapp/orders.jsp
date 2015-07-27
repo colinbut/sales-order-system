@@ -1,25 +1,23 @@
+<%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
 
-<div>
-	<h1>Orders</h1>
+<div id="content">
 	<button id="createOrderButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/orders/create'">
 		Create Order
 	</button>
-	<table>
-		<tr>
-			<th>Order No.</th>
-			<th>Customer</th>
-			<th>Address</th>
-		</tr>
-		<c:forEach items="${orders}" var="order">
-			<tr>
-				<td>${order.orderNo}</td>
-				<td>${order.customer}</td>
-				<td>${order.address}</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<br />
+	
+	<datatables:table id="ordersList" data="${orders}" 
+										sortable="true"
+										displayLength="20" 
+										export="csv,pdf" 
+										cssStripes="myOdd,myEven"
+										row="order">
+		<datatables:column title="Order No."><c:out value="${order_rowIndex}"></c:out></datatables:column>
+		<datatables:column title="Customer">${order.customer}</datatables:column>
+		<datatables:column title="Address">${order.address}</datatables:column>
+	</datatables:table>
 	
 </div>
 
