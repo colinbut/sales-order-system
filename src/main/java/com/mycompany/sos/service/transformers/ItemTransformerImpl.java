@@ -29,7 +29,7 @@ public class ItemTransformerImpl implements ItemTransformer {
 		Item item = new Item();
 		item.setItemName(itemEntity.getItemName());
 		item.setItemPrice(itemEntity.getItemPrice());
-		item.setOrders(orderTransformer.getDtoListFromEntityList(itemEntity.getOrders()));
+		//item.setOrders(orderTransformer.getDtoListFromEntityList(itemEntity.getOrders()));
 		
 		return item;
 	}
@@ -40,7 +40,7 @@ public class ItemTransformerImpl implements ItemTransformer {
 		
 		itemEntity.setItemName(item.getItemName());
 		itemEntity.setItemPrice(item.getItemPrice());
-		itemEntity.setOrders(orderTransformer.getEntityListFromDto(item.getOrders()));
+		//itemEntity.setOrders(orderTransformer.getEntityListFromDto(item.getOrders()));
 		
 		return itemEntity;
 	}

@@ -55,7 +55,15 @@ public class OrderController {
 		
 		List<Customer> customers = customerService.getCustomers();
 		
+		List<String> customerNames = new ArrayList<>();
+		for(Customer customer : customers) {
+			customerNames.add(customer.getFirstName() + " " + customer.getLastName());
+		}
+		
 		List<Item> items = itemService.getItems();
+		
+		modelMap.addAttribute("customersList", customerNames);
+		modelMap.addAttribute("itemsList", items);
 		
 		return "orders-createOrder";
 	}
