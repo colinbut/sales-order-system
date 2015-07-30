@@ -1,8 +1,8 @@
 <%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
-
-<div id="content">
+<jsp:include page="nav.jsp"></jsp:include>
+<div class="content">
 	<button id="createOrderButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/orders/create'">
 		Create Order
 	</button>

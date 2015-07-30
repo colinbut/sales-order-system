@@ -19,20 +19,13 @@ body {
 }
 
 #navigation {
-	/*border: 1px solid red;*/
 	width:85%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 30px;
 }
 
-a {
-	/** border-top: 1px solid red;	
-	border-left: 1px solid red;
-	border-right: 1px solid red; */ 
-}
-
-#content {
+.content {
 	width:85%;
 	margin-left:auto;
 	margin-right:auto;
@@ -49,8 +42,7 @@ th {
 }
 
 tr {
-	/*border-bottom:1px solid #585849;*/
-	border-bottom:1px solid grey;
+
 }
 
 td {
@@ -64,6 +56,24 @@ td {
 
 .myEven {
 	background-color: green;
+}
+
+/* Create Customer Page table styles... */
+
+table.create-customer-form-table {
+	width:500px;
+}
+
+/*align all table cells to right aligned*/
+table.create-customer-form-table tr td {
+	text-align:right;
+	width:250px;
+}
+
+/*styling for input textbox*/
+table.create-customer-form-table tr td input[type="text"] {
+	
+	width:200px;
 }
 
 .error {

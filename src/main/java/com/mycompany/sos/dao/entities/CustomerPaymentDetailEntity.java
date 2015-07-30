@@ -81,8 +81,7 @@ public class CustomerPaymentDetailEntity {
 	public String toString() {
 		return "CustomerPaymentDetails [paymentDetailsId=" + paymentDetailsId
 				+ ", customerReference=" + customerReference + ", cardNo="
-				+ cardNo + ", cardExpiryDate=" + cardExpiryDate + ", customer="
-				+ customer + "]";
+				+ cardNo + ", cardExpiryDate=" + cardExpiryDate + "]";
 	}
 	
 	

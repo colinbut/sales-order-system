@@ -1,7 +1,7 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
-<div id="content">
-	<h1>Create Order:</h1>
+<div class="content">
+	<h3>Create Order:</h3>
 	<form:form method="POST" modelAttribute="createOrderForm" action="createOrder">
 		<table>
 			<tr>

@@ -1,10 +1,15 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
-	
-	<h1>Create Customer</h1>
+<div class="content">
 	
 	<form:form method="POST" modelAttribute="createCustomerForm" action="createCustomer">
-		<table>
+		<table class="create-customer-form-table">
+			<tr>
+				<td>
+					<h3>Create Customer</h3>
+				</td>
+				<td></td>
+			</tr>
 			<tr>
 				<td>Firstname:</td>
 				<td><form:input id="firstName" path="firstName" /></td>
@@ -41,12 +46,12 @@
 				<td>Country:</td>
 				<td><form:input id="country" path="country" /></td>
 			</tr>
-		</table>
-		
-		<h2>Payment Details</h2>
-		<table>
 			<tr>
-				<td>Card No.</td>
+				<td><h3>Payment Details</h3></td>
+				<td></td>
+			</tr>		
+			<tr>
+				<td>Card No.:</td>
 				<td><form:input id="cardNo" path="cardNo" /></td>
 			</tr>
 			<tr>
@@ -54,13 +59,21 @@
 				<td><form:input id="expDate" path="expDate" /></td>
 			</tr>
 			<tr>
-				<td>Customer Reference</td>
+				<td>Customer Reference:</td>
 				<td><form:input id="customerReference" path="customerReference" /></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Create"></td>				
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="reset" value="Reset">
+					<input type="submit" value="Create">
+				</td>				
 			</tr>
 		</table>
 	</form:form>
+</div>
 <jsp:include page="footer.jsp"></jsp:include>
