@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.sos.dao.CustomerDao;
-import com.mycompany.sos.dao.entities.CustomerEntity;
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.repository.CustomerDao;
+import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.transformers.CustomerTransformer;
 
 

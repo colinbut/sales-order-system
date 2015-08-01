@@ -9,10 +9,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.sos.dao.entities.AddressEntity;
-import com.mycompany.sos.dao.entities.CustomerEntity;
-import com.mycompany.sos.dao.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.repository.entities.AddressEntity;
+import com.mycompany.sos.repository.entities.CustomerEntity;
+import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
  * CustomerTransformerImpl class

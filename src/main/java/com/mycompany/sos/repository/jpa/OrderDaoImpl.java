@@ -1,11 +1,12 @@
 /**
  * 
  */
-package com.mycompany.sos.dao;
+package com.mycompany.sos.repository.jpa;
 
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.dao.entities.OrderEntity;
+import com.mycompany.sos.repository.OrderDao;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * @author colin

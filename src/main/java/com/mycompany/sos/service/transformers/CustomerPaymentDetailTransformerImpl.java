@@ -6,8 +6,8 @@ package com.mycompany.sos.service.transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.sos.dao.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.model.CustomerPaymentDetails;
+import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
  * CustomerPaymentDetailTransformerImpl class implementation of CustomerPaymentDetailTransformer interface

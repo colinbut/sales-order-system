@@ -9,8 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.sos.dao.entities.OrderEntity;
 import com.mycompany.sos.model.Order;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * @author colin

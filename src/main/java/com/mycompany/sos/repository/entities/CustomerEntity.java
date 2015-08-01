@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.dao.entities;
+package com.mycompany.sos.repository.entities;
 
 import java.util.Date;
 import java.util.HashSet;

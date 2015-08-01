@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.sos.dao.ItemDao;
-import com.mycompany.sos.dao.entities.ItemEntity;
 import com.mycompany.sos.model.Item;
+import com.mycompany.sos.repository.ItemDao;
+import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.transformers.ItemTransformer;
 
 /**

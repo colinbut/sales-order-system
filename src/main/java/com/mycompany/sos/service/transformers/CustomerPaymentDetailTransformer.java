@@ -3,8 +3,8 @@
  */
 package com.mycompany.sos.service.transformers;
 
-import com.mycompany.sos.dao.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.model.CustomerPaymentDetails;
+import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
  * CustomerPaymentDetailTransformer interface

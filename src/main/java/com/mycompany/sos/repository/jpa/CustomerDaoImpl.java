@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.dao;
+package com.mycompany.sos.repository.jpa;
 
 import java.util.List;
 
@@ -15,7 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.dao.entities.CustomerEntity;
+import com.mycompany.sos.repository.CustomerDao;
+import com.mycompany.sos.repository.entities.CustomerEntity;
 
 /**
  * CustomerDaoImpl class

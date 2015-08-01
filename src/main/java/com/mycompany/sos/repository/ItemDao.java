@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.mycompany.sos.dao;
+package com.mycompany.sos.repository;
 
 import java.util.List;
 
-import com.mycompany.sos.dao.entities.ItemEntity;
+import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
  * ItemDao interface

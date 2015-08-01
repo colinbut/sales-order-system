@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.sos.dao.OrderDao;
-import com.mycompany.sos.dao.entities.OrderEntity;
 import com.mycompany.sos.model.Order;
+import com.mycompany.sos.repository.OrderDao;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * @author colin

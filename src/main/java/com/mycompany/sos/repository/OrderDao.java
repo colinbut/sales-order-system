@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.mycompany.sos.dao;
+package com.mycompany.sos.repository;
 
-import com.mycompany.sos.dao.entities.OrderEntity;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * OrderDao interface

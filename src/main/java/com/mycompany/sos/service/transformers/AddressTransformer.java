@@ -3,8 +3,8 @@
  */
 package com.mycompany.sos.service.transformers;
 
-import com.mycompany.sos.dao.entities.AddressEntity;
 import com.mycompany.sos.model.Address;
+import com.mycompany.sos.repository.entities.AddressEntity;
 
 /**
  * AddressTransformer interface
