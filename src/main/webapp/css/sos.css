@@ -60,18 +60,18 @@ td {
 
 /* Create Customer Page table styles... */
 
-table.create-customer-form-table {
+table.create-form-table {
 	width:500px;
 }
 
 /*align all table cells to right aligned*/
-table.create-customer-form-table tr td {
+table.create-form-table tr td {
 	text-align:right;
 	width:250px;
 }
 
 /*styling for input textbox*/
-table.create-customer-form-table tr td input[type="text"] {
+table.create-form-table tr td input[type="text"] {
 	
 	width:200px;
 }

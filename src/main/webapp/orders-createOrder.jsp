@@ -1,9 +1,9 @@
 <%@ include file="taglibs.jsp" %>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="content">
-	<h3>Create Order:</h3>
+	<h3>Create Order</h3>
 	<form:form method="POST" modelAttribute="createOrderForm" action="createOrder">
-		<table>
+		<table class="create-form-table">
 			<tr>
 				<td>Customer:</td>
 				<td>
@@ -27,7 +27,10 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Submit Order" /></td>
+				<td>
+					<input type="reset" value="Reset" />
+					<input type="submit" value="Submit Order" />
+				</td>
 			</tr>
 		</table>
 	</form:form>

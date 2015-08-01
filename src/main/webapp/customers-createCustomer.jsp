@@ -3,7 +3,7 @@
 <div class="content">
 	
 	<form:form method="POST" modelAttribute="createCustomerForm" action="createCustomer">
-		<table class="create-customer-form-table">
+		<table class="create-form-table">
 			<tr>
 				<td>
 					<h3>Create Customer</h3>
