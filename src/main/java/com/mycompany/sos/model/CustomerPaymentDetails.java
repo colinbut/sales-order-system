@@ -15,7 +15,6 @@ public class CustomerPaymentDetails {
 	private String customerReference;
 	private String cardNo;
 	private String cardExpiryDate;
-	//private Customer customer;
 	
 	public int getPaymentDetailsId() {
 		return paymentDetailsId;
@@ -48,12 +47,5 @@ public class CustomerPaymentDetails {
 	public void setCardExpiryDate(String cardExpiryDate) {
 		this.cardExpiryDate = cardExpiryDate;
 	}
-
-	//	public Customer getCustomer() {
-//		return customer;
-//	}
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
 	
 }

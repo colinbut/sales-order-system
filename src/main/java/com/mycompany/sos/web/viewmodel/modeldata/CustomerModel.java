@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.controller.viewmodel.modeldata;
+package com.mycompany.sos.web.viewmodel.modeldata;
 
 import java.util.Date;
 

@@ -3,11 +3,9 @@
  */
 package com.mycompany.sos.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-
 /**
+ * Address model
+ * 
  * @author colin
  *
  */
@@ -20,7 +18,6 @@ public class Address {
 	private String city;
 	private String country;
 	
-	//private Set<Customer> customers = new HashSet<Customer>(0);
 
 	public int getAddressId() {
 		return addressId;
@@ -69,13 +66,5 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-//	public Set<Customer> getCustomers() {
-//		return customers;
-//	}
-//
-//	public void setCustomers(Set<Customer> customers) {
-//		this.customers = customers;
-//	}
 	
 }

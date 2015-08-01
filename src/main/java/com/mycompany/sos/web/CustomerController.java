@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.controller;
+package com.mycompany.sos.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.controller.viewmodel.forms.CreateCustomerForm;
-import com.mycompany.sos.controller.viewmodel.modeldata.CustomerModel;
 import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.model.CustomerPaymentDetails;
 import com.mycompany.sos.service.CustomerService;
+import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
+import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 
 /**
  * @author colin

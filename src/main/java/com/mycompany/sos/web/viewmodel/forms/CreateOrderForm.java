@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.controller.viewmodel.forms;
+package com.mycompany.sos.web.viewmodel.forms;
 
 import java.util.List;
 

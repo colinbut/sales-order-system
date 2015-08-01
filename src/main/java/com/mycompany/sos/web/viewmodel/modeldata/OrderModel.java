@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.sos.controller.viewmodel.modeldata;
+package com.mycompany.sos.web.viewmodel.modeldata;
 
 /**
  * View model data for the orders view table
