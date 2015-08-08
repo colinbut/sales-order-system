@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,10 +29,8 @@ public class CustomerPaymentDetailTransformerImpl implements CustomerPaymentDeta
 		
 		CustomerPaymentDetails customerPaymentDetails = new CustomerPaymentDetails();
 		customerPaymentDetails.setCustomerReference(customerPaymentDetailEntity.getCustomerReference() == null ?"" : "");
-		customerPaymentDetails.setCardExpiryDate(customerPaymentDetailEntity.getCardExpiryDate()== null ?"" : "");
+		customerPaymentDetails.setCardExpiryDate(customerPaymentDetailEntity.getCardExpiryDate() == null ? new Date() : customerPaymentDetailEntity.getCardExpiryDate());
 		customerPaymentDetails.setCardNo(customerPaymentDetailEntity.getCardNo() == null ?"" : "");
-		//customerPaymentDetails.setCustomer(customerTransformer.getDtoFromEntity(customerPaymentDetailEntity.getCustomer()));
-		
 		
 		return customerPaymentDetails;
 	}

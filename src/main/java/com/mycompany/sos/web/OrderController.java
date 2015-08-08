@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +24,7 @@ import com.mycompany.sos.model.Order;
 import com.mycompany.sos.service.CustomerService;
 import com.mycompany.sos.service.ItemService;
 import com.mycompany.sos.service.OrderService;
+import com.mycompany.sos.web.validators.OrderFormValidator;
 import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
 
@@ -49,6 +51,9 @@ public class OrderController {
 	@Qualifier("itemServiceImpl")
 	private ItemService itemService;
 	
+	@Autowired
+	private OrderFormValidator orderFormValidator;
+	
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
 	public String showCreateOrdersForm(ModelMap modelMap) {
 		modelMap.addAttribute("createOrderForm", new CreateOrderForm());
@@ -69,10 +74,18 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/createOrder", method = RequestMethod.POST)
-	public ModelAndView createOrder(CreateOrderForm createOrderForm) {
+	public ModelAndView createOrder(CreateOrderForm createOrderForm, BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("orders-createOrderSuccess");
+		
+		// custom validation
+		orderFormValidator.validate(createOrderForm, result);
+		
+		if(result.hasErrors()) {
+			modelAndView.setViewName("orders-createOrder");
+		} else {
+			modelAndView.setViewName("orders-createOrderSuccess");
+		}
 		
 		return modelAndView;
 	}

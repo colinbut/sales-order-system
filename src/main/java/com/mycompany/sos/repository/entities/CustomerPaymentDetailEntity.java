@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.repository.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * CustomerPaymentDetail entity
@@ -26,7 +30,7 @@ public class CustomerPaymentDetailEntity {
 	private int paymentDetailsId;
 	private String customerReference;
 	private String cardNo;
-	private String cardExpiryDate;
+	private Date cardExpiryDate;
 	private CustomerEntity customer;
 	
 	@Id
@@ -58,12 +62,13 @@ public class CustomerPaymentDetailEntity {
 		this.cardNo = cardNo;
 	}
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "customer_card_expiry_date", nullable = false, length = 5)
-	public String getCardExpiryDate() {
+	public Date getCardExpiryDate() {
 		return cardExpiryDate;
 	}
 	
-	public void setCardExpiryDate(String cardExpiryDate) {
+	public void setCardExpiryDate(Date cardExpiryDate) {
 		this.cardExpiryDate = cardExpiryDate;
 	}
 	

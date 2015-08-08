@@ -6,6 +6,8 @@ package com.mycompany.sos.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +65,16 @@ public class CustomerController {
 	 */
 	@RequestMapping(value = "/customers/createCustomer", method = RequestMethod.POST)
 	public ModelAndView createCustomer(
-			@ModelAttribute("createCustomerForm") CreateCustomerForm createCustomerForm,
+			@Valid @ModelAttribute("createCustomerForm") 
+			CreateCustomerForm createCustomerForm,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
+		
+		if(result.hasErrors()) {
+			modelAndView.setViewName("customers-createCustomer");
+			return modelAndView;
+		}
 		
 		if(logger.isDebugEnabled()) {
 			logger.debug(createCustomerForm.toString());

@@ -3,6 +3,8 @@
  */
 package com.mycompany.sos.model;
 
+import java.util.Date;
+
 /**
  * CustomerPaymentDetails dto
  * 
@@ -14,7 +16,7 @@ public class CustomerPaymentDetails {
 	private int paymentDetailsId;
 	private String customerReference;
 	private String cardNo;
-	private String cardExpiryDate;
+	private Date cardExpiryDate;
 	
 	public int getPaymentDetailsId() {
 		return paymentDetailsId;
@@ -40,11 +42,11 @@ public class CustomerPaymentDetails {
 		this.cardNo = cardNo;
 	}
 	
-	public String getCardExpiryDate() {
+	public Date getCardExpiryDate() {
 		return cardExpiryDate;
 	}
 	
-	public void setCardExpiryDate(String cardExpiryDate) {
+	public void setCardExpiryDate(Date cardExpiryDate) {
 		this.cardExpiryDate = cardExpiryDate;
 	}
 	

@@ -23,77 +23,71 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 public class CreateCustomerForm {
 
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]*", message = "Firstname has invalid characters")
+	@NotNull(message = "error.null.firstname")
+	@NotBlank(message = "error.blank.firstname")
+	@NotEmpty(message = "error.empty.firstname")
+	@Pattern(regexp = "[a-zA-Z]*", message = "error.invalid.firstname")
 	private String firstName;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]*", message = "Lastname has invalid characters")
+	@NotNull(message = "error.null.lastname")
+	@NotBlank(message = "error.blank.lastname")
+	@NotEmpty(message = "error.empty.lastname")
+	@Pattern(regexp = "[a-zA-Z]*", message = "error.invalid.lastname")
 	private String lastName;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Past(message = "DOB must be in the past")
+	@NotNull(message = "error.null.dob")
+	@Past(message = "error.past.dob")
 	private Date dateOfBirth;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Email
+	@NotNull(message = "error.null.email")
+	@NotBlank(message = "error.blank.email")
+	@NotEmpty(message = "error.empty.email")
+	@Email(message = "error.email")
 	private String emailAddress;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Min(value = 1, message = "")
+	@NotNull(message = "error.null.houseFlatNo")
+	@Min(value = 1, message = "error.min.houseFlatNo")
 	private int houseFlatNo;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]*", message = "Street name has invalid characters")
+	@NotNull(message = "error.null.street")
+	@NotBlank(message = "error.blank.street")
+	@NotEmpty(message = "error.empty.street")
+	@Pattern(regexp = "[a-zA-Z]*", message = "error.invalid.street")
 	private String street;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z0-9]*", message = "Postcode has invalid characters")
+	@NotNull(message = "error.null.postcode")
+	@NotBlank(message = "error.blank.postcode")
+	@NotEmpty(message = "error.empty.postcode")
+	@Pattern(regexp = "[a-zA-Z0-9]*", message = "error.invalid.postcode")
 	private String postcode;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]*", message = "City has invalid characters")
+	@NotNull(message = "error.null.city")
+	@NotBlank(message = "error.blank.city")
+	@NotEmpty(message = "error.empty.city")
+	@Pattern(regexp = "[a-zA-Z]*", message = "error.invalid.city")
 	private String city;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z]*", message = "")
+	@NotNull(message = "error.null.country")
+	@NotBlank(message = "error.blank.country")
+	@NotEmpty(message = "error.empty.country")
+	@Pattern(regexp = "[a-zA-Z]*", message = "error.invalid.country")
 	private String country;
 	
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Pattern(regexp = "[0-9]*", message = "")
+	@NotNull(message = "error.null.cardNo")
+	@NotBlank(message = "error.blank.cardNo")
+	@NotEmpty(message = "error.empty.cardNo")
+	@Pattern(regexp = "[0-9]*", message = "error.invalid.cardNo")
 	private String cardNo;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Future(message = "Expiry date must be in the future")
-	private String expDate;
+	@NotNull(message = "error.null.expDate")
+	@Future(message = "error.future.expDate")
+	private Date expDate;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Size(min = 1, max = 20)
+	@NotNull(message = "error.null.customerReference")
+	@NotBlank(message = "error.blank.customerReference")
+	@NotEmpty(message = "error.empty.customerReference")
+	@Size(min = 1, max = 20, message = "error.size.customerReference")
 	private String customerReference;
 	
 	public String getFirstName() {
@@ -176,11 +170,11 @@ public class CreateCustomerForm {
 		this.cardNo = cardNo;
 	}
 	
-	public String getExpDate() {
+	public Date getExpDate() {
 		return expDate;
 	}
 	
-	public void setExpDate(String expDate) {
+	public void setExpDate(Date expDate) {
 		this.expDate = expDate;
 	}
 	
