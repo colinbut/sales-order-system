@@ -16,7 +16,7 @@ import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
  * @author colin
  *
  */
-@Component
+@Component("orderFormValidator")
 public class OrderFormValidator implements Validator{
 
 	/**

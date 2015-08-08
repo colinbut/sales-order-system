@@ -52,6 +52,7 @@ public class OrderController {
 	private ItemService itemService;
 	
 	@Autowired
+	@Qualifier("orderFormValidator")
 	private OrderFormValidator orderFormValidator;
 	
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
