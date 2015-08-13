@@ -71,7 +71,7 @@ public class CreateCustomerForm {
 	
 	@NotNull(message = "{error.null.country}")
 	@NotBlank(message = "{error.blank.country}")
-	@NotEmpty(message = "error.empty.country}")
+	@NotEmpty(message = "{error.empty.country}")
 	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.country}")
 	private String country;
 	

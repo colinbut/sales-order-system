@@ -8,8 +8,14 @@
 	<!--
 		This dispatcher servlet definition file contains definition for the 
 		Spring's Dispatcher Servlet & related beans 
-		i.e. beans at the WebApplicationContext (Front Controllers etc...) excl. Controllers/Handlers 
+		i.e. beans at the WebApplicationContext (Front Controllers etc...) incl. Controllers/Handlers 
 	-->
+	
+	<!-- enabling @Controllers scanning -->
+	<context:component-scan base-package="com.mycompany.sos"/>
+	
+	
+	<mvc:annotation-driven validator="validator"/>
 	
 	<!-- load static resources like CSS & JS -->
 	<mvc:resources mapping="/**" location="/" />
@@ -28,10 +34,10 @@
 	<!-- properties source --> 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value = "error"/>
+		<property name="basename" value="error"/>
 	</bean>
 	
-	<!-- validator -->
+	<!-- validator (for doing Bean Validation)-->
 	<bean id="validator"
     	class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
     	<property name="validationMessageSource" ref="messageSource" />

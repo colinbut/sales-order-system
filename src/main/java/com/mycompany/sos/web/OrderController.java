@@ -74,7 +74,7 @@ public class OrderController {
 		return "orders-createOrder";
 	}
 	
-	@RequestMapping(value = "/createOrder", method = RequestMethod.POST)
+	@RequestMapping(value = "orders/createOrder", method = RequestMethod.POST)
 	public ModelAndView createOrder(CreateOrderForm createOrderForm, BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
