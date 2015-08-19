@@ -47,5 +47,4 @@ public class OrderModel {
 				+ ", address=" + address + "]";
 	}
 	
-	
 }

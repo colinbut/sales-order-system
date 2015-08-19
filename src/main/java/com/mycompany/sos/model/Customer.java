@@ -83,5 +83,14 @@ public class Customer {
 	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
+				+ ", email=" + email + ", address=" + address + ", customerPaymentDetails=" + customerPaymentDetails
+				+ ", orders=" + orders + "]";
+	}
+	
+	
 	
 }

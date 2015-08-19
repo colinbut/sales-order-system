@@ -8,6 +8,8 @@ package com.mycompany.sos.web.viewmodel.forms;
 import java.util.List;
 
 /**
+ * Create order form
+ * 
  * @author colin
  *
  */

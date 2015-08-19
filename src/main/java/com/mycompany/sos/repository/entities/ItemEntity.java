@@ -78,7 +78,4 @@ public class ItemEntity {
 				+ ", itemPrice=" + itemPrice + "]";
 	}
 	
-	
-	
-	
 }

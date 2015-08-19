@@ -51,5 +51,12 @@ public class CustomerPaymentDetails {
 	public void setCardExpiryDate(Date cardExpiryDate) {
 		this.cardExpiryDate = cardExpiryDate;
 	}
+
+	@Override
+	public String toString() {
+		return "CustomerPaymentDetails [paymentDetailsId=" + paymentDetailsId + ", customerReference="
+				+ customerReference + ", cardNo=" + cardNo + ", cardExpiryDate=" + cardExpiryDate + "]";
+	}
+	
 	
 }
