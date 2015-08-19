@@ -27,10 +27,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
-import com.mycompany.sos.model.CustomerPaymentDetails;
 import com.mycompany.sos.service.CustomerService;
+import com.mycompany.sos.service.converters.CustomerViewModelConverter;
 import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 
@@ -48,6 +47,9 @@ public class CustomerController {
 	@Autowired
 	@Qualifier("customerServiceImpl")
 	private CustomerService customerService;
+	
+	@Autowired
+	private CustomerViewModelConverter customerViewModelConverter;
 	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -100,27 +102,8 @@ public class CustomerController {
 			logger.trace("Converting form backing object to domain object (DTO)");
 		}
 		
-		Customer customer = new Customer();
-		customer.setFirstName(createCustomerForm.getFirstName());
-		customer.setLastName(createCustomerForm.getLastName());
-		customer.setDateOfBirth(createCustomerForm.getDateOfBirth());
-		customer.setEmail(createCustomerForm.getEmailAddress());
+		Customer customer = customerViewModelConverter.convertCustomerFormToCustomer(createCustomerForm);
 		
-		Address address = new Address();
-		address.setHouseFlatNo(createCustomerForm.getHouseFlatNo());
-		address.setPostCode(createCustomerForm.getPostcode());
-		address.setStreet(createCustomerForm.getStreet());
-		address.setCountry(createCustomerForm.getCountry());
-		address.setCity(createCustomerForm.getCity());
-		
-		CustomerPaymentDetails customerPaymentDetails = new CustomerPaymentDetails();
-		customerPaymentDetails.setCardNo(createCustomerForm.getCardNo());
-		customerPaymentDetails.setCardExpiryDate(createCustomerForm.getExpDate());
-		customerPaymentDetails.setCustomerReference(createCustomerForm.getCustomerReference());
-		
-		customer.setAddress(address);
-		customer.setCustomerPaymentDetails(customerPaymentDetails);
-				
 		if(customerService.addCustomer(customer)) {
 			logger.info("Successfully added customer");
 			modelAndView.addObject("submittedCustomerForm", createCustomerForm);
@@ -146,24 +129,7 @@ public class CustomerController {
 				logger.trace("Converting Customer object to CustomerModel object");
 			}
 			
-			CustomerModel customerModel = new CustomerModel();
-			customerModel.setCustomerName(customer.getFirstName() + " " + customer.getLastName());
-			customerModel.setDateOfBirth(customer.getDateOfBirth());
-			customerModel.setEmailAddress(customer.getEmail());
-			
-			StringBuilder fullAddress = new StringBuilder();
-			Address address = customer.getAddress();
-			fullAddress.append(address.getHouseFlatNo())
-						.append(" " + address.getStreet())
-						.append(" " + address.getPostCode())
-						.append(" " + address.getCity())
-						.append(" " + address.getCountry());
-			customerModel.setAddress(fullAddress.toString());
-			
-			if(logger.isDebugEnabled()) {
-				logger.debug("CustomerModel object built - " + customerModel);
-			}
-			
+			CustomerModel customerModel = customerViewModelConverter.convertCustomerToCustomerView(customer);
 			customerList.add(customerModel);
 		}
 		

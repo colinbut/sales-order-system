@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderDao;
 import com.mycompany.sos.repository.entities.OrderEntity;
+import com.mycompany.sos.service.transformers.OrderTransformer;
 
 /**
  * @author colin
@@ -28,15 +29,20 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderDao orderDao;
 	
+	@Autowired
+	private OrderTransformer orderTransformer;
+	
 	@Override
-	public boolean addOrder(OrderEntity order) {
-		return orderDao.addOrder(order);
+	public boolean addOrder(Order order) {
+		OrderEntity orderEntity = orderTransformer.getEntityFromDto(order);
+		return orderDao.addOrder(orderEntity);
 	}
 
 	@Override
 	public List<Order> getOrders() {
 		
 		List<Order> orders = new ArrayList<Order>();
+		
 		
 		return orders;
 	}
