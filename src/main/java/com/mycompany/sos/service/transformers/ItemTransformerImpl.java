@@ -1,11 +1,12 @@
-/**
- * 
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2015 Colin But. All rights reserved. 
+ * |-------------------------------------------------
  */
 package com.mycompany.sos.service.transformers;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
 
 import org.springframework.stereotype.Component;
 
