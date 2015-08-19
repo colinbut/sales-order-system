@@ -1,5 +1,5 @@
-/**
- * 
+/*
+ * Copyright 
  */
 package com.mycompany.sos.service;
 
@@ -20,6 +20,8 @@ import com.mycompany.sos.service.transformers.CustomerTransformer;
 
 
 /**
+ * CustomerServiceImpl class
+ * 
  * @author colin
  *
  */
@@ -35,6 +37,9 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerTransformer customerTransformer;
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean addCustomer(Customer customer) {		
 		logger.info("Adding new customer to system: " + customer);
@@ -47,6 +52,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.addCustomer(customerEntity);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Customer> getCustomers() {
 		

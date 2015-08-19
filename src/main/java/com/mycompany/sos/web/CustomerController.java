@@ -33,6 +33,8 @@ import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 
 /**
+ * CustomerController class
+ * 
  * @author colin
  *
  */

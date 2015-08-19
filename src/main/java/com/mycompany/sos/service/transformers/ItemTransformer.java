@@ -14,11 +14,31 @@ import com.mycompany.sos.repository.entities.ItemEntity;
  */
 public interface ItemTransformer {
 
+	/**
+	 * 
+	 * @param itemEntity
+	 * @return
+	 */
 	Item getDtoFromEntity(ItemEntity itemEntity);
 	
+	/**
+	 * 
+	 * @param item
+	 * @return
+	 */
 	ItemEntity getEntityFromDto(Item item);
 	
+	/**
+	 * 
+	 * @param itemEntityList
+	 * @return
+	 */
 	Set<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList);
 	
+	/**
+	 * 
+	 * @param items
+	 * @return
+	 */
 	Set<ItemEntity> getEntityListFromDtoList(Set<Item> items);
 }

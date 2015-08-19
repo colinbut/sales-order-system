@@ -19,6 +19,8 @@ import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.transformers.ItemTransformer;
 
 /**
+ * ItemServiceImpl class - implementation of the ItemService interface
+ * 
  * @author colin
  *
  */
@@ -34,11 +36,20 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemTransformer itemTransformer;
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public boolean addItem(ItemEntity item) {
-		return itemDao.addItem(item);
+	public boolean addItem(Item item) {
+		
+		ItemEntity itemEntity = itemTransformer.getEntityFromDto(item);
+		
+		return itemDao.addItem(itemEntity);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Item> getItems() {
 		

@@ -3,7 +3,6 @@
  */
 package com.mycompany.sos.service.transformers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.sos.model.Address;
@@ -15,9 +14,6 @@ import com.mycompany.sos.repository.entities.AddressEntity;
  */
 @Component
 public class AddressTransformerImpl implements AddressTransformer {
-
-	@Autowired
-	private CustomerTransformer customerTransformer; 
 	
 	@Override
 	public Address getDtoFromEntity(AddressEntity addressEntity) {

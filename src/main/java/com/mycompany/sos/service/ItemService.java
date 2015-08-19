@@ -6,7 +6,6 @@ package com.mycompany.sos.service;
 import java.util.List;
 
 import com.mycompany.sos.model.Item;
-import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
  * ItemService interface
@@ -16,7 +15,16 @@ import com.mycompany.sos.repository.entities.ItemEntity;
  */
 public interface ItemService {
 
-	boolean addItem(ItemEntity item);
+	/**
+	 * 
+	 * @param item
+	 * @return
+	 */
+	boolean addItem(Item item);
 	
+	/**
+	 * 
+	 * @return
+	 */
 	List<Item> getItems();
 }
