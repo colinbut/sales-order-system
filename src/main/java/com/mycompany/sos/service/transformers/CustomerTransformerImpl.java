@@ -36,16 +36,12 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 	
 	@Override
 	public Customer getDtoFromEntity(CustomerEntity customerEntity) {
-		
 		Customer customer = new Customer();
 		customer.setFirstName(customerEntity.getFirstName());
 		customer.setLastName(customerEntity.getLastName());
 		customer.setDateOfBirth(customerEntity.getDateOfBirth());
 		customer.setEmail(customerEntity.getEmail());
 		customer.setAddress(addressTransformer.getDtoFromEntity(customerEntity.getAddress()));
-//		customer.setCustomerPaymentDetails(customerPaymentDetailTransformer
-//				.getDtoFromEntity(customerEntity.getCustomerPaymentDetail()));
-//		
 		return customer;
 	}
 
@@ -73,23 +69,15 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 	@Override
 	public Set<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntityList) {
 		Set<Customer> customers = new HashSet<Customer>();
-		
-		for(CustomerEntity customerEntity : customerEntityList) {
-			customers.add(getDtoFromEntity(customerEntity));
-		}
-		
+		customerEntityList.stream().forEach(customerEntity -> customers.add(getDtoFromEntity(customerEntity)));
 		return customers;
 	}
 
 	@Override
 	public Set<CustomerEntity> getEntityListFromDtoList(Set<Customer> customers) {
 		Set<CustomerEntity> customerEntities = new HashSet<CustomerEntity>();
-		for(Customer customer : customers) {
-			customerEntities.add(getEntityFromDto(customer));
-		}
-		
+		customers.stream().forEach(customer -> customerEntities.add(getEntityFromDto(customer)));
 		return customerEntities;
 	}
 
-	
 }

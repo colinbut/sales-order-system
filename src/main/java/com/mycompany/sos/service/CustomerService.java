@@ -33,4 +33,12 @@ public interface CustomerService {
 	 * @return a list of customers
 	 */
 	List<Customer> getCustomers();
+	
+	/**
+	 * Finds the Customer by the given customer name
+	 * 
+	 * @param customerName the name of the customer
+	 * @return the customer
+	 */
+	Customer findCustomerByCustomerName(String customerName);
 }

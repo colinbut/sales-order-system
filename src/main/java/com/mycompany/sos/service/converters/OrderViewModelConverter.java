@@ -5,10 +5,13 @@
  */
 package com.mycompany.sos.service.converters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Order;
+import com.mycompany.sos.service.CustomerService;
+import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
 
 /**
@@ -18,6 +21,16 @@ import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
 @Component
 public class OrderViewModelConverter {
 
+	@Autowired
+	private CustomerService customerService;
+	
+	public Order convertOrderFormToOrder(CreateOrderForm createOrderForm) {
+		Order order = new Order();
+		//order.setItems(createOrderForm.getItems()); TODO: add method in item service
+		order.setCustomer(customerService.findCustomerByCustomerName(createOrderForm.getCustomer()));
+		return new Order();
+	}
+	
 	public OrderModel convertOrderToOrderViewModel(Order order) {
 		OrderModel orderModel = new OrderModel();
 		orderModel.setCustomer(order.getCustomer().getFirstName() + " " 			

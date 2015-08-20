@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.model.Item;
 import com.mycompany.sos.model.Order;
@@ -68,8 +67,11 @@ public class OrderController {
 		List<Customer> customers = customerService.getCustomers();
 		
 		List<String> customerNames = new ArrayList<>();
-		for(Customer customer : customers) {
-			customerNames.add(customer.getFirstName() + " " + customer.getLastName());
+		
+		if(!customers.isEmpty()) {
+			customers.stream().forEach(customer -> {
+				customerNames.add(customer.getFirstName() + " " + customer.getLastName());
+			});
 		}
 		
 		List<Item> items = itemService.getItems();
@@ -91,7 +93,8 @@ public class OrderController {
 		if(result.hasErrors()) {
 			modelAndView.setViewName("orders-createOrder");
 		} else {
-			
+			Order order = orderViewModelConverter.convertOrderFormToOrder(createOrderForm);
+			orderService.addOrder(order);
 			modelAndView.setViewName("orders-createOrderSuccess");
 		}
 		
@@ -104,11 +107,11 @@ public class OrderController {
 		List<Order> orders = orderService.getOrders();
 		List<OrderModel> orderList = new ArrayList<>();
 		
-		for(Order order : orders) {
-			
-			OrderModel orderModel = orderViewModelConverter.convertOrderToOrderViewModel(order);
-			orderList.add(orderModel);
-			
+		if(!orders.isEmpty()) {
+			orders.stream().forEach(order -> {
+				OrderModel orderModel = orderViewModelConverter.convertOrderToOrderViewModel(order);
+				orderList.add(orderModel);
+			});
 		}
 		
 		modelMap.addAttribute("orders", orderList);

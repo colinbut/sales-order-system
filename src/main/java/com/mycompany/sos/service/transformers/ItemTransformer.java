@@ -5,6 +5,7 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.List;
 import java.util.Set;
 
 import com.mycompany.sos.model.Item;
@@ -35,12 +36,12 @@ public interface ItemTransformer {
 	 * @param itemEntityList
 	 * @return
 	 */
-	Set<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList);
+	List<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList);
 	
 	/**
 	 * 
 	 * @param items
 	 * @return
 	 */
-	Set<ItemEntity> getEntityListFromDtoList(Set<Item> items);
+	Set<ItemEntity> getEntityListFromDtoList(List<Item> items);
 }

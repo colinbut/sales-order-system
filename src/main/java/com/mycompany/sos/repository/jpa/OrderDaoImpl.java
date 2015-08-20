@@ -5,6 +5,8 @@
  */
 package com.mycompany.sos.repository.jpa;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.sos.repository.OrderDao;
@@ -19,6 +21,11 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public boolean addOrder(OrderEntity order) {
+		throw new UnsupportedOperationException("Not Yet Implemented");
+	}
+
+	@Override
+	public List<OrderEntity> getOrders() {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 

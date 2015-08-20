@@ -27,15 +27,11 @@ public class OrderTransformerImpl implements OrderTransformer {
 	@Autowired
 	private ItemTransformer itemTransformer;
 	
-	
-	
 	@Override
 	public Order getDtoFromEntity(OrderEntity orderEntity) {
-		
 		Order order = new Order();
 		order.setCustomer(customerTransformer.getDtoFromEntity(orderEntity.getCustomer()));
 		order.setItems(itemTransformer.getDtoListFromEntityList(orderEntity.getItems()));
-		
 		return order;
 	}
 
@@ -49,21 +45,15 @@ public class OrderTransformerImpl implements OrderTransformer {
 
 	@Override
 	public Set<Order> getDtoListFromEntityList(Set<OrderEntity> orderEntityList) {
-		
-		Set<Order> orders = new HashSet<Order>();
-		for(OrderEntity orderEntity : orderEntityList){
-			orders.add(getDtoFromEntity(orderEntity));
-		}
-		
+		Set<Order> orders = new HashSet<>();
+		orderEntityList.stream().forEach(orderEntity -> orders.add(getDtoFromEntity(orderEntity)));
 		return orders;
 	}
 
 	@Override
 	public Set<OrderEntity> getEntityListFromDto(Set<Order> orders) {
 		Set<OrderEntity> orderEntities = new HashSet<>();
-		for(Order order : orders){
-			orderEntities.add(getEntityFromDto(order));
-		}
+		orders.stream().forEach(order -> orderEntities.add(getEntityFromDto(order)));
 		return orderEntities;
 	}
 

@@ -79,4 +79,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return customers;
 	}
 
+	@Override
+	public Customer findCustomerByCustomerName(String customerName) {
+		CustomerEntity customerEntity = customerDao.findCustomerByCustomerName(customerName);
+		return customerTransformer.getDtoFromEntity(customerEntity);
+	}
+
 }

@@ -5,8 +5,8 @@
  */
 package com.mycompany.sos.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Order dto
@@ -18,7 +18,7 @@ public class Order {
 
 	private int orderId;
 	private Customer customer;
-	private Set<Item> items = new HashSet<Item>(0);
+	private List<Item> items = new ArrayList<>(0);
 	
 	public int getOrderId() {
 		return orderId;
@@ -36,11 +36,11 @@ public class Order {
 		this.customer = customer;
 	}
 	
-	public Set<Item> getItems() {
+	public List<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(Set<Item> items) {
+	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 

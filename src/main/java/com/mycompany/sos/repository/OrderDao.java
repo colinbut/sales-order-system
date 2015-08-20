@@ -5,6 +5,8 @@
  */
 package com.mycompany.sos.repository;
 
+import java.util.List;
+
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
@@ -16,5 +18,7 @@ import com.mycompany.sos.repository.entities.OrderEntity;
 public interface OrderDao {
 
 	boolean addOrder(OrderEntity order);
+	
+	List<OrderEntity> getOrders();
 	
 }

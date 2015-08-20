@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.service.CustomerService;
+import com.mycompany.sos.service.converters.Converter;
 import com.mycompany.sos.service.converters.CustomerViewModelConverter;
 import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
@@ -42,14 +43,14 @@ import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 @Controller
 public class CustomerController {
 
-	Logger logger = LoggerFactory.getLogger(CustomerController.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	@Qualifier("customerServiceImpl")
 	private CustomerService customerService;
 	
-	@Autowired
-	private CustomerViewModelConverter customerViewModelConverter;
+	private Converter<Customer, CreateCustomerForm> customerFormConverter = CustomerViewModelConverter::convertCustomerFormToCustomer;
+	private Converter<CustomerModel, Customer> customerViewModelConverter = CustomerViewModelConverter::convertCustomerToCustomerView;
 	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -102,7 +103,8 @@ public class CustomerController {
 			logger.trace("Converting form backing object to domain object (DTO)");
 		}
 		
-		Customer customer = customerViewModelConverter.convertCustomerFormToCustomer(createCustomerForm);
+		customerFormConverter = CustomerViewModelConverter::convertCustomerFormToCustomer;
+		Customer customer = customerFormConverter.convert(createCustomerForm);
 		
 		if(customerService.addCustomer(customer)) {
 			logger.info("Successfully added customer");
@@ -123,16 +125,19 @@ public class CustomerController {
 		List<Customer> customers = customerService.getCustomers();
 		List<CustomerModel> customerList = new ArrayList<>();
 		
-		for(Customer customer : customers) {
-			
-			if(logger.isTraceEnabled()) {
-				logger.trace("Converting Customer object to CustomerModel object");
-			}
-			
-			CustomerModel customerModel = customerViewModelConverter.convertCustomerToCustomerView(customer);
-			customerList.add(customerModel);
+		if(!customers.isEmpty()) {
+			customers.stream().forEach(customer -> {
+				
+				if(logger.isTraceEnabled()) {
+					logger.trace("Converting Customer object to CustomerModel object");
+				}
+				
+				CustomerModel customerModel = customerViewModelConverter.convert(customer);
+				customerList.add(customerModel);
+				
+			});
 		}
-		
+				
 		modelMap.addAttribute("customers", customerList);
 		
 		return "customers";

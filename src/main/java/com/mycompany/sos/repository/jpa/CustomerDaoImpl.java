@@ -112,4 +112,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
+	@Override
+	public CustomerEntity findCustomerByCustomerName(String customerName) {
+		throw new UnsupportedOperationException("Not Yet Implemented");
+	}
+
 }

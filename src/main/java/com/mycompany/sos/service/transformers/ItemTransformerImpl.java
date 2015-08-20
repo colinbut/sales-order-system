@@ -5,7 +5,9 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
@@ -49,14 +51,9 @@ public class ItemTransformerImpl implements ItemTransformer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Set<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList) {
-		
-		Set<Item> items = new HashSet<>();
-		
-		for(ItemEntity itemEntity : itemEntityList) {
-			items.add(getDtoFromEntity(itemEntity));
-		}
-		
+	public List<Item> getDtoListFromEntityList(Set<ItemEntity> itemEntityList) {
+		List<Item> items = new ArrayList<>();
+		itemEntityList.stream().forEach(itemEntity -> items.add(getDtoFromEntity(itemEntity)));
 		return items;
 	}
 
@@ -64,7 +61,7 @@ public class ItemTransformerImpl implements ItemTransformer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Set<ItemEntity> getEntityListFromDtoList(Set<Item> items) {
+	public Set<ItemEntity> getEntityListFromDtoList(List<Item> items) {
 		Set<ItemEntity> itemEntities = new HashSet<>();
 		items.stream().forEach(item -> itemEntities.add(getEntityFromDto(item)) );
 		return itemEntities;

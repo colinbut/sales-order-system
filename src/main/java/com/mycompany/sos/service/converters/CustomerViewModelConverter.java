@@ -25,9 +25,9 @@ import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 @Component
 public class CustomerViewModelConverter {
 	
-	Logger logger = LoggerFactory.getLogger(getClass());
+	static Logger logger = LoggerFactory.getLogger(CustomerViewModelConverter.class);
 	
-	public Customer convertCustomerFormToCustomer(CreateCustomerForm createCustomerForm) {
+	public static Customer convertCustomerFormToCustomer(CreateCustomerForm createCustomerForm) {
 		Customer customer = new Customer();
 		customer.setFirstName(createCustomerForm.getFirstName());
 		customer.setLastName(createCustomerForm.getLastName());
@@ -51,7 +51,7 @@ public class CustomerViewModelConverter {
 		return customer;
 	}
 	
-	public CustomerModel convertCustomerToCustomerView(Customer customer) {
+	public static CustomerModel convertCustomerToCustomerView(Customer customer) {
 		CustomerModel customerModel = new CustomerModel();
 		customerModel.setCustomerName(customer.getFirstName() + " " + customer.getLastName());
 		customerModel.setDateOfBirth(customer.getDateOfBirth());

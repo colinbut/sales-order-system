@@ -40,10 +40,10 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Order> getOrders() {
-		
 		List<Order> orders = new ArrayList<Order>();
-		
-		
+		orderDao.getOrders()
+				.stream()
+				.forEach(orderEntity -> orders.add(orderTransformer.getDtoFromEntity(orderEntity)));
 		return orders;
 	}
 

@@ -24,4 +24,6 @@ public interface CustomerDao {
 	boolean editCustomer(CustomerEntity customer);
 	
 	boolean deleteCustomer(CustomerEntity customer);
+	
+	CustomerEntity findCustomerByCustomerName(String customerName);
 }
