@@ -10,7 +10,7 @@ import java.util.List;
 import com.mycompany.sos.model.Item;
 
 /**
- * ItemService interface
+ * {@link ItemService} interface
  * 
  * @author colin
  *
@@ -18,15 +18,17 @@ import com.mycompany.sos.model.Item;
 public interface ItemService {
 
 	/**
+	 * Adds a new item 
 	 * 
-	 * @param item
-	 * @return
+	 * @param item the new item to add
+	 * @return true if successfully added false otherwise
 	 */
 	boolean addItem(Item item);
 	
 	/**
+	 * Retrieves a list of items
 	 * 
-	 * @return
+	 * @return list of items
 	 */
 	List<Item> getItems();
 }

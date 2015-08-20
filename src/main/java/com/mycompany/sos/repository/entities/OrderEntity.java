@@ -21,6 +21,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
+ * {@link OrderEntity} class
+ * 
  * Order entity
  * 
  * @author colin

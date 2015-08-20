@@ -15,6 +15,10 @@ import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
 
 /**
+ * {@link OrderViewModelConverter} class
+ * 
+ * Converts between View (ViewModel) and Model objects 
+ * 
  * @author colin
  *
  */

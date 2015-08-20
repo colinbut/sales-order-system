@@ -6,7 +6,9 @@
 package com.mycompany.sos.model;
 
 /**
- * Address model
+ * {@link Address} class 
+ * 
+ * domain model object for representing address
  * 
  * @author colin
  *

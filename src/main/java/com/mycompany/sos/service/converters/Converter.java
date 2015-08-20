@@ -6,6 +6,8 @@
 package com.mycompany.sos.service.converters;
 
 /**
+ * {@link Converter} interface
+ * 
  * @author colin
  *
  */
@@ -15,8 +17,8 @@ public interface Converter<T, F> {
 	/**
 	 * Convert from type F to type T
 	 * 
-	 * @param from
-	 * @return
+	 * @param from the type to convert from
+	 * @return the type T converted to
 	 */
 	T convert(F from);
 }

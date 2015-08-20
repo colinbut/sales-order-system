@@ -21,7 +21,9 @@ import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.transformers.ItemTransformer;
 
 /**
- * ItemServiceImpl class - implementation of the ItemService interface
+ * {@link ItemServiceImpl} class 
+ * 
+ * implementation of the {@link ItemService} interface
  * 
  * @author colin
  *
@@ -43,9 +45,7 @@ public class ItemServiceImpl implements ItemService {
 	 */
 	@Override
 	public boolean addItem(Item item) {
-		
 		ItemEntity itemEntity = itemTransformer.getEntityFromDto(item);
-		
 		return itemDao.addItem(itemEntity);
 	}
 
@@ -62,10 +62,7 @@ public class ItemServiceImpl implements ItemService {
 		logger.info("Obtained items list from system");
 		
 		List<Item> items = new ArrayList<>();
-		
-		for(ItemEntity itemEntity : itemEntityList) {
-			items.add(itemTransformer.getDtoFromEntity(itemEntity));
-		}
+		itemEntityList.stream().forEach(itemEntity -> items.add(itemTransformer.getDtoFromEntity(itemEntity)));
 		
 		return items;
 	}

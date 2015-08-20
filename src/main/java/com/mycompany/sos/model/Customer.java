@@ -5,12 +5,14 @@
  */
 package com.mycompany.sos.model;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 /**
- * Customer dto
+ * {@link Customer} class
+ * 
+ * domain model object for representing a customer
  * 
  * @author colin
  *
@@ -25,7 +27,7 @@ public class Customer {
 	private Address address;
 	private CustomerPaymentDetails customerPaymentDetails;
 	
-	private Set<Order> orders = new HashSet<>();
+	private List<Order> orders = new ArrayList<>();
 	
 	public String getFirstName() {
 		return firstName;
@@ -76,11 +78,11 @@ public class Customer {
 		this.customerPaymentDetails = customerPaymentDetails;
 	}
 	
-	public Set<Order> getOrders() {
+	public List<Order> getOrders() {
 		return orders;
 	}
 	
-	public void setOrders(Set<Order> orders) {
+	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
 

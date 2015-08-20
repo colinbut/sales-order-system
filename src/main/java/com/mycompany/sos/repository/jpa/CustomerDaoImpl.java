@@ -21,7 +21,9 @@ import com.mycompany.sos.repository.CustomerDao;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 
 /**
- * CustomerDaoImpl class
+ * {@link CustomerDaoImpl} class
+ * 
+ * implementation of {@link CustomerDao} interface
  * 
  * @author colin
  *
@@ -53,6 +55,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean addCustomer(CustomerEntity customerEntity) {
 		try {
@@ -84,16 +89,25 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean editCustomer(CustomerEntity customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean deleteCustomer(CustomerEntity customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<CustomerEntity> getCustomers() {
 		
@@ -112,6 +126,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CustomerEntity findCustomerByCustomerName(String customerName) {
 		throw new UnsupportedOperationException("Not Yet Implemented");

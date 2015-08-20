@@ -25,6 +25,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
+ * {@link CustomerEntity} class
+ * 
  * Customer entity
  * 
  * @author colin

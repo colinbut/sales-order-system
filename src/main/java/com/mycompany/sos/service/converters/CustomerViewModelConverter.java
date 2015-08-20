@@ -16,6 +16,7 @@ import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 
 /**
+ * {@link CustomerViewModelConverter} class
  * 
  * Converts between View (ViewModel) and Model objects 
  * 

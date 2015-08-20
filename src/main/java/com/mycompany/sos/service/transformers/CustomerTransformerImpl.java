@@ -17,7 +17,7 @@ import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
- * CustomerTransformerImpl class
+ * {@link CustomerTransformerImpl} class
  * 
  * @author colin
  *
@@ -34,6 +34,9 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 	@Autowired
 	private OrderTransformer orderTransformer;
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Customer getDtoFromEntity(CustomerEntity customerEntity) {
 		Customer customer = new Customer();
@@ -45,6 +48,9 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		return customer;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CustomerEntity getEntityFromDto(Customer customer) {
 		CustomerEntity customerEntity = new CustomerEntity();
@@ -66,6 +72,9 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		return customerEntity;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Set<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntityList) {
 		Set<Customer> customers = new HashSet<Customer>();
@@ -73,6 +82,9 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		return customers;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Set<CustomerEntity> getEntityListFromDtoList(Set<Customer> customers) {
 		Set<CustomerEntity> customerEntities = new HashSet<CustomerEntity>();

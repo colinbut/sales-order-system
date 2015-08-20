@@ -19,7 +19,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * Create customer form
+ * {@link CreateCustomerForm} class
+ * 
+ * Create customer form backing object
  * 
  * @author colin
  */

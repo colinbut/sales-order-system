@@ -19,6 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
+ * {@link ItemEntity} class
+ * 
  * Item entity
  * 
  * @author colin

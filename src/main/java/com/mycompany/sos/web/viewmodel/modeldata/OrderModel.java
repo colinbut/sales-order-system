@@ -6,7 +6,7 @@
 package com.mycompany.sos.web.viewmodel.modeldata;
 
 /**
- * View model data for the orders view table
+ * {@link OrderModel} class
  * 
  * @author colin
  *

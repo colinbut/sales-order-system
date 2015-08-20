@@ -8,7 +8,9 @@ package com.mycompany.sos.model;
 import java.math.BigDecimal;
 
 /**
- * Item dto
+ * {@link Item} class
+ * 
+ * domain model object for representing an item
  * 
  * @author colin
  *

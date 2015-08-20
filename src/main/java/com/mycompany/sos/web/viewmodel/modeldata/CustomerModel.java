@@ -8,7 +8,7 @@ package com.mycompany.sos.web.viewmodel.modeldata;
 import java.util.Date;
 
 /**
- * CustomerModel class
+ * {@link CustomerModel} class
  * 
  * @author colin
  *

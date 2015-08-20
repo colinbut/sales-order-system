@@ -5,7 +5,9 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,10 @@ import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
+ * {@link OrderTransformerImpl} class
+ * 
+ * implementation of {@link OrderTransformer} interface
+ * 
  * @author colin
  *
  */
@@ -27,6 +33,9 @@ public class OrderTransformerImpl implements OrderTransformer {
 	@Autowired
 	private ItemTransformer itemTransformer;
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Order getDtoFromEntity(OrderEntity orderEntity) {
 		Order order = new Order();
@@ -35,6 +44,9 @@ public class OrderTransformerImpl implements OrderTransformer {
 		return order;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public OrderEntity getEntityFromDto(Order order) {
 		OrderEntity orderEntity = new OrderEntity();
@@ -43,15 +55,21 @@ public class OrderTransformerImpl implements OrderTransformer {
 		return orderEntity;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public Set<Order> getDtoListFromEntityList(Set<OrderEntity> orderEntityList) {
-		Set<Order> orders = new HashSet<>();
+	public List<Order> getDtoListFromEntityList(Set<OrderEntity> orderEntityList) {
+		List<Order> orders = new ArrayList<>();
 		orderEntityList.stream().forEach(orderEntity -> orders.add(getDtoFromEntity(orderEntity)));
 		return orders;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public Set<OrderEntity> getEntityListFromDto(Set<Order> orders) {
+	public Set<OrderEntity> getEntityListFromDto(List<Order> orders) {
 		Set<OrderEntity> orderEntities = new HashSet<>();
 		orders.stream().forEach(order -> orderEntities.add(getEntityFromDto(order)));
 		return orderEntities;

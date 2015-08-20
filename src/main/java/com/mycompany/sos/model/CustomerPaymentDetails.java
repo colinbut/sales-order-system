@@ -8,7 +8,9 @@ package com.mycompany.sos.model;
 import java.util.Date;
 
 /**
- * CustomerPaymentDetails dto
+ * {@link CustomerPaymentDetails} class
+ * 
+ * domain model object for representing customer payment details
  * 
  * @author colin
  *

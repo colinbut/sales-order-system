@@ -13,7 +13,7 @@ import com.mycompany.sos.model.CustomerPaymentDetails;
 import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
- * CustomerPaymentDetailTransformerImpl class implementation of CustomerPaymentDetailTransformer interface
+ * {@link CustomerPaymentDetailTransformerImpl} class
  * 
  * @author colin
  *
@@ -21,6 +21,9 @@ import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 @Component
 public class CustomerPaymentDetailTransformerImpl implements CustomerPaymentDetailTransformer{
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CustomerPaymentDetails getDtoFromEntity(CustomerPaymentDetailEntity customerPaymentDetailEntity) {
 		
@@ -32,7 +35,10 @@ public class CustomerPaymentDetailTransformerImpl implements CustomerPaymentDeta
 		
 		return customerPaymentDetails;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CustomerPaymentDetailEntity getEntityFromDto(
 			CustomerPaymentDetails customerPaymentDetails) {

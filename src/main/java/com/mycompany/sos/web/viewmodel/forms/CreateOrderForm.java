@@ -8,7 +8,9 @@ package com.mycompany.sos.web.viewmodel.forms;
 import java.util.List;
 
 /**
- * Create order form
+ * {@link CreateOrderForm} class
+ * 
+ * Create order form backing object
  * 
  * @author colin
  *

@@ -22,7 +22,9 @@ import com.mycompany.sos.service.transformers.CustomerTransformer;
 
 
 /**
- * CustomerServiceImpl class
+ * {@link CustomerServiceImpl} class
+ * 
+ * implementation of the {@link CustomerService} interface
  * 
  * @author colin
  *
@@ -79,6 +81,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return customers;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Customer findCustomerByCustomerName(String customerName) {
 		CustomerEntity customerEntity = customerDao.findCustomerByCustomerName(customerName);

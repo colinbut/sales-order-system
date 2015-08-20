@@ -10,10 +10,9 @@ import java.util.List;
 import com.mycompany.sos.model.Customer;
 
 /**
- * CustomerService interface
+ * {@link CustomerService} interface
  * 
  * @author colin
- *
  */
 public interface CustomerService {
 

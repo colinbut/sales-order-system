@@ -21,6 +21,10 @@ import com.mycompany.sos.repository.ItemDao;
 import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
+ * {@link ItemDaoImpl} class
+ * 
+ * implementation of {@link ItemDao} interface
+ * 
  * @author colin
  *
  */
@@ -51,14 +55,17 @@ public class ItemDaoImpl implements ItemDao {
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean addItem(ItemEntity item) {
-		
-		
-		
-		return false;
+		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<ItemEntity> getItems() {
 	

@@ -11,12 +11,17 @@ import com.mycompany.sos.model.Address;
 import com.mycompany.sos.repository.entities.AddressEntity;
 
 /**
+ * {@link AddressTransformerImpl} class
+ * 
  * @author colin
  *
  */
 @Component
 public class AddressTransformerImpl implements AddressTransformer {
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Address getDtoFromEntity(AddressEntity addressEntity) {
 		
@@ -30,6 +35,9 @@ public class AddressTransformerImpl implements AddressTransformer {
 		return address;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public AddressEntity getEntityFromDto(Address address) {
 		AddressEntity addressEntity = new AddressEntity();

@@ -19,6 +19,10 @@ import com.mycompany.sos.repository.entities.OrderEntity;
 import com.mycompany.sos.service.transformers.OrderTransformer;
 
 /**
+ * {@link OrderServiceImpl} class
+ * 
+ * implementation of the {@link OrderService} interface 
+ * 
  * @author colin
  *
  */
@@ -32,12 +36,18 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderTransformer orderTransformer;
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean addOrder(Order order) {
 		OrderEntity orderEntity = orderTransformer.getEntityFromDto(order);
 		return orderDao.addOrder(orderEntity);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Order> getOrders() {
 		List<Order> orders = new ArrayList<Order>();

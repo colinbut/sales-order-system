@@ -31,10 +31,9 @@ import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
 
 /**
- * OrderController class
+ * {@link OrderController} class
  * 
  * @author colin
- *
  */
 @Controller
 public class OrderController {
@@ -60,6 +59,12 @@ public class OrderController {
 	@Autowired
 	private OrderViewModelConverter orderViewModelConverter;
 	
+	/**
+	 * Shows the create order form page
+	 * 
+	 * @param modelMap model
+	 * @return view name
+	 */
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
 	public String showCreateOrdersForm(ModelMap modelMap) {
 		modelMap.addAttribute("createOrderForm", new CreateOrderForm());
@@ -82,6 +87,13 @@ public class OrderController {
 		return "orders-createOrder";
 	}
 	
+	/**
+	 * Handles the submission of orders creation
+	 * 
+	 * @param createOrderForm the form backing object
+	 * @param result Spring Framework's binding result object
+	 * @return model and view
+	 */
 	@RequestMapping(value = "orders/createOrder", method = RequestMethod.POST)
 	public ModelAndView createOrder(CreateOrderForm createOrderForm, BindingResult result) {
 		
@@ -101,6 +113,12 @@ public class OrderController {
 		return modelAndView;
 	}
 	
+	/**
+	 * Handles the orders list page
+	 * 
+	 * @param modelMap model
+	 * @return view name
+	 */
 	@RequestMapping(value="/orders", method=RequestMethod.GET)
 	public String listOrders(ModelMap modelMap) {
 		

@@ -16,7 +16,7 @@ import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
- * ItemTransformerImpl class
+ * {@link ItemTransformerImpl} class
  * 
  * @author colin
  *

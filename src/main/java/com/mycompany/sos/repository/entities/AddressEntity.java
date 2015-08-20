@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
+ * {@link AddressEntity} class
+ * 
  * Address entity
  * 
  * @author colin

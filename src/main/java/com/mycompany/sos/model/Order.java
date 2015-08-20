@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Order dto
+ * {@link Order} class
+ * 
+ * domain model object for representing order
  * 
  * @author colin
  *
@@ -18,7 +20,7 @@ public class Order {
 
 	private int orderId;
 	private Customer customer;
-	private List<Item> items = new ArrayList<>(0);
+	private List<Item> items = new ArrayList<>();
 	
 	public int getOrderId() {
 		return orderId;

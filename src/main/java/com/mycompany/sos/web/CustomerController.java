@@ -35,7 +35,7 @@ import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
 import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
 
 /**
- * CustomerController class
+ * {@link CustomerController} class
  * 
  * @author colin
  *
@@ -78,14 +78,13 @@ public class CustomerController {
 	/**
 	 * Handles the create customer form submit
 	 * 
-	 * @param createCustomerForm
-	 * @param result
-	 * @return
+	 * @param createCustomerForm the form backing object
+	 * @param result Spring's framework binding result object
+	 * @return model and view object
 	 */
 	@RequestMapping(value = "/customers/createCustomer", method = RequestMethod.POST)
 	public ModelAndView createCustomer(
-			@Valid @ModelAttribute("createCustomerForm") 
-			CreateCustomerForm createCustomerForm,
+			@Valid @ModelAttribute("createCustomerForm") CreateCustomerForm createCustomerForm,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -117,6 +116,12 @@ public class CustomerController {
 		return modelAndView;
 	}
 	
+	/**
+	 * Handles customers list page
+	 * 
+	 * @param modelMap model
+	 * @return view name
+	 */
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String listCustomers(ModelMap modelMap) {
 		

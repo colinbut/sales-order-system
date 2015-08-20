@@ -13,7 +13,7 @@ import org.springframework.validation.Validator;
 import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 
 /**
- * OrderFormValidator class
+ * {@link OrderFormValidator} class
  * 
  * @author colin
  *
