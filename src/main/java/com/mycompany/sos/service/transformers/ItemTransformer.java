@@ -16,13 +16,13 @@ import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
- * {@link ItemTransformerImpl} class
+ * {@link ItemTransformer} class
  * 
  * @author colin
  *
  */
-@Component
-public class ItemTransformerImpl implements DomainEntityTransformer<Item, ItemEntity> {
+@Component("itemTransformer")
+public class ItemTransformer implements DomainEntityTransformer<Item, ItemEntity> {
 	
 	
 	/**

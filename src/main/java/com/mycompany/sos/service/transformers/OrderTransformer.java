@@ -21,15 +21,15 @@ import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
- * {@link OrderTransformerImpl} class
+ * {@link OrderTransformer} class
  * 
  * implementation of {@link OrderTransformer} interface
  * 
  * @author colin
  *
  */
-@Component
-public class OrderTransformerImpl implements DomainEntityTransformer<Order, OrderEntity> {
+@Component("orderTransformer")
+public class OrderTransformer implements DomainEntityTransformer<Order, OrderEntity> {
 
 	@Autowired
 	private DomainEntityTransformer<Customer, CustomerEntity> customerTransformer;

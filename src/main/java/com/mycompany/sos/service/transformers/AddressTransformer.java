@@ -14,27 +14,25 @@ import com.mycompany.sos.model.Address;
 import com.mycompany.sos.repository.entities.AddressEntity;
 
 /**
- * {@link AddressTransformerImpl} class
+ * {@link AddressTransformer} class
  * 
  * @author colin
  *
  */
 @Component
-public class AddressTransformerImpl implements DomainEntityTransformer<Address, AddressEntity> {
+public class AddressTransformer implements DomainEntityTransformer<Address, AddressEntity> {
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public Address getDtoFromEntity(AddressEntity addressEntity) {
-		
 		Address address = new Address();
 		address.setHouseFlatNo(addressEntity.getHouseFlatNo());
 		address.setStreet(addressEntity.getStreet());
 		address.setPostCode(addressEntity.getPostCode());
 		address.setCity(addressEntity.getCity());
 		address.setCountry(addressEntity.getCountry());
-		//address.setCustomers(customerTransformer.getDtoListFromEntityList(addressEntity.getCustomers()));
 		return address;
 	}
 
@@ -49,7 +47,6 @@ public class AddressTransformerImpl implements DomainEntityTransformer<Address, 
 		addressEntity.setPostCode(address.getPostCode());
 		addressEntity.setCity(address.getCity());
 		addressEntity.setCountry(address.getCountry());
-		//addressEntity.setCustomers(customerTransformer.getEntityListFromDtoList(address.getCustomers()));
 		return addressEntity;
 	}
 

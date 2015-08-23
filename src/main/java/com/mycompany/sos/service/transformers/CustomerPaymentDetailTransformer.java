@@ -15,13 +15,13 @@ import com.mycompany.sos.model.CustomerPaymentDetails;
 import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 
 /**
- * {@link CustomerPaymentDetailTransformerImpl} class
+ * {@link CustomerPaymentDetailTransformer} class
  * 
  * @author colin
  *
  */
-@Component
-public class CustomerPaymentDetailTransformerImpl implements DomainEntityTransformer<CustomerPaymentDetails, CustomerPaymentDetailEntity>{
+@Component("customerPaymentDetailTransformer")
+public class CustomerPaymentDetailTransformer implements DomainEntityTransformer<CustomerPaymentDetails, CustomerPaymentDetailEntity>{
 	
 	/**
 	 * {@inheritDoc}

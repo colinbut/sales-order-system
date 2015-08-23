@@ -23,13 +23,13 @@ import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
- * {@link CustomerTransformerImpl} class
+ * {@link CustomerTransformer} class
  * 
  * @author colin
  *
  */
 @Component
-public class CustomerTransformerImpl implements DomainEntityTransformer<Customer, CustomerEntity> {
+public class CustomerTransformer implements DomainEntityTransformer<Customer, CustomerEntity> {
 
 	@Autowired
 	private DomainEntityTransformer<Address, AddressEntity> addressTransformer;
