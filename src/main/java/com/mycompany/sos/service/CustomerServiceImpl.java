@@ -70,13 +70,13 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		List<Customer> customers = new ArrayList<Customer>();
 		
-		for(CustomerEntity entity :customerEntityList) {
+		customerEntityList.stream().forEach(entity -> {
 			customers.add(customerTransformer.getDtoFromEntity(entity));
 			
 			if(logger.isTraceEnabled()) {
 				logger.trace("Transforming entity object: " + entity + " to DTO");
 			}
-		}
+		});
 				
 		return customers;
 	}
