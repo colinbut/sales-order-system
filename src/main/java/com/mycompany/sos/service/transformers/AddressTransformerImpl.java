@@ -5,6 +5,9 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
 
 import com.mycompany.sos.model.Address;
@@ -17,7 +20,7 @@ import com.mycompany.sos.repository.entities.AddressEntity;
  *
  */
 @Component
-public class AddressTransformerImpl implements AddressTransformer {
+public class AddressTransformerImpl implements DomainEntityTransformer<Address, AddressEntity> {
 	
 	/**
 	 * {@inheritDoc}
@@ -48,6 +51,24 @@ public class AddressTransformerImpl implements AddressTransformer {
 		addressEntity.setCountry(address.getCountry());
 		//addressEntity.setCustomers(customerTransformer.getEntityListFromDtoList(address.getCustomers()));
 		return addressEntity;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<Address> getDtoListFromEntityList(Set<AddressEntity> entityList) {
+		// TODO
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Set<AddressEntity> getEntityListFromDtoList(List<Address> dtoList) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -5,16 +5,22 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.sos.model.Address;
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.model.CustomerPaymentDetails;
+import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.entities.AddressEntity;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * {@link CustomerTransformerImpl} class
@@ -23,16 +29,16 @@ import com.mycompany.sos.repository.entities.CustomerPaymentDetailEntity;
  *
  */
 @Component
-public class CustomerTransformerImpl implements CustomerTransformer {
+public class CustomerTransformerImpl implements DomainEntityTransformer<Customer, CustomerEntity> {
 
 	@Autowired
-	private AddressTransformer addressTransformer;
+	private DomainEntityTransformer<Address, AddressEntity> addressTransformer;
 	
 	@Autowired
-	private CustomerPaymentDetailTransformer customerPaymentDetailTransformer;
+	private DomainEntityTransformer<CustomerPaymentDetails, CustomerPaymentDetailEntity> customerPaymentDetailTransformer;
 	
 	@Autowired
-	private OrderTransformer orderTransformer;
+	private DomainEntityTransformer<Order, OrderEntity> orderTransformer;
 	
 	/**
 	 * {@inheritDoc}
@@ -67,7 +73,7 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 		addressEntity.getCustomers().add(customerEntity);
 		customerEntity.setAddress(addressEntity);
 		
-		customerEntity.setOrders(orderTransformer.getEntityListFromDto(customer.getOrders()));
+		customerEntity.setOrders(orderTransformer.getEntityListFromDtoList(customer.getOrders()));
 		
 		return customerEntity;
 	}
@@ -76,8 +82,8 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Set<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntityList) {
-		Set<Customer> customers = new HashSet<Customer>();
+	public List<Customer> getDtoListFromEntityList(Set<CustomerEntity> customerEntityList) {
+		List<Customer> customers = new ArrayList<>();
 		customerEntityList.stream().forEach(customerEntity -> customers.add(getDtoFromEntity(customerEntity)));
 		return customers;
 	}
@@ -86,8 +92,8 @@ public class CustomerTransformerImpl implements CustomerTransformer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Set<CustomerEntity> getEntityListFromDtoList(Set<Customer> customers) {
-		Set<CustomerEntity> customerEntities = new HashSet<CustomerEntity>();
+	public Set<CustomerEntity> getEntityListFromDtoList(List<Customer> customers) {
+		Set<CustomerEntity> customerEntities = new HashSet<>();
 		customers.stream().forEach(customer -> customerEntities.add(getEntityFromDto(customer)));
 		return customerEntities;
 	}

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.ItemDao;
 import com.mycompany.sos.repository.entities.ItemEntity;
-import com.mycompany.sos.service.transformers.ItemTransformer;
+import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link ItemServiceImpl} class 
@@ -38,7 +38,7 @@ public class ItemServiceImpl implements ItemService {
 	private ItemDao itemDao;
 	
 	@Autowired
-	private ItemTransformer itemTransformer;
+	private DomainEntityTransformer<Item, ItemEntity> itemTransformer;
 	
 	/**
 	 * {@inheritDoc}

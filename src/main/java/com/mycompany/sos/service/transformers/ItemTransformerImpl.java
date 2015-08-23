@@ -22,7 +22,7 @@ import com.mycompany.sos.repository.entities.ItemEntity;
  *
  */
 @Component
-public class ItemTransformerImpl implements ItemTransformer {
+public class ItemTransformerImpl implements DomainEntityTransformer<Item, ItemEntity> {
 	
 	
 	/**

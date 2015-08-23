@@ -13,7 +13,11 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.model.Item;
 import com.mycompany.sos.model.Order;
+import com.mycompany.sos.repository.entities.CustomerEntity;
+import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
@@ -25,13 +29,13 @@ import com.mycompany.sos.repository.entities.OrderEntity;
  *
  */
 @Component
-public class OrderTransformerImpl implements OrderTransformer {
+public class OrderTransformerImpl implements DomainEntityTransformer<Order, OrderEntity> {
 
 	@Autowired
-	private CustomerTransformer customerTransformer;
+	private DomainEntityTransformer<Customer, CustomerEntity> customerTransformer;
 	
 	@Autowired
-	private ItemTransformer itemTransformer;
+	private DomainEntityTransformer<Item, ItemEntity> itemTransformer;
 	
 	/**
 	 * {@inheritDoc}
@@ -69,7 +73,7 @@ public class OrderTransformerImpl implements OrderTransformer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Set<OrderEntity> getEntityListFromDto(List<Order> orders) {
+	public Set<OrderEntity> getEntityListFromDtoList(List<Order> orders) {
 		Set<OrderEntity> orderEntities = new HashSet<>();
 		orders.stream().forEach(order -> orderEntities.add(getEntityFromDto(order)));
 		return orderEntities;

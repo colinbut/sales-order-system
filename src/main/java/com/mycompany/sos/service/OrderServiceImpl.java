@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderDao;
 import com.mycompany.sos.repository.entities.OrderEntity;
-import com.mycompany.sos.service.transformers.OrderTransformer;
+import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link OrderServiceImpl} class
@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
 	private OrderDao orderDao;
 	
 	@Autowired
-	private OrderTransformer orderTransformer;
+	private DomainEntityTransformer<Order, OrderEntity> orderTransformer;
 	
 	/**
 	 * {@inheritDoc}

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.CustomerDao;
 import com.mycompany.sos.repository.entities.CustomerEntity;
-import com.mycompany.sos.service.transformers.CustomerTransformer;
+import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 
 /**
@@ -39,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao customerDao;
 	
 	@Autowired
-	private CustomerTransformer customerTransformer;
+	private DomainEntityTransformer<Customer, CustomerEntity> customerTransformer;
 	
 	/**
 	 * {@inheritDoc}
