@@ -1,5 +1,9 @@
 Feature: Order listing
 
+As an application user,
+I want to view a list of all orders,
+So that i can see what orders have been placed
+
 	Background: Given i am an application user
 	
 		Scenario: viewing orders list
