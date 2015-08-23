@@ -5,7 +5,9 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -59,8 +61,9 @@ public class CustomerPaymentDetailTransformer implements DomainEntityTransformer
 	 */
 	@Override
 	public List<CustomerPaymentDetails> getDtoListFromEntityList(Set<CustomerPaymentDetailEntity> entityList) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CustomerPaymentDetails> customerPaymentDetailsList = new ArrayList<>();
+		entityList.stream().forEach(entity -> { customerPaymentDetailsList.add(getDtoFromEntity(entity)); });
+		return customerPaymentDetailsList;
 	}
 
 	/**
@@ -68,8 +71,9 @@ public class CustomerPaymentDetailTransformer implements DomainEntityTransformer
 	 */
 	@Override
 	public Set<CustomerPaymentDetailEntity> getEntityListFromDtoList(List<CustomerPaymentDetails> dtoList) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<CustomerPaymentDetailEntity> entityList = new HashSet<>();
+		dtoList.stream().forEach(dto -> {entityList.add( getEntityFromDto(dto)); });
+		return entityList;
 	}
 
 }

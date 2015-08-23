@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.sos.model.Address;
@@ -28,16 +29,19 @@ import com.mycompany.sos.repository.entities.OrderEntity;
  * @author colin
  *
  */
-@Component
+@Component("customerTransformer")
 public class CustomerTransformer implements DomainEntityTransformer<Customer, CustomerEntity> {
 
 	@Autowired
+	@Qualifier("addressTransformer")
 	private DomainEntityTransformer<Address, AddressEntity> addressTransformer;
 	
 	@Autowired
+	@Qualifier("customerTransformer")
 	private DomainEntityTransformer<CustomerPaymentDetails, CustomerPaymentDetailEntity> customerPaymentDetailTransformer;
 	
 	@Autowired
+	@Qualifier("orderTransformer")
 	private DomainEntityTransformer<Order, OrderEntity> orderTransformer;
 	
 	/**

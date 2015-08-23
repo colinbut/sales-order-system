@@ -5,6 +5,8 @@
  */
 package com.mycompany.sos.service.transformers;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -19,7 +21,7 @@ import com.mycompany.sos.repository.entities.AddressEntity;
  * @author colin
  *
  */
-@Component
+@Component("addressTransformer")
 public class AddressTransformer implements DomainEntityTransformer<Address, AddressEntity> {
 	
 	/**
@@ -55,8 +57,9 @@ public class AddressTransformer implements DomainEntityTransformer<Address, Addr
 	 */
 	@Override
 	public List<Address> getDtoListFromEntityList(Set<AddressEntity> entityList) {
-		// TODO
-		return null;
+		List<Address> dtoList = new ArrayList<>();
+		entityList.stream().forEach(entity -> { dtoList.add(getDtoFromEntity(entity)); } );
+		return dtoList;
 	}
 
 	/**
@@ -64,8 +67,9 @@ public class AddressTransformer implements DomainEntityTransformer<Address, Addr
 	 */
 	@Override
 	public Set<AddressEntity> getEntityListFromDtoList(List<Address> dtoList) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<AddressEntity> entityList = new HashSet<>();
+		dtoList.stream().forEach(dto -> { entityList.add(getEntityFromDto(dto)); } );
+		return entityList;
 	}
 
 }
