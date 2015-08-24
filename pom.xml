@@ -42,6 +42,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.1.6.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<version>4.1.6.RELEASE</version>
+		</dependency>
 
 		<!-- Java EE Servlet API -->
 		<dependency>
