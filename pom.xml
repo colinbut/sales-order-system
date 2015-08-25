@@ -7,13 +7,33 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>SalesOrderSystem</name>
 	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<java.version>1.8</java.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>1.10.19</mockito.version>
+		<servlet.version>3.1.0</servlet.version>
+		<jstl.version>1.2</jstl.version>
+		<bean.validation.version>1.1.0.Final</bean.validation.version>
+		<mysql.version>5.1.9</mysql.version>
+		<hibernate.core.version>4.3.10.Final</hibernate.core.version>
+		<hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
+		<hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
+		<hibernate.validator.version>5.2.1.Final</hibernate.validator.version>
+		<slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
+		<dandelion.datatables.version>1.0.0</dandelion.datatables.version>
+		<cucumberJava.version>1.2.3</cucumberJava.version>
+		<cucumberJunit.version>1.2.3</cucumberJunit.version>
+	</properties>
+	
 	<dependencies>
 		
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		
@@ -21,39 +41,39 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
+			<version>${mockito.version}</version>
 		</dependency>
 
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.1.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.1.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.1.6.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-test</artifactId>
-    		<version>4.1.6.RELEASE</version>
+    		<version>${spring.version}</version>
 		</dependency>
 
 		<!-- Java EE Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		
@@ -61,14 +81,14 @@
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 		
 		<!-- Bean Validation -->
  	     <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
+            <version>${bean.validation.version}</version>
             <!--  <scope>provided</scope> -->
          </dependency>
 
@@ -76,35 +96,35 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.9</version>
+			<version>${mysql.version}</version>
 		</dependency>
 
 		<!-- Hibernate dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.10.Final</version>
+			<version>${hibernate.core.version}</version>
 		</dependency>
 
 		<!-- for Hibernate - JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.10.Final</version>
+			<version>${hibernate.entitymanager.version}</version>
 		</dependency>
 
 		<!-- For connection pooling (c3p0) -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
-			<version>4.3.10.Final</version>
+			<version>${hibernate.c3po.version}</version>
 		</dependency>
 		
 		<!-- Hibernate Validator (Bean Validation RI) -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.1.Final</version>
+			<version>${hibernate.validator.version}</version>
 		</dependency>
 		
 
@@ -112,7 +132,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
+			<version>${slf4j-log4j12.version}</version>
 		</dependency>
 
 		
@@ -120,14 +140,14 @@
 		<dependency>
   			<groupId>com.github.dandelion</groupId>
   			<artifactId>datatables-jsp</artifactId>
-  			<version>1.0.0</version>
+  			<version>${dandelion.datatables.version}</version>
 		</dependency>
 		
 		<!-- Cucumber-JVM -->
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>1.2.3</version>
+			<version>${cucumberJava.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -141,7 +161,7 @@
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.3</version>
+			<version>${cucumberJunit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -154,8 +174,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
