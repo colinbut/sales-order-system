@@ -4,20 +4,20 @@
 <jsp:include page="nav.jsp"></jsp:include>
 <div class="content">
 	<br />
-	<button id="createOrderButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/orders/create'">
-		Create Order
+	<button id="createItemsButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/items/create'">
+		Create Items
 	</button>
 	<br />
 	
-	<datatables:table id="ordersList" data="${orders}" 
+	<datatables:table id="itemsList" data="${items}" 
 										sortable="true"
 										displayLength="20" 
 										export="csv,pdf" 
 										cssStripes="myOdd,myEven"
 										row="order">
-		<datatables:column title="Order No."><c:out value="${order_rowIndex}"></c:out></datatables:column>
-		<datatables:column title="Customer">${order.customer}</datatables:column>
-		<datatables:column title="Address">${order.address}</datatables:column>
+		<datatables:column title="Item id."><c:out value="${item_rowIndex}"></c:out></datatables:column>
+		<datatables:column title="Item">${item.itemName}</datatables:column>
+		<datatables:column title="Price">${item.itemPrice}</datatables:column>
 	</datatables:table>
 	
 </div>

@@ -37,7 +37,7 @@ public class CustomerTransformer implements DomainEntityTransformer<Customer, Cu
 	private DomainEntityTransformer<Address, AddressEntity> addressTransformer;
 	
 	@Autowired
-	@Qualifier("customerTransformer")
+	@Qualifier("customerPaymentDetailTransformer")
 	private DomainEntityTransformer<CustomerPaymentDetails, CustomerPaymentDetailEntity> customerPaymentDetailTransformer;
 	
 	@Autowired

@@ -17,6 +17,6 @@ import cucumber.api.junit.Cucumber;
  *
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"})
+@CucumberOptions(plugin = {"pretty"}, features = "src/e2e/resources/items-list.feature")
 public class E2EBDDTestRunConfiguration {
 }

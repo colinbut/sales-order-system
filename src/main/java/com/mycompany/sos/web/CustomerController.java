@@ -102,7 +102,6 @@ public class CustomerController {
 			logger.trace("Converting form backing object to domain object (DTO)");
 		}
 		
-		customerFormConverter = CustomerViewModelConverter::convertCustomerFormToCustomer;
 		Customer customer = customerFormConverter.convert(createCustomerForm);
 		
 		if(customerService.addCustomer(customer)) {
