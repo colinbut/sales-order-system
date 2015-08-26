@@ -3,10 +3,11 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.web;
+package com.mycompany.sos.it;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
- * {@link ItemControllerTest} test class
+ * {@link ItemControllerIntegrationTest} test class
  * 
  * @author colin
  *
@@ -37,7 +38,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 		}
 )
 @WebAppConfiguration
-public class ItemControllerTest {
+@Category(IntegrationTestCategory.class)
+public class ItemControllerIntegrationTest {
 
 	private MockMvc mockMvc;
 		

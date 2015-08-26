@@ -7,6 +7,7 @@ package com.mycompany.sos.service;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
@@ -20,6 +21,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.CustomerDao;
 import com.mycompany.sos.repository.entities.CustomerEntity;
@@ -32,6 +34,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
  *
  */
 @RunWith(MockitoJUnitRunner.class)
+@Category(UnitTestCategory.class)
 public class CustomerServiceImplTest {
 
 	@Mock

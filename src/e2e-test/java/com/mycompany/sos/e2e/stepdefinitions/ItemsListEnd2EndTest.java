@@ -6,8 +6,11 @@
 package com.mycompany.sos.e2e.stepdefinitions;
 
 import static org.junit.Assert.*;
+
+import org.junit.experimental.categories.Category;
 import org.springframework.ui.ModelMap;
 
+import com.mycompany.sos.e2e.End2EndCategory;
 import com.mycompany.sos.web.ItemController;
 
 import cucumber.api.java.en.Given;
@@ -15,12 +18,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
- * {@link ItemsListE2ETest} test class
+ * {@link ItemsListEnd2EndTest} test class
  * 
  * @author colin
  *
  */
-public class ItemsListE2ETest {
+@Category(End2EndCategory.class)
+public class ItemsListEnd2EndTest {
 
 	ItemController itemController = new ItemController();
 	

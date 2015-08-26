@@ -7,9 +7,11 @@ package com.mycompany.sos.web.validators;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 
+import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
 
 /**
@@ -18,6 +20,7 @@ import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
  * @author colin
  *
  */
+@Category(UnitTestCategory.class)
 public class OrderFormValidatorTest {
 
 	private OrderFormValidator orderFormValidator = new OrderFormValidator();
