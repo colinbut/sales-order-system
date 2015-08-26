@@ -15,3 +15,15 @@ A very contrived sample of a web application using the following technologies
 * Dandelion DataTables
 * MySQL
 * SLF4j/Log4j
+
+### Testing
+
+* JUnit
+* Mockito
+* Cucumber-JVM
+
+### Build
+
+* Maven
+
+
