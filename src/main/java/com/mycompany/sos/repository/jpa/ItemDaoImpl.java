@@ -59,8 +59,11 @@ public class ItemDaoImpl implements ItemDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addItem(ItemEntity item) {
-		throw new UnsupportedOperationException("Not Yet Implemented");
+	public boolean addItem(ItemEntity itemEntity) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(itemEntity);
+		entityManager.getTransaction().commit();
+		return true;
 	}
 
 	/**
