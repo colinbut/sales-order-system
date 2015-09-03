@@ -14,7 +14,7 @@
 										displayLength="20" 
 										export="csv,pdf" 
 										cssStripes="myOdd,myEven"
-										row="order">
+										row="item">
 		<datatables:column title="Item id."><c:out value="${item_rowIndex}"></c:out></datatables:column>
 		<datatables:column title="Item">${item.itemName}</datatables:column>
 		<datatables:column title="Price">${item.itemPrice}</datatables:column>

@@ -63,7 +63,7 @@ public class CustomerController {
 	 * Shows the create customer form page
 	 * 
 	 * @param modelMap
-	 * @return
+	 * @return view name
 	 */
 	@RequestMapping(value = "/customers/create", method = RequestMethod.GET)
 	public String showCreateCustomerFormPage(ModelMap modelMap) {

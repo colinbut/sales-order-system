@@ -18,4 +18,5 @@ import com.mycompany.sos.UnitTestCategory;
 @Category(UnitTestCategory.class)
 public class CustomerControllerTest {
 
+	
 }
