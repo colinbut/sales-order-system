@@ -12,7 +12,9 @@ import org.junit.experimental.categories.Category;
 import static org.junit.Assert.*;
 
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
@@ -46,6 +48,7 @@ public class OrderServiceImplTest {
 	
 	@Test
 	public void testAddOrder() {
+		Mockito.when(orderDao.addOrder(Matchers.any(OrderEntity.class))).thenReturn(true);
 		Order order = new Order();
 		assertTrue(orderService.addOrder(order));
 	}
