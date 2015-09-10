@@ -92,4 +92,13 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerTransformer.getDtoFromEntity(customerEntity);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Customer findCustomerByCustomerId(int customerId) {
+		CustomerEntity customerEntity = customerDao.findCustomerByCustomerId(customerId);
+		return customerTransformer.getDtoFromEntity(customerEntity);
+	}
+
 }

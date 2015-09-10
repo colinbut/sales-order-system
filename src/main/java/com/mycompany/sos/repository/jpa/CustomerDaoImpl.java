@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+] * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
 package com.mycompany.sos.repository.jpa;
@@ -132,6 +132,15 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public CustomerEntity findCustomerByCustomerName(String customerName) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CustomerEntity findCustomerByCustomerId(int customerId) {
+		
+		return null;
 	}
 
 }

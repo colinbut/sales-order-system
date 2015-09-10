@@ -40,4 +40,12 @@ public interface CustomerService {
 	 * @return the customer
 	 */
 	Customer findCustomerByCustomerName(String customerName);
+	
+	/**
+	 * Finds the Customer by the given customer id
+	 * 
+	 * @param customerId id identifying the customer
+	 * @return the customer
+	 */
+	Customer findCustomerByCustomerId(int customerId);
 }

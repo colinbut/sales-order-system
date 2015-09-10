@@ -54,6 +54,7 @@ public class CustomerViewModelConverter {
 	
 	public static CustomerModel convertCustomerToCustomerView(Customer customer) {
 		CustomerModel customerModel = new CustomerModel();
+		customerModel.setCustomerId(customer.getId());
 		customerModel.setCustomerName(customer.getFirstName() + " " + customer.getLastName());
 		customerModel.setDateOfBirth(customer.getDateOfBirth());
 		customerModel.setEmailAddress(customer.getEmail());

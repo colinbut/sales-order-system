@@ -14,12 +14,21 @@ import java.util.Date;
  *
  */
 public class CustomerModel {
-
+	
+	private int customerId;
 	private String customerName;
 	private Date dateOfBirth;
 	private String emailAddress;
 	private String address;
 	
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
 	public String getCustomerName() {
 		return customerName;
 	}

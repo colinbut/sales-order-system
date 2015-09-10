@@ -51,8 +51,16 @@ public interface CustomerDao {
 	/**
 	 * Finds the customer with the given customer name
 	 * 
-	 * @param customerName
-	 * @return
+	 * @param customerName the name of the customer
+	 * @return the Customer Entity
 	 */
 	CustomerEntity findCustomerByCustomerName(String customerName);
+	
+	/**
+	 * Finds the customer with the given customer id
+	 * 
+	 * @param customerId the id identifying the customer
+	 * @return the Customer Entity
+	 */
+	CustomerEntity findCustomerByCustomerId(int customerId);
 }

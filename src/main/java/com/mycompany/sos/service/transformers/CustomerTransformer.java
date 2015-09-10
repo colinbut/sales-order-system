@@ -50,6 +50,7 @@ public class CustomerTransformer implements DomainEntityTransformer<Customer, Cu
 	@Override
 	public Customer getDtoFromEntity(CustomerEntity customerEntity) {
 		Customer customer = new Customer();
+		customer.setId(customerEntity.getCustomerId());
 		customer.setFirstName(customerEntity.getFirstName());
 		customer.setLastName(customerEntity.getLastName());
 		customer.setDateOfBirth(customerEntity.getDateOfBirth());
