@@ -139,8 +139,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	 */
 	@Override
 	public CustomerEntity findCustomerByCustomerId(int customerId) {
-		
-		return null;
+		CustomerEntity customerEntity = entityManager.find(CustomerEntity.class, customerId);
+		return customerEntity;
 	}
 
 }

@@ -81,6 +81,7 @@ public class CreateCustomerForm {
 	@NotNull(message = "{error.null.cardNo}")
 	@NotBlank(message = "{error.blank.cardNo}")
 	@NotEmpty(message = "{error.empty.cardNo}")
+	@Size(max = 16, min = 16, message = "Invalid number of characters")
 	@Pattern(regexp = "[0-9]*", message = "{error.invalid.cardNo}")
 	private String cardNo;
 	

@@ -19,10 +19,10 @@
 			<tr>
 				<td>Items:</td>
 				<td>
-					<form:select path="items" items="${ordersList}" multiple="true" />
+					<form:select path="items" items="${itemsList}" multiple="true" />
 				</td>
 				<td>
-					<form:errors path="customer" cssClass="error" />
+					<form:errors path="items" cssClass="error" />
 				</td>
 			</tr>
 			<tr>

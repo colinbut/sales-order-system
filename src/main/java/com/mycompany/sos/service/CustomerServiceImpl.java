@@ -89,7 +89,10 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer findCustomerByCustomerName(String customerName) {
 		CustomerEntity customerEntity = customerDao.findCustomerByCustomerName(customerName);
-		return customerTransformer.getDtoFromEntity(customerEntity);
+		if(customerEntity != null) {
+			return customerTransformer.getDtoFromEntity(customerEntity);
+		}
+		throw new RuntimeException("Unknown Customer with name: " + customerName);
 	}
 
 	/**
@@ -98,7 +101,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer findCustomerByCustomerId(int customerId) {
 		CustomerEntity customerEntity = customerDao.findCustomerByCustomerId(customerId);
-		return customerTransformer.getDtoFromEntity(customerEntity);
+		
+		if(customerEntity != null) {
+			return customerTransformer.getDtoFromEntity(customerEntity);
+		}
+		throw new RuntimeException("Unknown Customer with id: " + customerId);
+		
 	}
 
 }
