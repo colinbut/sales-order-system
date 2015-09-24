@@ -30,7 +30,7 @@ public interface CustomerDao {
 	 * @param customer the new customer to add
 	 * @return true if successfully added false otherwise
 	 */
-	boolean addCustomer(CustomerEntity customer);
+	CustomerEntity addCustomer(CustomerEntity customer);
 	
 	/**
 	 * Edits a customer data

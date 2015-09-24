@@ -47,7 +47,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addCustomer(Customer customer) {		
+	public CustomerEntity addCustomer(Customer customer) {		
 		logger.info("Adding new customer to system: " + customer);
 		
 		CustomerEntity customerEntity = customerTransformer.getEntityFromDto(customer);

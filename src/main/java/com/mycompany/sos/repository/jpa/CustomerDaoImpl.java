@@ -59,7 +59,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addCustomer(CustomerEntity customerEntity) {
+	public CustomerEntity addCustomer(CustomerEntity customerEntity) {
 		try {
 			
 			logger.info("Adding new customer to database");
@@ -79,13 +79,15 @@ public class CustomerDaoImpl implements CustomerDao {
 			if(logger.isDebugEnabled()) {
 				logger.debug("Committed database transaction");
 			}
+			
+			return customerEntity;
 		}
 		catch(Exception ex) {
 			logger.error(ex.getMessage(), ex);
-			return false;
+			//return false;
 		}
 		
-		return true;
+		return null;
 		
 	}
 

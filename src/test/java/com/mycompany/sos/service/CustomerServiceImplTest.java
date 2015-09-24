@@ -55,8 +55,8 @@ public class CustomerServiceImplTest {
 	public void testAddCustomer() {
 		Customer customer = new Customer();
 		Mockito.when(customerTransformer.getEntityFromDto(Matchers.any(Customer.class))).thenReturn(new CustomerEntity());
-		Mockito.when(customerDao.addCustomer(Matchers.any(CustomerEntity.class))).thenReturn(Boolean.TRUE);
-		assertTrue(customerService.addCustomer(customer));
+		Mockito.when(customerDao.addCustomer(Matchers.any(CustomerEntity.class))).thenReturn(new CustomerEntity());
+		assertNotNull(customerService.addCustomer(customer));
 	}
 	
 	@Test

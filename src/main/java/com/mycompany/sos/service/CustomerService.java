@@ -8,6 +8,7 @@ package com.mycompany.sos.service;
 import java.util.List;
 
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.repository.entities.CustomerEntity;
 
 /**
  * {@link CustomerService} interface
@@ -24,7 +25,7 @@ public interface CustomerService {
 	 * @param customer the customer to add
 	 * @return true if successful false otherwise
 	 */
-	boolean addCustomer(Customer customer);
+	CustomerEntity addCustomer(Customer customer);
 	
 	/**
 	 * Gets a list of customers

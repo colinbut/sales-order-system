@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
 import com.mycompany.sos.service.converters.Converter;
 import com.mycompany.sos.service.converters.CustomerViewModelConverter;
@@ -104,10 +105,11 @@ public class CustomerController {
 		
 		Customer customer = customerFormConverter.convert(createCustomerForm);
 		
-		if(customerService.addCustomer(customer)) {
+		CustomerEntity customerEntity = customerService.addCustomer(customer); 
+		if(customerEntity != null) {
 			logger.info("Successfully added customer");
 			modelAndView.addObject("submittedCustomerForm", createCustomerForm);
-			modelAndView.setViewName("customers-createCustomerSuccess");
+			modelAndView.setViewName("redirect:/customers/" + customerEntity.getCustomerId());
 		} else {
 			logger.warn("Unable to add customer");
 		}
