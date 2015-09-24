@@ -106,8 +106,10 @@ public class OrderController {
 			modelAndView.setViewName("orders-createOrder");
 		} else {
 			Order order = orderViewModelConverter.convertOrderFormToOrder(createOrderForm);
-			orderService.addOrder(order);
-			modelAndView.setViewName("orders-createOrderSuccess");
+			if(orderService.addOrder(order)) {
+				modelAndView.setViewName("orders-createOrderSuccess");
+			}
+			// TODO: need to decide what to do in event of unsuccessful order creation
 		}
 		
 		return modelAndView;

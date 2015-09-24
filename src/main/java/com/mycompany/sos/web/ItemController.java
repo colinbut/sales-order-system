@@ -115,7 +115,7 @@ public class ItemController {
 		if(itemService.addItem(item)) {
 			logger.info("Successfully added item");
 			// should redirect back to items list page
-			modelAndView.setViewName("items");
+			modelAndView.setViewName("redirect:/items");
 		} else {
 			logger.warn("Unable to add item");
 		}
