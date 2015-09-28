@@ -21,7 +21,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.model.Item;
-import com.mycompany.sos.repository.ItemDao;
+import com.mycompany.sos.repository.ItemRepository;
 import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -35,7 +35,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 public class ItemServiceImplTest {
 
 	@Mock
-	private ItemDao itemDao;
+	private ItemRepository itemDao;
 	
 	@Mock
 	private DomainEntityTransformer<Item, ItemEntity> itemTransformer;

@@ -10,12 +10,12 @@ import java.util.List;
 import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
- * ItemDao interface
+ * {@link ItemRepository} interface
  * 
  * @author colin
  *
  */
-public interface ItemDao {
+public interface ItemRepository {
 
 	/**
 	 * Adds a new item 

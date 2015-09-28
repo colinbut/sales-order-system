@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.model.Customer;
-import com.mycompany.sos.repository.CustomerDao;
+import com.mycompany.sos.repository.CustomerRepository;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 	Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
 	
 	@Autowired
-	private CustomerDao customerDao;
+	private CustomerRepository customerDao;
 	
 	@Autowired
 	@Qualifier("customerTransformer")

@@ -10,12 +10,12 @@ import java.util.List;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 
 /**
- * CustomerDao interface
+ * {@link CustomerRepository} interface
  * 
  * @author colin
  *
  */
-public interface CustomerDao {
+public interface CustomerRepository {
 
 	/**
 	 * Gets a list of customers

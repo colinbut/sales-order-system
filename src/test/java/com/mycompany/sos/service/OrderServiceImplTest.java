@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.model.Order;
-import com.mycompany.sos.repository.OrderDao;
+import com.mycompany.sos.repository.OrderRepository;
 import com.mycompany.sos.repository.entities.OrderEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -33,7 +33,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 public class OrderServiceImplTest {
 	
 	@Mock
-	private OrderDao orderDao;
+	private OrderRepository orderDao;
 	
 	@Mock
 	private DomainEntityTransformer<Order, OrderEntity> orderTransformer;

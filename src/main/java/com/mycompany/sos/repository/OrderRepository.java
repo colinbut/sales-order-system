@@ -10,11 +10,11 @@ import java.util.List;
 import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
- * {@link OrderDao} interface
+ * {@link OrderRepository} interface
  * 
  * @author colin
  */
-public interface OrderDao {
+public interface OrderRepository {
 
 	/**
 	 * Adds a new order 

@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.model.Customer;
-import com.mycompany.sos.repository.CustomerDao;
+import com.mycompany.sos.repository.CustomerRepository;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -41,7 +41,7 @@ public class CustomerServiceImplTest {
 	private DomainEntityTransformer<Customer, CustomerEntity> customerTransformer;
 	
 	@Mock
-	private CustomerDao customerDao;
+	private CustomerRepository customerDao;
 	
 	@InjectMocks
 	private CustomerService customerService = new CustomerServiceImpl();

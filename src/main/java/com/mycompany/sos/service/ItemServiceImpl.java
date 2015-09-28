@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.model.Item;
-import com.mycompany.sos.repository.ItemDao;
+import com.mycompany.sos.repository.ItemRepository;
 import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -36,7 +36,7 @@ public class ItemServiceImpl implements ItemService {
 	Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 	
 	@Autowired
-	private ItemDao itemDao;
+	private ItemRepository itemDao;
 	
 	@Autowired
 	@Qualifier("itemTransformer")

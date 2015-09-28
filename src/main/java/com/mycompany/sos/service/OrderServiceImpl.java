@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.sos.model.Order;
-import com.mycompany.sos.repository.OrderDao;
+import com.mycompany.sos.repository.OrderRepository;
 import com.mycompany.sos.repository.entities.OrderEntity;
 import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
@@ -32,7 +32,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired
-	private OrderDao orderDao;
+	private OrderRepository orderDao;
 	
 	@Autowired
 	@Qualifier("orderTransformer")

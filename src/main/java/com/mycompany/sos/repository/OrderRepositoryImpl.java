@@ -3,7 +3,7 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.repository.jpa;
+package com.mycompany.sos.repository;
 
 import java.util.List;
 
@@ -14,32 +14,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.repository.ItemDao;
-import com.mycompany.sos.repository.entities.ItemEntity;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
- * {@link ItemDaoImpl} class
+ * {@link OrderRepositoryImpl} class
  * 
- * implementation of {@link ItemDao} interface
+ * implementation of {@link OrderRepository} interface
  * 
  * @author colin
  *
  */
-@Repository("itemDaoImpl")
-public class ItemDaoImpl implements ItemDao {
+@Repository("orderRepositoryImpl")
+public class OrderRepositoryImpl implements OrderRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 	final Logger logger = LoggerFactory.getLogger(getClass());
 	
+		
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addItem(ItemEntity itemEntity) {
+	public boolean addOrder(OrderEntity orderEntity) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(itemEntity);
+		entityManager.persist(orderEntity);
 		entityManager.getTransaction().commit();
 		return true;
 	}
@@ -48,12 +48,9 @@ public class ItemDaoImpl implements ItemDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ItemEntity> getItems() {
-	
-		List<ItemEntity> itemEntityList = entityManager.createQuery("from ItemEntity", ItemEntity.class)
-														.getResultList();
-		
-		return itemEntityList;
+	public List<OrderEntity> getOrders() {
+		List<OrderEntity> orderEntities = entityManager.createQuery("from OrderEntity", OrderEntity.class).getResultList();
+		return orderEntities;
 	}
 
 }
