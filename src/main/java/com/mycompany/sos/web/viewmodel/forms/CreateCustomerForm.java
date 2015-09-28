@@ -56,13 +56,13 @@ public class CreateCustomerForm {
 	@NotNull(message = "{error.null.street}")
 	@NotBlank(message = "{error.blank.street}")
 	@NotEmpty(message = "{error.empty.street}")
-	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.street}")
+	@Pattern(regexp = "[a-zA-Z ]*", message = "{error.invalid.street}")
 	private String street;
 	
 	@NotNull(message = "{error.null.postcode}")
 	@NotBlank(message = "{error.blank.postcode}")
 	@NotEmpty(message = "{error.empty.postcode}")
-	@Pattern(regexp = "[a-zA-Z0-9]*", message = "{error.invalid.postcode}")
+	@Pattern(regexp = "[a-zA-Z0-9 ]*", message = "{error.invalid.postcode}")
 	private String postcode;
 	
 	@NotNull(message = "{error.null.city}")
@@ -81,7 +81,7 @@ public class CreateCustomerForm {
 	@NotNull(message = "{error.null.cardNo}")
 	@NotBlank(message = "{error.blank.cardNo}")
 	@NotEmpty(message = "{error.empty.cardNo}")
-	@Size(max = 16, min = 16, message = "Invalid number of characters")
+	@Size(max = 16, min = 16, message = "{error.invalid.size.cardNo}")
 	@Pattern(regexp = "[0-9]*", message = "{error.invalid.cardNo}")
 	private String cardNo;
 	
