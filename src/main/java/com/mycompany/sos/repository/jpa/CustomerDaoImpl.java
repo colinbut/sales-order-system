@@ -7,11 +7,8 @@ package com.mycompany.sos.repository.jpa;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,29 +28,11 @@ import com.mycompany.sos.repository.entities.CustomerEntity;
 @Repository("customerDaoImpl")
 public class CustomerDaoImpl implements CustomerDao {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 	
-	Logger logger = LoggerFactory.getLogger(CustomerDaoImpl.class);
+	final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@PostConstruct
-	public void init(){
-		logger.info("Setting up EntityManager");
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
-				"com.mycompany.sos.entitymanager");
-		
-		entityManager = entityManagerFactory.createEntityManager();
-	}
-	
-	@PreDestroy
-	public void destroy() {
-		logger.info("Cleaning up resources");
-		if(entityManager.isOpen()) {
-			if(logger.isDebugEnabled()) {
-				logger.debug("EntityManager is open - closing it");
-			}
-			entityManager.close();
-		}
-	}
 	
 	/**
 	 * {@inheritDoc}
