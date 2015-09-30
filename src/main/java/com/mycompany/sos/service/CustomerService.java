@@ -7,7 +7,6 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 
 /**
@@ -25,14 +24,14 @@ public interface CustomerService {
 	 * @param customer the customer to add
 	 * @return true if successful false otherwise
 	 */
-	CustomerEntity addCustomer(Customer customer);
+	CustomerEntity addCustomer(CustomerEntity customer);
 	
 	/**
 	 * Gets a list of customers
 	 * 
 	 * @return a list of customers
 	 */
-	List<Customer> getCustomers();
+	List<CustomerEntity> getCustomers();
 	
 	/**
 	 * Finds the Customer by the given customer name
@@ -40,7 +39,7 @@ public interface CustomerService {
 	 * @param customerName the name of the customer
 	 * @return the customer
 	 */
-	Customer findCustomerByCustomerName(String customerName);
+	CustomerEntity findCustomerByCustomerName(String customerName);
 	
 	/**
 	 * Finds the Customer by the given customer id
@@ -48,5 +47,5 @@ public interface CustomerService {
 	 * @param customerId id identifying the customer
 	 * @return the customer
 	 */
-	Customer findCustomerByCustomerId(int customerId);
+	CustomerEntity findCustomerByCustomerId(int customerId);
 }

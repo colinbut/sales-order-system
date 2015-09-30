@@ -5,7 +5,6 @@
  */
 package com.mycompany.sos.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,12 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.Item;
+import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.ItemService;
-import com.mycompany.sos.service.converters.Converter;
-import com.mycompany.sos.service.converters.ItemViewModelConverter;
 import com.mycompany.sos.web.viewmodel.forms.CreateItemForm;
-import com.mycompany.sos.web.viewmodel.modeldata.ItemModel;
 
 /**
  * {@link ItemController} class
@@ -37,13 +33,11 @@ import com.mycompany.sos.web.viewmodel.modeldata.ItemModel;
 @Controller
 public class ItemController {
 	
-	Logger logger = LoggerFactory.getLogger(getClass());
+	final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private ItemService itemService;
 	
-	private Converter<ItemModel, Item> itemModelItemConverter = ItemViewModelConverter::convertItemToItemModel;
-	private Converter<Item, CreateItemForm> itemItemFormConverter = ItemViewModelConverter::convertItemFormToItem;
 	
 	/**
 	 * Shows the items list page
@@ -53,17 +47,8 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items", method = RequestMethod.GET)
 	public String showItemsList(ModelMap model) {
-		
-		List<Item> items = itemService.getItems();
-		List<ItemModel> itemList = new ArrayList<>();
-		
-		items.stream().forEach(item -> {
-			ItemModel itemModel = itemModelItemConverter.convert(item);
-			itemList.add(itemModel);
-		});
-		
-		model.addAttribute("items", itemList);
-		
+		List<ItemEntity> items = itemService.getItems();
+		model.addAttribute("items", items);
 		return "items";
 	}
 	
@@ -92,7 +77,7 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items/createItem", method = RequestMethod.POST)
 	public ModelAndView createItem(
-			@Valid @ModelAttribute("createItemForm") CreateItemForm createItemForm,
+			@Valid @ModelAttribute("createItemForm") ItemEntity itemEntity,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -102,17 +87,7 @@ public class ItemController {
 			return modelAndView;
 		}
 		
-		if(logger.isDebugEnabled()) {
-			logger.debug(createItemForm.toString());
-		}
-		
-		if(logger.isTraceEnabled()) {
-			logger.trace("Converting form backing object to domain object (DTO)");
-		}
-		
-		Item item = itemItemFormConverter.convert(createItemForm);
-		
-		if(itemService.addItem(item)) {
+		if(itemService.addItem(itemEntity)) {
 			logger.info("Successfully added item");
 			// should redirect back to items list page
 			modelAndView.setViewName("redirect:/items");

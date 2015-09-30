@@ -7,7 +7,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.model.Order;
+import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * {@link OrderService} interface
@@ -23,12 +23,12 @@ public interface OrderService {
 	 * @param order the new order to add
 	 * @return true if successfully added false otherwise
 	 */
-	boolean addOrder(Order order);
+	boolean addOrder(OrderEntity order);
 	
 	/**
 	 * Gets a list of orders
 	 * 
 	 * @return list of orders
 	 */
-	List<Order> getOrders();
+	List<OrderEntity> getOrders();
 }

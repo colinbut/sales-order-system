@@ -27,7 +27,7 @@ import com.mycompany.sos.repository.entities.CustomerEntity;
 @Repository("customerRepositoryImpl")
 public class CustomerRepositoryImpl implements CustomerRepository {
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
 	
 	final Logger logger = LoggerFactory.getLogger(getClass());
@@ -45,15 +45,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 			if(logger.isDebugEnabled()) {
 				logger.debug(customerEntity.toString());
 			}
-			
-			entityManager.getTransaction().begin();
-			
+						
 			logger.info("Saving data to database");
 			entityManager.persist(customerEntity);
 			logger.info("Persisted data to database");
-			
-			entityManager.getTransaction().commit();
-			
+						
 			if(logger.isDebugEnabled()) {
 				logger.debug("Committed database transaction");
 			}
@@ -100,8 +96,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 		} else {
 			logger.warn("Empty customers list obtained from database");
 		}
-		
-		
+				
 		return customerEntityList;
 		
 	}

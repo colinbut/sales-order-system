@@ -31,7 +31,7 @@ public class OrderViewModelConverter {
 	public Order convertOrderFormToOrder(CreateOrderForm createOrderForm) {
 		Order order = new Order();
 		//order.setItems(createOrderForm.getItems()); TODO: add method in item service
-		order.setCustomer(customerService.findCustomerByCustomerName(createOrderForm.getCustomer()));
+		//order.setCustomer(customerService.findCustomerByCustomerName(createOrderForm.getCustomer()));
 		return new Order();
 	}
 	

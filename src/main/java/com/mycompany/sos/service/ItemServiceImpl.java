@@ -5,7 +5,6 @@
  */
 package com.mycompany.sos.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,13 +12,10 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.ItemRepository;
 import com.mycompany.sos.repository.entities.ItemEntity;
-import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link ItemServiceImpl} class 
@@ -36,37 +32,23 @@ public class ItemServiceImpl implements ItemService {
 	Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 	
 	@Autowired
-	private ItemRepository itemDao;
-	
-	@Autowired
-	@Qualifier("itemTransformer")
-	private DomainEntityTransformer<Item, ItemEntity> itemTransformer;
-	
+	private ItemRepository itemRepository;
+		
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addItem(Item item) {
-		ItemEntity itemEntity = itemTransformer.getEntityFromDto(item);
-		return itemDao.addItem(itemEntity);
+	public boolean addItem(ItemEntity itemEntity) {
+		return itemRepository.addItem(itemEntity);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Item> getItems() {
-		
+	public List<ItemEntity> getItems() {
 		logger.info("Retrieving items list from system");
-		
-		List<ItemEntity> itemEntityList = itemDao.getItems();
-		
-		logger.info("Obtained items list from system");
-		
-		List<Item> items = new ArrayList<>();
-		itemEntityList.stream().forEach(itemEntity -> items.add(itemTransformer.getDtoFromEntity(itemEntity)));
-		
-		return items;
+		return itemRepository.getItems();
 	}
 
 }

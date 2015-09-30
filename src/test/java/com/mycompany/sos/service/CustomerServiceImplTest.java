@@ -25,7 +25,6 @@ import com.mycompany.sos.UnitTestCategory;
 import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.CustomerRepository;
 import com.mycompany.sos.repository.entities.CustomerEntity;
-import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link CustomerServiceImplTest} test class
@@ -36,12 +35,9 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 @RunWith(MockitoJUnitRunner.class)
 @Category(UnitTestCategory.class)
 public class CustomerServiceImplTest {
-
-	@Mock
-	private DomainEntityTransformer<Customer, CustomerEntity> customerTransformer;
 	
 	@Mock
-	private CustomerRepository customerDao;
+	private CustomerRepository customerRepository;
 	
 	@InjectMocks
 	private CustomerService customerService = new CustomerServiceImpl();
@@ -53,24 +49,22 @@ public class CustomerServiceImplTest {
 	
 	@Test
 	public void testAddCustomer() {
-		Customer customer = new Customer();
-		Mockito.when(customerTransformer.getEntityFromDto(Matchers.any(Customer.class))).thenReturn(new CustomerEntity());
-		Mockito.when(customerDao.addCustomer(Matchers.any(CustomerEntity.class))).thenReturn(new CustomerEntity());
+		CustomerEntity customer = new CustomerEntity();
+		Mockito.when(customerRepository.addCustomer(Matchers.any(CustomerEntity.class))).thenReturn(new CustomerEntity());
 		assertNotNull(customerService.addCustomer(customer));
 	}
 	
 	@Test
 	public void testGetCustomers() {
 		List<CustomerEntity> customerEntityList = Arrays.asList(new CustomerEntity());
-		Mockito.when(customerDao.getCustomers()).thenReturn(customerEntityList);
-		Mockito.when(customerTransformer.getDtoFromEntity(Matchers.any(CustomerEntity.class))).thenReturn(new Customer());
+		Mockito.when(customerRepository.getCustomers()).thenReturn(customerEntityList);
 		
-		List<Customer> customers = customerService.getCustomers();
+		List<CustomerEntity> customers = customerService.getCustomers();
 		
 		assertFalse(customers.isEmpty());
 		assertTrue(customers.size() > 0);
 		customers.stream().forEach(customer -> {
-			assertTrue(customer instanceof Customer);
+			assertTrue(customer instanceof CustomerEntity);
 		});
 	}
 	
@@ -80,10 +74,9 @@ public class CustomerServiceImplTest {
 		expectedCustomer.setFirstName("John");
 		expectedCustomer.setLastName("Doe");
 		String customerName = expectedCustomer.getFirstName() + " " + expectedCustomer.getLastName();
-		Mockito.when(customerDao.findCustomerByCustomerName(customerName)).thenReturn(new CustomerEntity());
-		Mockito.when(customerTransformer.getDtoFromEntity(Matchers.any(CustomerEntity.class))).thenReturn(expectedCustomer);
+		Mockito.when(customerRepository.findCustomerByCustomerName(customerName)).thenReturn(new CustomerEntity());
 		
-		Customer customer = customerService.findCustomerByCustomerName(customerName);
+		CustomerEntity customer = customerService.findCustomerByCustomerName(customerName);
 		
 		assertNotNull(customer);
 		assertSame(expectedCustomer, customer);

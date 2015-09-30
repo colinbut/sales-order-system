@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * {@link ItemEntity} class
@@ -31,7 +32,11 @@ import javax.persistence.Table;
 public class ItemEntity {
 
 	private int itemId;
+	
+	@NotNull(message = "{error.null.itemName}")
 	private String itemName;
+	
+	@NotNull(message = "{error.null.itemPrice}")
 	private BigDecimal itemPrice;
 	
 	private Set<OrderEntity> orders = new HashSet<OrderEntity>();
@@ -55,7 +60,7 @@ public class ItemEntity {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	
+		
 	@Column(name = "item_price", nullable = false)
 	public BigDecimal getItemPrice() {
 		return itemPrice;

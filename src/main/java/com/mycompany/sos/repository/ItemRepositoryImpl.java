@@ -27,7 +27,7 @@ import com.mycompany.sos.repository.entities.ItemEntity;
 @Repository("itemRepositoryImpl")
 public class ItemRepositoryImpl implements ItemRepository {
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
 	
 	final Logger logger = LoggerFactory.getLogger(getClass());
@@ -37,9 +37,7 @@ public class ItemRepositoryImpl implements ItemRepository {
 	 */
 	@Override
 	public boolean addItem(ItemEntity itemEntity) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(itemEntity);
-		entityManager.getTransaction().commit();
 		return true;
 	}
 

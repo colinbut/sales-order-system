@@ -18,10 +18,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderRepository;
 import com.mycompany.sos.repository.entities.OrderEntity;
-import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link OrderServiceImplTest} test class
@@ -33,10 +31,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 public class OrderServiceImplTest {
 	
 	@Mock
-	private OrderRepository orderDao;
-	
-	@Mock
-	private DomainEntityTransformer<Order, OrderEntity> orderTransformer;
+	private OrderRepository orderRepository;
 	
 	@InjectMocks
 	private OrderService orderService = new OrderServiceImpl();
@@ -48,8 +43,8 @@ public class OrderServiceImplTest {
 	
 	@Test
 	public void testAddOrder() {
-		Mockito.when(orderDao.addOrder(Matchers.any(OrderEntity.class))).thenReturn(true);
-		Order order = new Order();
+		Mockito.when(orderRepository.addOrder(Matchers.any(OrderEntity.class))).thenReturn(true);
+		OrderEntity order = new OrderEntity();
 		assertTrue(orderService.addOrder(order));
 	}
 	

@@ -27,7 +27,7 @@ import com.mycompany.sos.repository.entities.OrderEntity;
 @Repository("orderRepositoryImpl")
 public class OrderRepositoryImpl implements OrderRepository {
 
-	@PersistenceContext
+	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
 	
 	final Logger logger = LoggerFactory.getLogger(getClass());
@@ -38,9 +38,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 	 */
 	@Override
 	public boolean addOrder(OrderEntity orderEntity) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(orderEntity);
-		entityManager.getTransaction().commit();
 		return true;
 	}
 

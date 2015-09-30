@@ -6,7 +6,6 @@
 package com.mycompany.sos.web;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,13 +26,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
-import com.mycompany.sos.service.converters.Converter;
-import com.mycompany.sos.service.converters.CustomerViewModelConverter;
 import com.mycompany.sos.web.viewmodel.forms.CreateCustomerForm;
-import com.mycompany.sos.web.viewmodel.modeldata.CustomerModel;
+
 
 /**
  * {@link CustomerController} class
@@ -50,8 +46,6 @@ public class CustomerController {
 	@Qualifier("customerServiceImpl")
 	private CustomerService customerService;
 	
-	private Converter<Customer, CreateCustomerForm> customerFormConverter = CustomerViewModelConverter::convertCustomerFormToCustomer;
-	private Converter<CustomerModel, Customer> customerViewModelConverter = CustomerViewModelConverter::convertCustomerToCustomerView;
 	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -85,7 +79,7 @@ public class CustomerController {
 	 */
 	@RequestMapping(value = "/customers/createCustomer", method = RequestMethod.POST)
 	public ModelAndView createCustomer(
-			@Valid @ModelAttribute("createCustomerForm") CreateCustomerForm createCustomerForm,
+			@Valid @ModelAttribute("createCustomerForm") CustomerEntity customerEntity,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -96,19 +90,13 @@ public class CustomerController {
 		}
 		
 		if(logger.isDebugEnabled()) {
-			logger.debug(createCustomerForm.toString());
+			logger.debug(customerEntity.toString());
 		}
 		
-		if(logger.isTraceEnabled()) {
-			logger.trace("Converting form backing object to domain object (DTO)");
-		}
-		
-		Customer customer = customerFormConverter.convert(createCustomerForm);
-		
-		CustomerEntity customerEntity = customerService.addCustomer(customer); 
+		customerService.addCustomer(customerEntity); 
 		if(customerEntity != null) {
 			logger.info("Successfully added customer");
-			modelAndView.addObject("submittedCustomerForm", createCustomerForm);
+			modelAndView.addObject("submittedCustomerForm", customerEntity);
 			modelAndView.setViewName("redirect:/customers/" + customerEntity.getCustomerId());
 		} else {
 			logger.warn("Unable to add customer");
@@ -128,23 +116,8 @@ public class CustomerController {
 		
 		logger.info("Fetching customers list");
 		
-		List<Customer> customers = customerService.getCustomers();
-		List<CustomerModel> customerList = new ArrayList<>();
-		
-		if(!customers.isEmpty()) {
-			customers.stream().forEach(customer -> {
-				
-				if(logger.isTraceEnabled()) {
-					logger.trace("Converting Customer object to CustomerModel object");
-				}
-				
-				CustomerModel customerModel = customerViewModelConverter.convert(customer);
-				customerList.add(customerModel);
-				
-			});
-		}
-				
-		modelMap.addAttribute("customers", customerList);
+		List<CustomerEntity> customers = customerService.getCustomers();
+		modelMap.addAttribute("customers", customers);
 		
 		return "customers";
 	}

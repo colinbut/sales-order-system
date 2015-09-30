@@ -20,10 +20,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.ItemRepository;
 import com.mycompany.sos.repository.entities.ItemEntity;
-import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 
 /**
  * {@link ItemServiceImplTest} test class
@@ -35,10 +33,7 @@ import com.mycompany.sos.service.transformers.DomainEntityTransformer;
 public class ItemServiceImplTest {
 
 	@Mock
-	private ItemRepository itemDao;
-	
-	@Mock
-	private DomainEntityTransformer<Item, ItemEntity> itemTransformer;
+	private ItemRepository itemRepository;
 	
 	@InjectMocks
 	private ItemService itemService = new ItemServiceImpl();
@@ -50,8 +45,8 @@ public class ItemServiceImplTest {
 	
 	@Test
 	public void testAddItem() {
-		Mockito.when(itemDao.addItem(Matchers.any(ItemEntity.class))).thenReturn(true);
-		boolean result = itemService.addItem(new Item());
+		Mockito.when(itemRepository.addItem(Matchers.any(ItemEntity.class))).thenReturn(true);
+		boolean result = itemService.addItem(new ItemEntity());
 		assertTrue(result);
 	}
 	
@@ -59,9 +54,8 @@ public class ItemServiceImplTest {
 	public void testGetItems() {
 		List<ItemEntity> itemEntities = new ArrayList<>();
 		itemEntities.add(new ItemEntity());
-		Mockito.when(itemDao.getItems()).thenReturn(itemEntities);
-		Mockito.when(itemTransformer.getDtoFromEntity(Matchers.any(ItemEntity.class))).thenReturn(new Item());
-		List<Item> items = itemService.getItems();
+		Mockito.when(itemRepository.getItems()).thenReturn(itemEntities);
+		List<ItemEntity> items = itemService.getItems();
 		assertFalse(items.isEmpty());
 	}
 }

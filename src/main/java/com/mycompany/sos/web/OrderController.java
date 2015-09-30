@@ -19,16 +19,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.Customer;
-import com.mycompany.sos.model.Item;
-import com.mycompany.sos.model.Order;
+import com.mycompany.sos.repository.entities.CustomerEntity;
+import com.mycompany.sos.repository.entities.ItemEntity;
+import com.mycompany.sos.repository.entities.OrderEntity;
 import com.mycompany.sos.service.CustomerService;
 import com.mycompany.sos.service.ItemService;
 import com.mycompany.sos.service.OrderService;
-import com.mycompany.sos.service.converters.OrderViewModelConverter;
 import com.mycompany.sos.web.validators.OrderFormValidator;
 import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
-import com.mycompany.sos.web.viewmodel.modeldata.OrderModel;
+
 
 /**
  * {@link OrderController} class
@@ -55,9 +54,7 @@ public class OrderController {
 	@Autowired
 	@Qualifier("orderFormValidator")
 	private OrderFormValidator orderFormValidator;
-	
-	@Autowired
-	private OrderViewModelConverter orderViewModelConverter;
+
 	
 	/**
 	 * Shows the create order form page
@@ -69,7 +66,7 @@ public class OrderController {
 	public String showCreateOrdersForm(ModelMap modelMap) {
 		modelMap.addAttribute("createOrderForm", new CreateOrderForm());
 		
-		List<Customer> customers = customerService.getCustomers();
+		List<CustomerEntity> customers = customerService.getCustomers();
 		
 		List<String> customerNames = new ArrayList<>();
 		
@@ -79,7 +76,7 @@ public class OrderController {
 			});
 		}
 		
-		List<Item> items = itemService.getItems();
+		List<ItemEntity> items = itemService.getItems();
 		
 		modelMap.addAttribute("customersList", customerNames);
 		modelMap.addAttribute("itemsList", items);
@@ -95,18 +92,17 @@ public class OrderController {
 	 * @return model and view
 	 */
 	@RequestMapping(value = "orders/createOrder", method = RequestMethod.POST)
-	public ModelAndView createOrder(CreateOrderForm createOrderForm, BindingResult result) {
+	public ModelAndView createOrder(OrderEntity orderEntity, BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		// custom validation
-		orderFormValidator.validate(createOrderForm, result);
+		orderFormValidator.validate(orderEntity, result);
 		
 		if(result.hasErrors()) {
 			modelAndView.setViewName("orders-createOrder");
 		} else {
-			Order order = orderViewModelConverter.convertOrderFormToOrder(createOrderForm);
-			if(orderService.addOrder(order)) {
+			if(orderService.addOrder(orderEntity)) {
 				modelAndView.setViewName("orders-createOrderSuccess");
 			}
 			// TODO: need to decide what to do in event of unsuccessful order creation
@@ -123,19 +119,8 @@ public class OrderController {
 	 */
 	@RequestMapping(value="/orders", method=RequestMethod.GET)
 	public String listOrders(ModelMap modelMap) {
-		
-		List<Order> orders = orderService.getOrders();
-		List<OrderModel> orderList = new ArrayList<>();
-		
-		if(!orders.isEmpty()) {
-			orders.stream().forEach(order -> {
-				OrderModel orderModel = orderViewModelConverter.convertOrderToOrderViewModel(order);
-				orderList.add(orderModel);
-			});
-		}
-		
-		modelMap.addAttribute("orders", orderList);
-		
+		List<OrderEntity> orders = orderService.getOrders();
+		modelMap.addAttribute("orders", orders);
 		return "orders";
 	}
 	

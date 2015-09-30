@@ -20,9 +20,8 @@ import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.Item;
+import com.mycompany.sos.repository.entities.ItemEntity;
 import com.mycompany.sos.service.ItemService;
-import com.mycompany.sos.web.viewmodel.forms.CreateItemForm;
 
 /**
  * {@link ItemControllerTest} test class
@@ -56,8 +55,8 @@ public class ItemControllerTest {
 	
 	@Test
 	public void testCreateItem() {
-		Mockito.when(itemService.addItem(Matchers.any(Item.class))).thenReturn(true);
-		ModelAndView modelAndView = itemController.createItem(new CreateItemForm(), 
+		Mockito.when(itemService.addItem(Matchers.any(ItemEntity.class))).thenReturn(true);
+		ModelAndView modelAndView = itemController.createItem(new ItemEntity(), 
 				new DirectFieldBindingResult(null, null));
 		
 		assertNotNull(modelAndView);

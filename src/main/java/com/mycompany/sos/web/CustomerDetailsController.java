@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mycompany.sos.model.Customer;
+import com.mycompany.sos.repository.entities.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
 
 /**
@@ -29,7 +29,7 @@ public class CustomerDetailsController {
 	
 	@RequestMapping(value = "customers/{customerId}", method = RequestMethod.GET)
 	public String getCustomerDetailsPage(@PathVariable("customerId") String customerId, Model model) {
-		Customer customer = customerService.findCustomerByCustomerId(Integer.parseInt(customerId));
+		CustomerEntity customer = customerService.findCustomerByCustomerId(Integer.parseInt(customerId));
 		model.addAttribute("customer", customer);
 		return "customerDetails";
 	}

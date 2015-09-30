@@ -7,7 +7,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.model.Item;
+import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
  * {@link ItemService} interface
@@ -23,12 +23,12 @@ public interface ItemService {
 	 * @param item the new item to add
 	 * @return true if successfully added false otherwise
 	 */
-	boolean addItem(Item item);
+	boolean addItem(ItemEntity item);
 	
 	/**
 	 * Retrieves a list of items
 	 * 
 	 * @return list of items
 	 */
-	List<Item> getItems();
+	List<ItemEntity> getItems();
 }
