@@ -3,7 +3,7 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.web.validators;
+package com.mycompany.sos.web.validator;
 
 import org.junit.Ignore;
 import org.junit.Test;
