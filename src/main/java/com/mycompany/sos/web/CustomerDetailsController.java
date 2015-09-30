@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mycompany.sos.repository.entities.CustomerEntity;
+import com.mycompany.sos.model.CustomerEntity;
 import com.mycompany.sos.service.CustomerService;
 
 /**

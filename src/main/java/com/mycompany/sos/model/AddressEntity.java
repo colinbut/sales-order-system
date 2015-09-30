@@ -3,7 +3,7 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.repository.entities;
+package com.mycompany.sos.model;
 
 import java.util.HashSet;
 import java.util.Set;

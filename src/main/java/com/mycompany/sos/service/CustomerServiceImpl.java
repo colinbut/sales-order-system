@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mycompany.sos.model.CustomerEntity;
 import com.mycompany.sos.repository.CustomerRepository;
-import com.mycompany.sos.repository.entities.CustomerEntity;
 
 
 /**

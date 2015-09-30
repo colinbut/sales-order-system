@@ -18,8 +18,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.OrderEntity;
 import com.mycompany.sos.repository.OrderRepository;
-import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * {@link OrderServiceImplTest} test class

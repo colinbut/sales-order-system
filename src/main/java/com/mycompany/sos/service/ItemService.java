@@ -7,7 +7,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.repository.entities.ItemEntity;
+import com.mycompany.sos.model.ItemEntity;
 
 /**
  * {@link ItemService} interface

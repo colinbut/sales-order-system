@@ -20,7 +20,7 @@ import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.repository.entities.ItemEntity;
+import com.mycompany.sos.model.ItemEntity;
 import com.mycompany.sos.service.ItemService;
 
 /**

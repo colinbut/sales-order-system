@@ -12,8 +12,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mycompany.sos.model.OrderEntity;
 import com.mycompany.sos.repository.OrderRepository;
-import com.mycompany.sos.repository.entities.OrderEntity;
 
 /**
  * {@link OrderServiceImpl} class

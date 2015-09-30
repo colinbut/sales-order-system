@@ -20,8 +20,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.ItemEntity;
 import com.mycompany.sos.repository.ItemRepository;
-import com.mycompany.sos.repository.entities.ItemEntity;
 
 /**
  * {@link ItemServiceImplTest} test class

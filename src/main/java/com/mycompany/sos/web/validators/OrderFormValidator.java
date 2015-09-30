@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.mycompany.sos.repository.entities.OrderEntity; 
+import com.mycompany.sos.model.OrderEntity; 
 
 /**
  * {@link OrderFormValidator} class

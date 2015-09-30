@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.repository.entities.ItemEntity;
+import com.mycompany.sos.model.ItemEntity;
 
 /**
  * {@link ItemRepositoryImpl} class

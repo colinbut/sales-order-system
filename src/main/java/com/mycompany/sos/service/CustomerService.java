@@ -7,7 +7,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.repository.entities.CustomerEntity;
+import com.mycompany.sos.model.CustomerEntity;
 
 /**
  * {@link CustomerService} interface

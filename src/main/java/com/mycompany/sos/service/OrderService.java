@@ -7,7 +7,7 @@ package com.mycompany.sos.service;
 
 import java.util.List;
 
-import com.mycompany.sos.repository.entities.OrderEntity;
+import com.mycompany.sos.model.OrderEntity;
 
 /**
  * {@link OrderService} interface
