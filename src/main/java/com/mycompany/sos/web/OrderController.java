@@ -25,8 +25,7 @@ import com.mycompany.sos.model.OrderEntity;
 import com.mycompany.sos.service.CustomerService;
 import com.mycompany.sos.service.ItemService;
 import com.mycompany.sos.service.OrderService;
-import com.mycompany.sos.web.validators.OrderFormValidator;
-import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
+import com.mycompany.sos.web.validator.OrderFormValidator;
 
 
 /**
@@ -64,7 +63,7 @@ public class OrderController {
 	 */
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
 	public String showCreateOrdersForm(ModelMap modelMap) {
-		modelMap.addAttribute("createOrderForm", new CreateOrderForm());
+		modelMap.addAttribute("createOrderForm", new OrderEntity());
 		
 		List<CustomerEntity> customers = customerService.getCustomers();
 		

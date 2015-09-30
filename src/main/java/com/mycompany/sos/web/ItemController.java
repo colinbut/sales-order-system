@@ -22,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.model.ItemEntity;
 import com.mycompany.sos.service.ItemService;
-import com.mycompany.sos.web.viewmodel.forms.CreateItemForm;
 
 /**
  * {@link ItemController} class
@@ -60,7 +59,7 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items/create", method = RequestMethod.GET)
 	public String showCreateItemPage(ModelMap modelMap) {
-		modelMap.addAttribute("createItemForm", new CreateItemForm());
+		modelMap.addAttribute("createItemForm", new ItemEntity());
 		logger.info("Accessed Create Item page");
 		if(logger.isDebugEnabled()) {
 			logger.debug("Retrieved createItemForm");

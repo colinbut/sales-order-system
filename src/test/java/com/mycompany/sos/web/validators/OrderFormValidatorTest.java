@@ -12,7 +12,8 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.web.viewmodel.forms.CreateOrderForm;
+import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.web.validator.OrderFormValidator;
 
 /**
  * {@link OrderFormValidatorTest} test class
@@ -28,7 +29,7 @@ public class OrderFormValidatorTest {
 	@Test
 	@Ignore
 	public void testValidate() {
-		CreateOrderForm createOrderForm = new CreateOrderForm();
+		OrderEntity createOrderForm = new OrderEntity();
 		Errors errors = new BeanPropertyBindingResult(null, "");
 		orderFormValidator.validate(createOrderForm, errors);
 	}
