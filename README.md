@@ -9,6 +9,7 @@ A very contrived sample of a web application using the following technologies
   * Spring Data JPA (to be introduced)
 * JPA
 * Hibernate ORM
+* JTA
 * Bean Validation
 * JSP/ JSTL
 * Bootstrap 3 - HTML, CSS, JS
