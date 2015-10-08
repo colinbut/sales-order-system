@@ -30,7 +30,7 @@ import com.mycompany.sos.repository.CustomerRepository;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-	Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
 	
 	@Autowired
 	private CustomerRepository customerRepository;

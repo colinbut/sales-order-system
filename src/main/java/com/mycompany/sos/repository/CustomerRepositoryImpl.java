@@ -30,7 +30,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
 	
-	final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger logger = LoggerFactory.getLogger(CustomerRepositoryImpl.class);
 	
 	
 	/**

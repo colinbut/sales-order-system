@@ -18,6 +18,13 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * {@link CustomerPaymentDetailEntity} class
@@ -32,9 +39,25 @@ import javax.persistence.TemporalType;
 public class CustomerPaymentDetailEntity {
 
 	private int paymentDetailsId;
+	
+	@NotNull(message = "{error.null.customerReference}")
+	@NotBlank(message = "{error.blank.customerReference}")
+	@NotEmpty(message = "{error.empty.customerReference}")
+	@Size(min = 1, max = 20, message = "{error.size.customerReference}")
 	private String customerReference;
+	
+	@NotNull(message = "{error.null.cardNo}")
+	@NotBlank(message = "{error.blank.cardNo}")
+	@NotEmpty(message = "{error.empty.cardNo}")
+	@Size(max = 16, min = 16, message = "{error.invalid.size.cardNo}")
+	@Pattern(regexp = "[0-9]*", message = "{error.invalid.cardNo}")
 	private String cardNo;
+	
+	@NotNull(message = "{error.null.expDate}")
+	@Future(message = "{error.future.expDate}")
 	private Date cardExpiryDate;
+	
+	
 	private CustomerEntity customer;
 	
 	@Id

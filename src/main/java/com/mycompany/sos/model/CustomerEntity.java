@@ -23,6 +23,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * {@link CustomerEntity} class
@@ -37,15 +45,35 @@ import javax.persistence.TemporalType;
 public class CustomerEntity {
 
 	private int customerId;
+	
+	@NotNull(message = "{error.null.firstname}")
+	@NotBlank(message = "{error.blank.firstname}")
+	@NotEmpty(message = "{error.empty.firstname}")
+	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.firstname}")
 	private String firstName;
+	
+	@NotNull(message = "{error.null.lastname}")
+	@NotBlank(message = "{error.blank.lastname}")
+	@NotEmpty(message = "{error.empty.lastname}")
+	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.lastname}")
 	private String lastName;
+	
+	@NotNull(message = "{error.null.dob}")
+	@Past(message = "{error.past.dob}")
 	private Date dateOfBirth;
+	
+	@NotNull(message = "{error.null.email}")
+	@NotBlank(message = "{error.blank.email}")
+	@NotEmpty(message = "{error.empty.email}")
+	@Email(message = "{error.email}")
 	private String email;
 
 	// M : 1
+	@Valid
 	private AddressEntity address;
 	
 	// 1 : 1
+	@Valid
 	private CustomerPaymentDetailEntity customerPaymentDetail;
 	
 	// 1 : M
