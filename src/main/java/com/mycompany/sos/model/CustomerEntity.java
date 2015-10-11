@@ -77,7 +77,7 @@ public class CustomerEntity {
 	private CustomerPaymentDetailEntity customerPaymentDetail;
 	
 	// 1 : M
-	private Set<OrderEntity> orders = new HashSet<OrderEntity>(0);
+	private Set<OrderEntity> orders = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,11 +4,7 @@
 <jsp:include page="nav.jsp"></jsp:include>
 <div class="content">
 	<br />
-	<button id="createOrderButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/orders/create'">
-		Create Order
-	</button>
-	<br />
-	
+		
 	<datatables:table id="ordersList" data="${orders}" 
 										sortable="true"
 										displayLength="20" 
