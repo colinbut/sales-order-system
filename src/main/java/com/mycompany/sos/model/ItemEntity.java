@@ -39,7 +39,7 @@ public class ItemEntity {
 	@NotNull(message = "{error.null.itemPrice}")
 	private BigDecimal itemPrice;
 	
-	private Set<OrderEntity> orders = new HashSet<OrderEntity>();
+	private Set<OrderEntity> orders = new HashSet<>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,8 +81,11 @@ public class ItemEntity {
 
 	@Override
 	public String toString() {
-		return "Items [itemId=" + itemId + ", itemName=" + itemName
+		
+		String toString = "Items [itemId=" + itemId + ", itemName=" + itemName
 				+ ", itemPrice=" + itemPrice + "]";
+		
+		return itemName + " " + itemPrice;
 	}
 	
 }

@@ -27,10 +27,10 @@ import com.mycompany.sos.model.OrderEntity;
 @Repository("orderRepositoryImpl")
 public class OrderRepositoryImpl implements OrderRepository {
 
+	private static final Logger logger = LoggerFactory.getLogger(OrderRepositoryImpl.class);
+	
 	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
-	
-	final Logger logger = LoggerFactory.getLogger(getClass());
 	
 		
 	/**

@@ -32,7 +32,7 @@ import com.mycompany.sos.service.ItemService;
 @Controller
 public class ItemController {
 	
-	final Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger logger = LoggerFactory.getLogger(ItemController.class);
 	
 	@Autowired
 	private ItemService itemService;

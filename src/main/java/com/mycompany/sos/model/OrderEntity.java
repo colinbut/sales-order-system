@@ -34,7 +34,7 @@ public class OrderEntity {
 
 	private int orderId;
 	private CustomerEntity customer;
-	private Set<ItemEntity> items = new HashSet<ItemEntity>(0);
+	private Set<ItemEntity> items = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

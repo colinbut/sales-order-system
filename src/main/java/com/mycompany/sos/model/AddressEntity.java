@@ -66,7 +66,7 @@ public class AddressEntity {
 	private String country;
 	
 	// 1 : M
-	private Set<CustomerEntity> customers = new HashSet<CustomerEntity>(0);
+	private Set<CustomerEntity> customers = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

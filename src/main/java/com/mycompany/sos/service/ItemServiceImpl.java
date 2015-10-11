@@ -29,7 +29,7 @@ import com.mycompany.sos.repository.ItemRepository;
 @Transactional
 public class ItemServiceImpl implements ItemService {
 
-	Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 	
 	@Autowired
 	private ItemRepository itemRepository;

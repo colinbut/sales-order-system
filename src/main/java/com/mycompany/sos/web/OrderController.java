@@ -5,7 +5,6 @@
  */
 package com.mycompany.sos.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,8 +14,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.sos.model.CustomerEntity;
@@ -36,7 +37,7 @@ import com.mycompany.sos.web.validator.OrderFormValidator;
 @Controller
 public class OrderController {
 
-	Logger logger = LoggerFactory.getLogger(OrderController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 	
 	@Autowired
 	@Qualifier("orderServiceImpl")
@@ -62,22 +63,17 @@ public class OrderController {
 	 * @return view name
 	 */
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
-	public String showCreateOrdersForm(ModelMap modelMap) {
-		modelMap.addAttribute("createOrderForm", new OrderEntity());
+	public String showCreateOrdersForm(ModelMap modelMap, @RequestParam("customerId") int customerId) {
 		
-		List<CustomerEntity> customers = customerService.getCustomers();
+		// get the customer
+		CustomerEntity customer = customerService.findCustomerByCustomerId(customerId);
+		OrderEntity orderEntity = new OrderEntity();
+		orderEntity.setCustomer(customer);
 		
-		List<String> customerNames = new ArrayList<>();
-		
-		if(!customers.isEmpty()) {
-			customers.stream().forEach(customer -> {
-				customerNames.add(customer.getFirstName() + " " + customer.getLastName());
-			});
-		}
-		
+		// get list of all available items
 		List<ItemEntity> items = itemService.getItems();
 		
-		modelMap.addAttribute("customersList", customerNames);
+		modelMap.addAttribute("createOrderForm", orderEntity);
 		modelMap.addAttribute("itemsList", items);
 		
 		return "orders-createOrder";
@@ -91,7 +87,7 @@ public class OrderController {
 	 * @return model and view
 	 */
 	@RequestMapping(value = "orders/createOrder", method = RequestMethod.POST)
-	public ModelAndView createOrder(OrderEntity orderEntity, BindingResult result) {
+	public ModelAndView createOrder(@ModelAttribute("createOrderForm") OrderEntity orderEntity, BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		

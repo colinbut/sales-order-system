@@ -19,7 +19,9 @@
 		<datatables:column title="Name"><a href="customers/${customer.customerId}">${customer.firstName} ${customer.lastName}</a></datatables:column>
 		<datatables:column title="Date Of Birth">${customer.dateOfBirth}</datatables:column>
 		<datatables:column title="Email Address">${customer.email}</datatables:column>
-		<datatables:column title="Address">${customer.address}</datatables:column>
+		<datatables:column title="Address">
+			${customer.address.houseFlatNo}, ${customer.address.street}, ${customer.address.city}, ${customer.address.postCode}, ${customer.address.country}
+		</datatables:column>
 	</datatables:table>
 	
 	

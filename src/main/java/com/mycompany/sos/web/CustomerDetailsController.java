@@ -27,6 +27,13 @@ public class CustomerDetailsController {
 	@Autowired
 	private CustomerService customerService;
 	
+	/**
+	 * Displaying of the customer details page
+	 * 
+	 * @param customerId id identifying the customer
+	 * @param model 
+	 * @return view name
+	 */
 	@RequestMapping(value = "customers/{customerId}", method = RequestMethod.GET)
 	public String getCustomerDetailsPage(@PathVariable("customerId") String customerId, Model model) {
 		CustomerEntity customer = customerService.findCustomerByCustomerId(Integer.parseInt(customerId));

@@ -39,7 +39,7 @@ import com.mycompany.sos.service.CustomerService;
 @Controller
 public class CustomerController {
 
-	Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
 	@Qualifier("customerServiceImpl")

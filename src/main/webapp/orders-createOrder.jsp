@@ -4,13 +4,13 @@
 	<h3>Create Order</h3>
 	<form:form method="POST" modelAttribute="createOrderForm" action="createOrder">
 		<table class="create-form-table">
+			
 			<tr>
-				<td>Customer:</td>
 				<td>
-					<form:select path="customer">
-						<form:option value="NONE" label="-- Select --" />
-						<form:options items="${customersList}"/>
-					</form:select>
+					Customer:
+				</td>
+				<td>
+					${createOrderForm.customer.firstName} ${createOrderForm.customer.lastName}
 				</td>
 				<td>
 					<form:errors path="customer" cssClass="error" />

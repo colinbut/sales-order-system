@@ -50,7 +50,7 @@
 	<!-- Orders -->
 	<div>
 	
-		<button id="createOrderButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/orders/create'">
+		<button id="createOrderButton" onclick="location.href='${base}orders/create?customerId=${customer.customerId}'">
 			Create Order
 		</button>
 		<br />
