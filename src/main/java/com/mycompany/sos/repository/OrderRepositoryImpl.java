@@ -5,16 +5,14 @@
  */
 package com.mycompany.sos.repository;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.mycompany.sos.model.OrderEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.model.OrderEntity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * {@link OrderRepositoryImpl} class

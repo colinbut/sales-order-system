@@ -5,15 +5,13 @@
  */
 package com.mycompany.sos.web.validator;
 
+import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.OrderEntity;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
-
-import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.OrderEntity;
-import com.mycompany.sos.web.validator.OrderFormValidator;
 
 /**
  * {@link OrderFormValidatorTest} test class

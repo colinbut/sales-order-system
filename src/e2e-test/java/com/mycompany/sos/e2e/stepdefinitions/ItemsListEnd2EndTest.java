@@ -5,17 +5,15 @@
  */
 package com.mycompany.sos.e2e.stepdefinitions;
 
-import static org.junit.Assert.*;
-
-import org.junit.experimental.categories.Category;
-import org.springframework.ui.ModelMap;
-
 import com.mycompany.sos.e2e.End2EndCategory;
 import com.mycompany.sos.web.ItemController;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.experimental.categories.Category;
+import org.springframework.ui.ModelMap;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link ItemsListEnd2EndTest} test class

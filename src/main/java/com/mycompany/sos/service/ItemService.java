@@ -5,9 +5,9 @@
  */
 package com.mycompany.sos.service;
 
-import java.util.List;
-
 import com.mycompany.sos.model.ItemEntity;
+
+import java.util.List;
 
 /**
  * {@link ItemService} interface

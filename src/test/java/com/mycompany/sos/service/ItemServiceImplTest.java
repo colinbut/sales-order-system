@@ -5,23 +5,18 @@
  */
 package com.mycompany.sos.service;
 
-import static org.junit.Assert.*;
+import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.repository.ItemRepository;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-
-import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.ItemEntity;
-import com.mycompany.sos.repository.ItemRepository;
+import static org.junit.Assert.*;
 
 /**
  * {@link ItemServiceImplTest} test class

@@ -5,8 +5,13 @@
  */
 package com.mycompany.sos.web;
 
-import java.util.List;
-
+import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.service.CustomerService;
+import com.mycompany.sos.service.ItemService;
+import com.mycompany.sos.service.OrderService;
+import com.mycompany.sos.web.validator.OrderFormValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.CustomerEntity;
-import com.mycompany.sos.model.ItemEntity;
-import com.mycompany.sos.model.OrderEntity;
-import com.mycompany.sos.service.CustomerService;
-import com.mycompany.sos.service.ItemService;
-import com.mycompany.sos.service.OrderService;
-import com.mycompany.sos.web.validator.OrderFormValidator;
+import java.util.List;
 
 
 /**
@@ -37,7 +36,7 @@ import com.mycompany.sos.web.validator.OrderFormValidator;
 @Controller
 public class OrderController {
 
-	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
 	
 	@Autowired
 	@Qualifier("orderServiceImpl")

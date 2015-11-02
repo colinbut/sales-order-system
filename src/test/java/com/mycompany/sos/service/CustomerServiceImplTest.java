@@ -5,25 +5,20 @@
  */
 package com.mycompany.sos.service;
 
+import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.repository.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
-import static org.junit.Assert.*;
+import org.mockito.*;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.CustomerEntity;
-import com.mycompany.sos.repository.CustomerRepository;
+import static org.junit.Assert.*;
 
 /**
  * {@link CustomerServiceImplTest} test class

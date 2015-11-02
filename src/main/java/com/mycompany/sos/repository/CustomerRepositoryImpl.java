@@ -5,16 +5,14 @@
  */
 package com.mycompany.sos.repository;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.mycompany.sos.model.CustomerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.sos.model.CustomerEntity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * {@link CustomerRepositoryImpl} class
@@ -30,7 +28,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	@PersistenceContext(unitName = "com.mycompany.sos.entitymanager")
 	private EntityManager entityManager;
 	
-	private static final Logger logger = LoggerFactory.getLogger(CustomerRepositoryImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerRepositoryImpl.class);
 	
 	
 	/**
@@ -40,24 +38,24 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	public CustomerEntity addCustomer(CustomerEntity customerEntity) {
 		try {
 			
-			logger.info("Adding new customer to database");
+			LOGGER.info("Adding new customer to database");
 			
-			if(logger.isDebugEnabled()) {
-				logger.debug(customerEntity.toString());
+			if(LOGGER.isDebugEnabled()) {
+				LOGGER.debug(customerEntity.toString());
 			}
 						
-			logger.info("Saving data to database");
+			LOGGER.info("Saving data to database");
 			entityManager.persist(customerEntity);
-			logger.info("Persisted data to database");
+			LOGGER.info("Persisted data to database");
 						
-			if(logger.isDebugEnabled()) {
-				logger.debug("Committed database transaction");
+			if(LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Committed database transaction");
 			}
 			
 			return customerEntity;
 		}
 		catch(Exception ex) {
-			logger.error(ex.getMessage(), ex);
+			LOGGER.error(ex.getMessage(), ex);
 			//return false;
 		}
 		
@@ -87,14 +85,14 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	@Override
 	public List<CustomerEntity> getCustomers() {
 		
-		logger.info("Retrieving customer list from database");
+		LOGGER.info("Retrieving customer list from database");
 		
 		List<CustomerEntity> customerEntityList = entityManager.createQuery("from CustomerEntity", CustomerEntity.class).getResultList();
 		
 		if(!customerEntityList.isEmpty()) {
-			logger.info("Obtained customers list from database");
+			LOGGER.info("Obtained customers list from database");
 		} else {
-			logger.warn("Empty customers list obtained from database");
+			LOGGER.warn("Empty customers list obtained from database");
 		}
 				
 		return customerEntityList;

@@ -5,9 +5,8 @@
  */
 package com.mycompany.sos.web;
 
-import org.junit.experimental.categories.Category;
-
 import com.mycompany.sos.UnitTestCategory;
+import org.junit.experimental.categories.Category;
 
 /**
  * {@link OrderControllerTest} test class

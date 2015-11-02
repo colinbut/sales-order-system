@@ -5,12 +5,8 @@
  */
 package com.mycompany.sos.web;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import javax.validation.Valid;
-
+import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.model.CustomerEntity;
-import com.mycompany.sos.service.CustomerService;
+import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -39,7 +37,7 @@ import com.mycompany.sos.service.CustomerService;
 @Controller
 public class CustomerController {
 
-	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
 	@Qualifier("customerServiceImpl")
@@ -62,9 +60,9 @@ public class CustomerController {
 	@RequestMapping(value = "/customers/create", method = RequestMethod.GET)
 	public String showCreateCustomerFormPage(ModelMap modelMap) {
 		modelMap.addAttribute("createCustomerForm", new CustomerEntity());
-		logger.info("Accessed Create Customer page");
-		if(logger.isDebugEnabled()) {
-			logger.debug("Retrieved createCustomerForm");
+		LOGGER.info("Accessed Create Customer page");
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Retrieved createCustomerForm");
 		}
 		return "customers-createCustomer";
 	}
@@ -88,17 +86,19 @@ public class CustomerController {
 			return modelAndView;
 		}
 		
-		if(logger.isDebugEnabled()) {
-			logger.debug(customerEntity.toString());
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug(customerEntity.toString());
 		}
+
+		customerEntity.getCustomerPaymentDetail().setCustomer(customerEntity);
 		
 		customerService.addCustomer(customerEntity); 
 		if(customerEntity != null) {
-			logger.info("Successfully added customer");
+			LOGGER.info("Successfully added customer");
 			modelAndView.addObject("submittedCustomerForm", customerEntity);
 			modelAndView.setViewName("redirect:/customers/" + customerEntity.getCustomerId());
 		} else {
-			logger.warn("Unable to add customer");
+			LOGGER.warn("Unable to add customer");
 		}
 		
 		return modelAndView;
@@ -113,7 +113,7 @@ public class CustomerController {
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String listCustomers(ModelMap modelMap) {
 		
-		logger.info("Fetching customers list");
+		LOGGER.info("Fetching customers list");
 		
 		List<CustomerEntity> customers = customerService.getCustomers();
 		modelMap.addAttribute("customers", customers);

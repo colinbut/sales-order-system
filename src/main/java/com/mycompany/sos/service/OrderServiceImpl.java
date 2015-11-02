@@ -5,15 +5,13 @@
  */
 package com.mycompany.sos.service;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
+import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mycompany.sos.model.OrderEntity;
-import com.mycompany.sos.repository.OrderRepository;
+import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * {@link OrderServiceImpl} class

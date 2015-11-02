@@ -5,23 +5,18 @@
  */
 package com.mycompany.sos.web;
 
-import static org.junit.Assert.*;
-
+import com.mycompany.sos.UnitTestCategory;
+import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.service.ItemService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mockito.InjectMocks;
-import org.mockito.Matchers;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.ItemEntity;
-import com.mycompany.sos.service.ItemService;
+import static org.junit.Assert.*;
 
 /**
  * {@link ItemControllerTest} test class

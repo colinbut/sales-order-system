@@ -5,12 +5,13 @@
  */
 package com.mycompany.sos.web.validator;
 
+import com.mycompany.sos.model.OrderEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-
-import com.mycompany.sos.model.OrderEntity; 
 
 /**
  * {@link OrderFormValidator} class
@@ -20,6 +21,8 @@ import com.mycompany.sos.model.OrderEntity;
  */
 @Component("orderFormValidator")
 public class OrderFormValidator implements Validator{
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrderFormValidator.class);
 
 	@Override
 	public boolean supports(Class<?> c1) {
@@ -33,7 +36,9 @@ public class OrderFormValidator implements Validator{
 		OrderEntity orderEntity = (OrderEntity) object;
 		
 		String customer = orderEntity.getCustomer().toString();
-		
+
+		LOGGER.debug(customer);
+
 		if(customer == null || StringUtils.isEmpty(customer)) {
 			errors.rejectValue("customer", "error.empty.customer");
 		}

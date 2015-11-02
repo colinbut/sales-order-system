@@ -5,9 +5,9 @@
  */
 package com.mycompany.sos.repository;
 
-import java.util.List;
-
 import com.mycompany.sos.model.OrderEntity;
+
+import java.util.List;
 
 /**
  * {@link OrderRepository} interface
