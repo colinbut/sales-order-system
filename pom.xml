@@ -25,6 +25,10 @@
 		<dandelion.datatables.version>1.0.0</dandelion.datatables.version>
 		<cucumberJava.version>1.2.3</cucumberJava.version>
 		<cucumberJunit.version>1.2.3</cucumberJunit.version>
+
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<h2.version>1.4.187</h2.version>
+		<derby.version>10.11.1.1</derby.version>
 	</properties>
 	
 	<dependencies>
@@ -79,6 +83,12 @@
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-test</artifactId>
     		<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- Java EE Servlet API -->
@@ -177,6 +187,27 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- HyperSQL DB -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+
+		<!-- H2 DB -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+
+		<!-- Derby DB -->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>${derby.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -190,6 +221,22 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+
 		</plugins>
 	</build>
 
