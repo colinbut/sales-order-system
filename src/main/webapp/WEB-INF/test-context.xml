@@ -52,6 +52,7 @@
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location="classpath:scripts/sql/create.sql" />
+		<jdbc:script location="classpath:scripts/sql/insert.sql" />
 	</jdbc:embedded-database>
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>

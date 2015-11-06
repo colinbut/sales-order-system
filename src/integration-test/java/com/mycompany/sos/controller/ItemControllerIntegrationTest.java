@@ -3,8 +3,9 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.it;
+package com.mycompany.sos.controller;
 
+import com.mycompany.sos.it.IntegrationTestCategory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
