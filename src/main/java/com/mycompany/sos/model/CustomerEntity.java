@@ -5,6 +5,7 @@
  */
 package com.mycompany.sos.model;
 
+import org.hibernate.annotations.Loader;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -103,8 +104,9 @@ public class CustomerEntity {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	@Column(name = "customer_email_address", nullable = false, columnDefinition = "TEXT")
+
+	@Lob
+	@Column(name = "customer_email_address", nullable = false)
 	public String getEmail() {
 		return email;
 	}

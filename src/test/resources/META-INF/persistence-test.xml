@@ -9,15 +9,16 @@
 
 		<properties>
 			<!-- jdbc connection properties -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sales_order_system" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb;sql.syntax_mys=true" />
 
-			<property name="hibernate.show_sql" value="true" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+
+			<!--<property name="hibernate.show_sql" value="true" />-->
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<!--<property name="hibernate.hbm2ddl.auto" value="validate" />-->
 
 			<!-- Configuring Connection Pool -->
 			<property name="hibernate.c3p0.min_size" value="5" />

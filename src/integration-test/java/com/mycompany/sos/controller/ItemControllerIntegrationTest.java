@@ -3,13 +3,15 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.it;
+package com.mycompany.sos.controller;
 
+import com.mycompany.sos.it.IntegrationTestCategory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -30,10 +32,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-			"file:src/main/webapp/WEB-INF/application-context.xml",
-			"file:src/main/webapp/WEB-INF/dispatcher-servlet.xml"
+			//"file:src/main/webapp/WEB-INF/application-context.xml",
+			// "file:src/main/webapp/WEB-INF/application-datasource.xml",
+			//"file:src/main/webapp/WEB-INF/application-web.xml"
+			"file:src/main/webapp/WEB-INF/test-context.xml"
 		}
 )
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @WebAppConfiguration
 @Category(IntegrationTestCategory.class)
 public class ItemControllerIntegrationTest {
