@@ -55,6 +55,6 @@ public class ItemControllerTest {
 				new DirectFieldBindingResult(null, null));
 		
 		assertNotNull(modelAndView);
-		assertEquals("items", modelAndView.getViewName());
+		assertEquals("redirect:/items", modelAndView.getViewName());
 	}
 }

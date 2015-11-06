@@ -68,7 +68,7 @@ public class CustomerServiceImplTest {
 		expectedCustomer.setFirstName("John");
 		expectedCustomer.setLastName("Doe");
 		String customerName = expectedCustomer.getFirstName() + " " + expectedCustomer.getLastName();
-		Mockito.when(customerRepository.findCustomerByCustomerName(customerName)).thenReturn(new CustomerEntity());
+		Mockito.when(customerRepository.findCustomerByCustomerName(customerName)).thenReturn(expectedCustomer);
 		
 		CustomerEntity customer = customerService.findCustomerByCustomerName(customerName);
 		
