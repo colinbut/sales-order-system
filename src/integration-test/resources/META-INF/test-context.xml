@@ -51,15 +51,17 @@
 	<!-- DataSource config -->
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
-		<jdbc:script location="classpath:scripts/sql/create.sql" />
-		<jdbc:script location="classpath:scripts/sql/insert.sql" />
+		<!--<jdbc:script location="classpath:scripts/create.sql" />-->
+		<!--<jdbc:script location="classpath:scripts/insert.sql" />-->
+		<jdbc:script location="file:src/integration-test/resources/scripts/create.sql" />
+		<jdbc:script location="file:src/integration-test/resources/scripts/insert.sql" />
 	</jdbc:embedded-database>
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="com.mycompany.sos.entitymanager" />
-		<!--<property name="persistenceXmlLocation" value="classpath:META-INF/persistence-test.xml" />-->
+		<!--<property name="persistenceXmlLocation" value="file:src/test/resources/META-INF/persistence-test.xml" />-->
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="com.mycompany.sos.model" />
 		<property name="jpaVendorAdapter">
@@ -68,6 +70,15 @@
 				<property name="generateDdl" value="false"/>
 				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
 			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+			</props>
 		</property>
 	</bean>
 

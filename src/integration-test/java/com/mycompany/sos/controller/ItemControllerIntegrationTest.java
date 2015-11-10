@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.controller;
 
-import com.mycompany.sos.it.IntegrationTestCategory;
+import com.mycompany.sos.IntegrationTestCategory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

@@ -29,10 +29,10 @@
 			<property name="current_session_context_class" value="thread"/>
 			<property name="hibernate.enable_lazy_load_no_trans" value="true" />
 
-			<property name="javax.persistence.schema-generation.database.action" value="none"/>
+			<!--<property name="javax.persistence.schema-generation.database.action" value="none"/>
 			<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
 			<property name="javax.persistence.schema-generation.scripts.create-target"
-					  value="/Applications/dev-sandbox/projects/personal-projects/sales-order-system/install/sampleCreate.ddl"/>
+					  value="/Applications/dev-sandbox/projects/personal-projects/sales-order-system/install/sampleCreate.ddl"/>-->
 
 		</properties>
 	</persistence-unit>
