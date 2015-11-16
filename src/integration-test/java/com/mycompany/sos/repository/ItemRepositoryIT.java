@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.it.IntegrationTestCategory;
+import com.mycompany.sos.IntegrationTestCategory;
 import com.mycompany.sos.model.ItemEntity;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -14,11 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -28,7 +26,8 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-        "file:src/main/webapp/WEB-INF/test-context.xml"
+        "file:src/integration-test/resources/META-INF/test-context.xml"
+        //"classpath:META-INF/test-context.xml"
     }
 )
 @Category(IntegrationTestCategory.class)
