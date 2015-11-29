@@ -6,6 +6,8 @@
 package com.mycompany.sos.repository;
 
 import com.mycompany.sos.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,52 +17,13 @@ import java.util.List;
  * @author colin
  *
  */
-public interface CustomerRepository {
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-	/**
-	 * Gets a list of customers
-	 * 
-	 * @return list of customers
-	 */
-	List<Customer> getCustomers();
-	
-	/**
-	 * Adds a new customer
-	 * 
-	 * @param customer the new customer to add
-	 * @return true if successfully added false otherwise
-	 */
-	Customer addCustomer(Customer customer);
-	
-	/**
-	 * Edits a customer data
-	 * 
-	 * @param customer the customer to edit
-	 * @return true if successfully edited false otherwise
-	 */
-	boolean editCustomer(Customer customer);
-	
-	/**
-	 * Deletes a customer
-	 * 
-	 * @param customer the customer to delete
-	 * @return true if successfully delete false otherwise
-	 */
-	boolean deleteCustomer(Customer customer);
-	
-	/**
-	 * Finds the customer with the given customer name
-	 * 
-	 * @param customerName the name of the customer
-	 * @return the Customer Entity
-	 */
-	Customer findCustomerByCustomerName(String customerName);
-	
-	/**
-	 * Finds the customer with the given customer id
-	 * 
-	 * @param customerId the id identifying the customer
-	 * @return the Customer Entity
-	 */
-	Customer findCustomerByCustomerId(int customerId);
+    /**
+     * Finds the {@link Customer} by the customer name (i.e firstname + lastname)
+     *
+     * @return {@link Customer}
+     */
+    Customer findByFirstNameAndLastName(String firstName, String lastName);
 }

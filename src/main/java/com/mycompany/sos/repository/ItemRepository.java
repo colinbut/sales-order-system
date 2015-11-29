@@ -6,6 +6,8 @@
 package com.mycompany.sos.repository;
 
 import com.mycompany.sos.model.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,20 +17,7 @@ import java.util.List;
  * @author colin
  *
  */
-public interface ItemRepository {
+@Repository
+public interface ItemRepository extends JpaRepository<Item, Integer> {
 
-	/**
-	 * Adds a new item 
-	 * 
-	 * @param item the new item to add
-	 * @return true if successfully added false otherwise
-	 */
-	boolean addItem(Item item);
-	
-	/**
-	 * Retrieves a list of items
-	 * 
-	 * @return list of items
-	 */
-	List<Item> getItems();
 }

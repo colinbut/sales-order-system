@@ -27,8 +27,6 @@ import java.util.List;
 @Transactional
 public class ItemServiceImpl implements ItemService {
 
-	private static final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
-	
 	@Autowired
 	private ItemRepository itemRepository;
 		
@@ -37,7 +35,7 @@ public class ItemServiceImpl implements ItemService {
 	 */
 	@Override
 	public boolean addItem(Item item) {
-		return itemRepository.addItem(item);
+		return itemRepository.save(item) != null;
 	}
 
 	/**
@@ -45,8 +43,7 @@ public class ItemServiceImpl implements ItemService {
 	 */
 	@Override
 	public List<Item> getItems() {
-		logger.info("Retrieving items list from system");
-		return itemRepository.getItems();
+		return itemRepository.findAll();
 	}
 
 }

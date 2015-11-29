@@ -28,7 +28,7 @@ import java.util.List;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-	private static final Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
 	
 	@Autowired
 	private CustomerRepository customerRepository;
@@ -38,8 +38,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
-		logger.info("Adding new customer to system: " + customer);
-		return customerRepository.addCustomer(customer);
+		LOGGER.info("Adding new customer to system: " + customer);
+		return customerRepository.save(customer);
 	}
 
 	/**
@@ -47,8 +47,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public List<Customer> getCustomers() {
-		logger.info("Retrieving customers list");
-		return customerRepository.getCustomers();
+		LOGGER.info("Retrieving customers list");
+		return customerRepository.findAll();
 	}
 
 	/**
@@ -56,7 +56,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer findCustomerByCustomerName(String customerName) {
-		Customer customer = customerRepository.findCustomerByCustomerName(customerName);
+		String[] firstNameAndLastName = customerName.split(" ");
+		Customer customer = customerRepository.findByFirstNameAndLastName(firstNameAndLastName[0], firstNameAndLastName[1]);
 		if(customer != null) {
 			return customer;
 		}
@@ -68,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer findCustomerByCustomerId(int customerId) {
-		Customer customer = customerRepository.findCustomerByCustomerId(customerId);
+		Customer customer = customerRepository.findOne(customerId);
 		
 		if(customer != null) {
 			return customer;

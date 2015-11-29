@@ -37,8 +37,8 @@ public class OrderServiceImplTest {
 	
 	@Test
 	public void testAddOrder() {
-		Mockito.when(orderRepository.addOrder(Matchers.any(Order.class))).thenReturn(true);
 		Order order = new Order();
+		Mockito.when(orderRepository.save(Matchers.any(Order.class))).thenReturn(order);
 		assertTrue(orderService.addOrder(order));
 	}
 	

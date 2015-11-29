@@ -40,7 +40,7 @@ public class ItemServiceImplTest {
 	
 	@Test
 	public void testAddItem() {
-		Mockito.when(itemRepository.addItem(Matchers.any(Item.class))).thenReturn(true);
+		Mockito.when(itemRepository.save(Matchers.any(Item.class))).thenReturn(new Item());
 		boolean result = itemService.addItem(new Item());
 		assertTrue(result);
 	}
@@ -49,7 +49,7 @@ public class ItemServiceImplTest {
 	public void testGetItems() {
 		List<Item> itemEntities = new ArrayList<>();
 		itemEntities.add(new Item());
-		Mockito.when(itemRepository.getItems()).thenReturn(itemEntities);
+		Mockito.when(itemRepository.findAll()).thenReturn(itemEntities);
 		List<Item> items = itemService.getItems();
 		assertFalse(items.isEmpty());
 	}

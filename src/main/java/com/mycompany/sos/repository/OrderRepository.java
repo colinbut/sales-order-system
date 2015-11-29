@@ -6,6 +6,8 @@
 package com.mycompany.sos.repository;
 
 import com.mycompany.sos.model.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,21 +16,7 @@ import java.util.List;
  * 
  * @author colin
  */
-public interface OrderRepository {
-
-	/**
-	 * Adds a new order 
-	 * 
-	 * @param order the new order to add
-	 * @return true if successfully added false otherwise
-	 */
-	boolean addOrder(Order order);
-	
-	/**
-	 * Gets a list of orders
-	 * 
-	 * @return list of orders
-	 */
-	List<Order> getOrders();
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 	
 }

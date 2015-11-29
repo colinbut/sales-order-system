@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
 	 */
 	@Override
 	public boolean addOrder(Order order) {
-		return orderRepository.addOrder(order);
+		return orderRepository.save(order) != null;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 	 */
 	@Override
 	public List<Order> getOrders() {
-		return orderRepository.getOrders();
+		return orderRepository.findAll();
 	}
 
 }

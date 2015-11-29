@@ -17,6 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
 
 import static org.junit.Assert.*;
 
@@ -44,14 +45,14 @@ public class CustomerServiceImplTest {
 	@Test
 	public void testAddCustomer() {
 		Customer customer = new Customer();
-		Mockito.when(customerRepository.addCustomer(Matchers.any(Customer.class))).thenReturn(new Customer());
+		Mockito.when(customerRepository.save(Matchers.any(Customer.class))).thenReturn(new Customer());
 		assertNotNull(customerService.addCustomer(customer));
 	}
 	
 	@Test
 	public void testGetCustomers() {
 		List<Customer> customerList = Arrays.asList(new Customer());
-		Mockito.when(customerRepository.getCustomers()).thenReturn(customerList);
+		Mockito.when(customerRepository.findAll()).thenReturn(customerList);
 		
 		List<Customer> customers = customerService.getCustomers();
 		
@@ -68,7 +69,8 @@ public class CustomerServiceImplTest {
 		expectedCustomer.setFirstName("John");
 		expectedCustomer.setLastName("Doe");
 		String customerName = expectedCustomer.getFirstName() + " " + expectedCustomer.getLastName();
-		Mockito.when(customerRepository.findCustomerByCustomerName(customerName)).thenReturn(expectedCustomer);
+		Mockito.when(customerRepository.findByFirstNameAndLastName(Matchers.anyString(), Matchers.anyString()))
+				.thenReturn(expectedCustomer);
 		
 		Customer customer = customerService.findCustomerByCustomerName(customerName);
 		
