@@ -6,7 +6,7 @@
 package com.mycompany.sos.service;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,8 +37,8 @@ public class OrderServiceImplTest {
 	
 	@Test
 	public void testAddOrder() {
-		Mockito.when(orderRepository.addOrder(Matchers.any(OrderEntity.class))).thenReturn(true);
-		OrderEntity order = new OrderEntity();
+		Mockito.when(orderRepository.addOrder(Matchers.any(Order.class))).thenReturn(true);
+		Order order = new Order();
 		assertTrue(orderService.addOrder(order));
 	}
 	

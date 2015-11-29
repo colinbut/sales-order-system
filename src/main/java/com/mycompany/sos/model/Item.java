@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@link ItemEntity} class
+ * {@link Item} class
  * 
  * Item entity
  * 
@@ -21,7 +21,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "items")
-public class ItemEntity {
+public class Item {
 
 	private int itemId;
 	
@@ -31,7 +31,7 @@ public class ItemEntity {
 	@NotNull(message = "{error.null.itemPrice}")
 	private BigDecimal itemPrice;
 	
-	private Set<OrderEntity> orders = new HashSet<>();
+	private Set<Order> orders = new HashSet<>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,11 +63,11 @@ public class ItemEntity {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "items")
-	public Set<OrderEntity> getOrders() {
+	public Set<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<OrderEntity> orders) {
+	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
 

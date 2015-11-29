@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@link OrderEntity} class
+ * {@link Order} class
  * 
  * Order entity
  * 
@@ -19,11 +19,11 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "orders")
-public class OrderEntity {
+public class Order {
 
 	private int orderId;
-	private CustomerEntity customer;
-	private Set<ItemEntity> items = new HashSet<>(0);
+	private Customer customer;
+	private Set<Item> items = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,11 +38,11 @@ public class OrderEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id", nullable = false)
-	public CustomerEntity getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 	
-	public void setCustomer(CustomerEntity customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	
@@ -51,11 +51,11 @@ public class OrderEntity {
 		joinColumns = { @JoinColumn(name = "order_id", nullable = false, updatable = false)},
 		inverseJoinColumns = { @JoinColumn(name = "item_id", nullable = false, updatable = false)}
 			)
-	public Set<ItemEntity> getItems() {
+	public Set<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(Set<ItemEntity> items) {
+	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
 

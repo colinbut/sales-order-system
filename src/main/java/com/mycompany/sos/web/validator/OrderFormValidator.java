@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.web.validator;
 
-import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -26,16 +26,16 @@ public class OrderFormValidator implements Validator{
 
 	@Override
 	public boolean supports(Class<?> c1) {
-		return OrderEntity.class.equals(c1);
+		return Order.class.equals(c1);
 	}
 
 
 	@Override
 	public void validate(Object object, Errors errors) {
 		
-		OrderEntity orderEntity = (OrderEntity) object;
+		Order order = (Order) object;
 		
-		String customer = orderEntity.getCustomer().toString();
+		String customer = order.getCustomer().toString();
 
 		LOGGER.debug(customer);
 

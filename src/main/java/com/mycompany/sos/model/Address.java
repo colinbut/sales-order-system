@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@link AddressEntity} class
+ * {@link Address} class
  * 
  * Address entity
  * 
@@ -25,7 +25,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "address")
-public class AddressEntity {
+public class Address {
 
 	private int addressId;
 	
@@ -58,7 +58,7 @@ public class AddressEntity {
 	private String country;
 	
 	// 1 : M
-	private Set<CustomerEntity> customers = new HashSet<>(0);
+	private Set<Customer> customers = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -117,11 +117,11 @@ public class AddressEntity {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-	public Set<CustomerEntity> getCustomers() {
+	public Set<Customer> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Set<CustomerEntity> customers) {
+	public void setCustomers(Set<Customer> customers) {
 		this.customers = customers;
 	}
 

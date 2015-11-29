@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.web;
 
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +35,7 @@ public class CustomerDetailsController {
 	 */
 	@RequestMapping(value = "customers/{customerId}", method = RequestMethod.GET)
 	public String getCustomerDetailsPage(@PathVariable("customerId") String customerId, Model model) {
-		CustomerEntity customer = customerService.findCustomerByCustomerId(Integer.parseInt(customerId));
+		Customer customer = customerService.findCustomerByCustomerId(Integer.parseInt(customerId));
 		model.addAttribute("customer", customer);
 		return "customerDetails";
 	}

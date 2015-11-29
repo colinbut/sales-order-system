@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.web;
 
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +59,7 @@ public class CustomerController {
 	 */
 	@RequestMapping(value = "/customers/create", method = RequestMethod.GET)
 	public String showCreateCustomerFormPage(ModelMap modelMap) {
-		modelMap.addAttribute("createCustomerForm", new CustomerEntity());
+		modelMap.addAttribute("createCustomerForm", new Customer());
 		LOGGER.info("Accessed Create Customer page");
 		if(LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Retrieved createCustomerForm");
@@ -76,7 +76,7 @@ public class CustomerController {
 	 */
 	@RequestMapping(value = "/customers/createCustomer", method = RequestMethod.POST)
 	public ModelAndView createCustomer(
-			@Valid @ModelAttribute("createCustomerForm") CustomerEntity customerEntity,
+			@Valid @ModelAttribute("createCustomerForm") Customer customer,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -87,16 +87,16 @@ public class CustomerController {
 		}
 		
 		if(LOGGER.isDebugEnabled()) {
-			LOGGER.debug(customerEntity.toString());
+			LOGGER.debug(customer.toString());
 		}
 
-		customerEntity.getCustomerPaymentDetail().setCustomer(customerEntity);
+		customer.getCustomerPaymentDetail().setCustomer(customer);
 		
-		customerService.addCustomer(customerEntity); 
-		if(customerEntity != null) {
+		customerService.addCustomer(customer);
+		if(customer != null) {
 			LOGGER.info("Successfully added customer");
-			modelAndView.addObject("submittedCustomerForm", customerEntity);
-			modelAndView.setViewName("redirect:/customers/" + customerEntity.getCustomerId());
+			modelAndView.addObject("submittedCustomerForm", customer);
+			modelAndView.setViewName("redirect:/customers/" + customer.getCustomerId());
 		} else {
 			LOGGER.warn("Unable to add customer");
 		}
@@ -115,7 +115,7 @@ public class CustomerController {
 		
 		LOGGER.info("Fetching customers list");
 		
-		List<CustomerEntity> customers = customerService.getCustomers();
+		List<Customer> customers = customerService.getCustomers();
 		modelMap.addAttribute("customers", customers);
 		
 		return "customers";

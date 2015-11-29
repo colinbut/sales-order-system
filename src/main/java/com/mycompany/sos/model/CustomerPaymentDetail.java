@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
- * {@link CustomerPaymentDetailEntity} class
+ * {@link CustomerPaymentDetail} class
  * 
  * CustomerPaymentDetail entity
  * 
@@ -25,7 +25,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "customer_payment_details")
-public class CustomerPaymentDetailEntity {
+public class CustomerPaymentDetail {
 
 	private int paymentDetailsId;
 	
@@ -47,7 +47,7 @@ public class CustomerPaymentDetailEntity {
 	private Date cardExpiryDate;
 	
 	
-	private CustomerEntity customer;
+	private Customer customer;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -90,11 +90,11 @@ public class CustomerPaymentDetailEntity {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id", nullable = false)
-	public CustomerEntity getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 	
-	public void setCustomer(CustomerEntity customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 	

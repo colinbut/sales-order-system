@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -35,8 +35,8 @@ public class OrderRepositoryImpl implements OrderRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addOrder(OrderEntity orderEntity) {
-		entityManager.persist(orderEntity);
+	public boolean addOrder(Order order) {
+		entityManager.persist(order);
 		return true;
 	}
 
@@ -44,8 +44,8 @@ public class OrderRepositoryImpl implements OrderRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<OrderEntity> getOrders() {
-		List<OrderEntity> orderEntities = entityManager.createQuery("from OrderEntity", OrderEntity.class).getResultList();
+	public List<Order> getOrders() {
+		List<Order> orderEntities = entityManager.createQuery("from Order", Order.class).getResultList();
 		return orderEntities;
 	}
 

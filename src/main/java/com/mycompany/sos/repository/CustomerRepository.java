@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public interface CustomerRepository {
 	 * 
 	 * @return list of customers
 	 */
-	List<CustomerEntity> getCustomers();
+	List<Customer> getCustomers();
 	
 	/**
 	 * Adds a new customer
@@ -30,7 +30,7 @@ public interface CustomerRepository {
 	 * @param customer the new customer to add
 	 * @return true if successfully added false otherwise
 	 */
-	CustomerEntity addCustomer(CustomerEntity customer);
+	Customer addCustomer(Customer customer);
 	
 	/**
 	 * Edits a customer data
@@ -38,7 +38,7 @@ public interface CustomerRepository {
 	 * @param customer the customer to edit
 	 * @return true if successfully edited false otherwise
 	 */
-	boolean editCustomer(CustomerEntity customer);
+	boolean editCustomer(Customer customer);
 	
 	/**
 	 * Deletes a customer
@@ -46,7 +46,7 @@ public interface CustomerRepository {
 	 * @param customer the customer to delete
 	 * @return true if successfully delete false otherwise
 	 */
-	boolean deleteCustomer(CustomerEntity customer);
+	boolean deleteCustomer(Customer customer);
 	
 	/**
 	 * Finds the customer with the given customer name
@@ -54,7 +54,7 @@ public interface CustomerRepository {
 	 * @param customerName the name of the customer
 	 * @return the Customer Entity
 	 */
-	CustomerEntity findCustomerByCustomerName(String customerName);
+	Customer findCustomerByCustomerName(String customerName);
 	
 	/**
 	 * Finds the customer with the given customer id
@@ -62,5 +62,5 @@ public interface CustomerRepository {
 	 * @param customerId the id identifying the customer
 	 * @return the Customer Entity
 	 */
-	CustomerEntity findCustomerByCustomerId(int customerId);
+	Customer findCustomerByCustomerId(int customerId);
 }

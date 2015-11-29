@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -34,8 +34,8 @@ public class ItemRepositoryImpl implements ItemRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addItem(ItemEntity itemEntity) {
-		entityManager.persist(itemEntity);
+	public boolean addItem(Item item) {
+		entityManager.persist(item);
 		return true;
 	}
 
@@ -43,12 +43,12 @@ public class ItemRepositoryImpl implements ItemRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ItemEntity> getItems() {
+	public List<Item> getItems() {
 	
-		List<ItemEntity> itemEntityList = entityManager.createQuery("from ItemEntity", ItemEntity.class)
+		List<Item> itemList = entityManager.createQuery("from Item", Item.class)
 														.getResultList();
 		
-		return itemEntityList;
+		return itemList;
 	}
 
 }

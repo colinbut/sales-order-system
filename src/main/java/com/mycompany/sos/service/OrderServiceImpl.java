@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.service;
 
-import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,15 +32,15 @@ public class OrderServiceImpl implements OrderService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addOrder(OrderEntity orderEntity) {
-		return orderRepository.addOrder(orderEntity);
+	public boolean addOrder(Order order) {
+		return orderRepository.addOrder(order);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<OrderEntity> getOrders() {
+	public List<Order> getOrders() {
 		return orderRepository.getOrders();
 	}
 

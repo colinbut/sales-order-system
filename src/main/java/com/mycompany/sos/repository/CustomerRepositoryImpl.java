@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -35,24 +35,24 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity addCustomer(CustomerEntity customerEntity) {
+	public Customer addCustomer(Customer customer) {
 		try {
 			
 			LOGGER.info("Adding new customer to database");
 			
 			if(LOGGER.isDebugEnabled()) {
-				LOGGER.debug(customerEntity.toString());
+				LOGGER.debug(customer.toString());
 			}
 						
 			LOGGER.info("Saving data to database");
-			entityManager.persist(customerEntity);
+			entityManager.persist(customer);
 			LOGGER.info("Persisted data to database");
 						
 			if(LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Committed database transaction");
 			}
 			
-			return customerEntity;
+			return customer;
 		}
 		catch(Exception ex) {
 			LOGGER.error(ex.getMessage(), ex);
@@ -67,7 +67,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean editCustomer(CustomerEntity customer) {
+	public boolean editCustomer(Customer customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
@@ -75,7 +75,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean deleteCustomer(CustomerEntity customer) {
+	public boolean deleteCustomer(Customer customer) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
@@ -83,19 +83,19 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<CustomerEntity> getCustomers() {
+	public List<Customer> getCustomers() {
 		
 		LOGGER.info("Retrieving customer list from database");
 		
-		List<CustomerEntity> customerEntityList = entityManager.createQuery("from CustomerEntity", CustomerEntity.class).getResultList();
+		List<Customer> customerList = entityManager.createQuery("from Customer", Customer.class).getResultList();
 		
-		if(!customerEntityList.isEmpty()) {
+		if(!customerList.isEmpty()) {
 			LOGGER.info("Obtained customers list from database");
 		} else {
 			LOGGER.warn("Empty customers list obtained from database");
 		}
 				
-		return customerEntityList;
+		return customerList;
 		
 	}
 
@@ -103,7 +103,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity findCustomerByCustomerName(String customerName) {
+	public Customer findCustomerByCustomerName(String customerName) {
 		throw new UnsupportedOperationException("Not Yet Implemented");
 	}
 
@@ -111,9 +111,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity findCustomerByCustomerId(int customerId) {
-		CustomerEntity customerEntity = entityManager.find(CustomerEntity.class, customerId);
-		return customerEntity;
+	public Customer findCustomerByCustomerId(int customerId) {
+		Customer customer = entityManager.find(Customer.class, customerId);
+		return customer;
 	}
 
 }

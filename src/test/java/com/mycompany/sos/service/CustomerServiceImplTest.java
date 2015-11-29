@@ -6,7 +6,7 @@
 package com.mycompany.sos.service;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,34 +43,34 @@ public class CustomerServiceImplTest {
 	
 	@Test
 	public void testAddCustomer() {
-		CustomerEntity customer = new CustomerEntity();
-		Mockito.when(customerRepository.addCustomer(Matchers.any(CustomerEntity.class))).thenReturn(new CustomerEntity());
+		Customer customer = new Customer();
+		Mockito.when(customerRepository.addCustomer(Matchers.any(Customer.class))).thenReturn(new Customer());
 		assertNotNull(customerService.addCustomer(customer));
 	}
 	
 	@Test
 	public void testGetCustomers() {
-		List<CustomerEntity> customerEntityList = Arrays.asList(new CustomerEntity());
-		Mockito.when(customerRepository.getCustomers()).thenReturn(customerEntityList);
+		List<Customer> customerList = Arrays.asList(new Customer());
+		Mockito.when(customerRepository.getCustomers()).thenReturn(customerList);
 		
-		List<CustomerEntity> customers = customerService.getCustomers();
+		List<Customer> customers = customerService.getCustomers();
 		
 		assertFalse(customers.isEmpty());
 		assertTrue(customers.size() > 0);
 		customers.stream().forEach(customer -> {
-			assertTrue(customer instanceof CustomerEntity);
+			assertTrue(customer instanceof Customer);
 		});
 	}
 	
 	@Test
 	public void testFindCustomerByCustomerName() {
-		CustomerEntity expectedCustomer = new CustomerEntity();
+		Customer expectedCustomer = new Customer();
 		expectedCustomer.setFirstName("John");
 		expectedCustomer.setLastName("Doe");
 		String customerName = expectedCustomer.getFirstName() + " " + expectedCustomer.getLastName();
 		Mockito.when(customerRepository.findCustomerByCustomerName(customerName)).thenReturn(expectedCustomer);
 		
-		CustomerEntity customer = customerService.findCustomerByCustomerName(customerName);
+		Customer customer = customerService.findCustomerByCustomerName(customerName);
 		
 		assertNotNull(customer);
 		assertSame(expectedCustomer, customer);

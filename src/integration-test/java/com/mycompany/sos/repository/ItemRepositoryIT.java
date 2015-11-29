@@ -6,7 +6,7 @@
 package com.mycompany.sos.repository;
 
 import com.mycompany.sos.IntegrationTestCategory;
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -45,7 +45,7 @@ public class ItemRepositoryIT {
      */
     @Test
     public void testGetItems() {
-        List<ItemEntity> items = itemRepository.getItems();
+        List<Item> items = itemRepository.getItems();
         assertTrue(!items.isEmpty());
         assertTrue(items.size() == 1);
         assertEquals("test-item", items.get(0).getItemName());

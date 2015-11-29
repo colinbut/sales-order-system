@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 
 import java.util.List;
 
@@ -23,12 +23,12 @@ public interface ItemRepository {
 	 * @param item the new item to add
 	 * @return true if successfully added false otherwise
 	 */
-	boolean addItem(ItemEntity item);
+	boolean addItem(Item item);
 	
 	/**
 	 * Retrieves a list of items
 	 * 
 	 * @return list of items
 	 */
-	List<ItemEntity> getItems();
+	List<Item> getItems();
 }

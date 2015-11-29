@@ -6,7 +6,7 @@
 package com.mycompany.sos.web;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import com.mycompany.sos.service.ItemService;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,8 +50,8 @@ public class ItemControllerTest {
 	
 	@Test
 	public void testCreateItem() {
-		Mockito.when(itemService.addItem(Matchers.any(ItemEntity.class))).thenReturn(true);
-		ModelAndView modelAndView = itemController.createItem(new ItemEntity(), 
+		Mockito.when(itemService.addItem(Matchers.any(Item.class))).thenReturn(true);
+		ModelAndView modelAndView = itemController.createItem(new Item(),
 				new DirectFieldBindingResult(null, null));
 		
 		assertNotNull(modelAndView);

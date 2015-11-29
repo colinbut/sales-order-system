@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.service;
 
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.ItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,15 +36,15 @@ public class ItemServiceImpl implements ItemService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean addItem(ItemEntity itemEntity) {
-		return itemRepository.addItem(itemEntity);
+	public boolean addItem(Item item) {
+		return itemRepository.addItem(item);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ItemEntity> getItems() {
+	public List<Item> getItems() {
 		logger.info("Retrieving items list from system");
 		return itemRepository.getItems();
 	}

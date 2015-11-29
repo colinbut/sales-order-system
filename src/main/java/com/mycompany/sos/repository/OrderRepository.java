@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.repository;
 
-import com.mycompany.sos.model.OrderEntity;
+import com.mycompany.sos.model.Order;
 
 import java.util.List;
 
@@ -22,13 +22,13 @@ public interface OrderRepository {
 	 * @param order the new order to add
 	 * @return true if successfully added false otherwise
 	 */
-	boolean addOrder(OrderEntity order);
+	boolean addOrder(Order order);
 	
 	/**
 	 * Gets a list of orders
 	 * 
 	 * @return list of orders
 	 */
-	List<OrderEntity> getOrders();
+	List<Order> getOrders();
 	
 }

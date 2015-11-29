@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.web;
 
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import com.mycompany.sos.service.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +44,7 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items", method = RequestMethod.GET)
 	public String showItemsList(ModelMap model) {
-		List<ItemEntity> items = itemService.getItems();
+		List<Item> items = itemService.getItems();
 		model.addAttribute("items", items);
 		return "items";
 	}
@@ -57,7 +57,7 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items/create", method = RequestMethod.GET)
 	public String showCreateItemPage(ModelMap modelMap) {
-		modelMap.addAttribute("createItemForm", new ItemEntity());
+		modelMap.addAttribute("createItemForm", new Item());
 		logger.info("Accessed Create Item page");
 		if(logger.isDebugEnabled()) {
 			logger.debug("Retrieved createItemForm");
@@ -74,7 +74,7 @@ public class ItemController {
 	 */
 	@RequestMapping(value = "/items/createItem", method = RequestMethod.POST)
 	public ModelAndView createItem(
-			@Valid @ModelAttribute("createItemForm") ItemEntity itemEntity,
+			@Valid @ModelAttribute("createItemForm") Item item,
 			BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -84,7 +84,7 @@ public class ItemController {
 			return modelAndView;
 		}
 		
-		if(itemService.addItem(itemEntity)) {
+		if(itemService.addItem(item)) {
 			logger.info("Successfully added item");
 			// should redirect back to items list page
 			modelAndView.setViewName("redirect:/items");

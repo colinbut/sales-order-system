@@ -6,7 +6,7 @@
 package com.mycompany.sos.service;
 
 import com.mycompany.sos.UnitTestCategory;
-import com.mycompany.sos.model.ItemEntity;
+import com.mycompany.sos.model.Item;
 import com.mycompany.sos.repository.ItemRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,17 +40,17 @@ public class ItemServiceImplTest {
 	
 	@Test
 	public void testAddItem() {
-		Mockito.when(itemRepository.addItem(Matchers.any(ItemEntity.class))).thenReturn(true);
-		boolean result = itemService.addItem(new ItemEntity());
+		Mockito.when(itemRepository.addItem(Matchers.any(Item.class))).thenReturn(true);
+		boolean result = itemService.addItem(new Item());
 		assertTrue(result);
 	}
 	
 	@Test
 	public void testGetItems() {
-		List<ItemEntity> itemEntities = new ArrayList<>();
-		itemEntities.add(new ItemEntity());
+		List<Item> itemEntities = new ArrayList<>();
+		itemEntities.add(new Item());
 		Mockito.when(itemRepository.getItems()).thenReturn(itemEntities);
-		List<ItemEntity> items = itemService.getItems();
+		List<Item> items = itemService.getItems();
 		assertFalse(items.isEmpty());
 	}
 }

@@ -5,7 +5,7 @@
  */
 package com.mycompany.sos.service;
 
-import com.mycompany.sos.model.CustomerEntity;
+import com.mycompany.sos.model.Customer;
 import com.mycompany.sos.repository.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,16 +37,16 @@ public class CustomerServiceImpl implements CustomerService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity addCustomer(CustomerEntity customerEntity) {		
-		logger.info("Adding new customer to system: " + customerEntity);
-		return customerRepository.addCustomer(customerEntity);
+	public Customer addCustomer(Customer customer) {
+		logger.info("Adding new customer to system: " + customer);
+		return customerRepository.addCustomer(customer);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<CustomerEntity> getCustomers() {
+	public List<Customer> getCustomers() {
 		logger.info("Retrieving customers list");
 		return customerRepository.getCustomers();
 	}
@@ -55,10 +55,10 @@ public class CustomerServiceImpl implements CustomerService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity findCustomerByCustomerName(String customerName) {
-		CustomerEntity customerEntity = customerRepository.findCustomerByCustomerName(customerName);
-		if(customerEntity != null) {
-			return customerEntity;
+	public Customer findCustomerByCustomerName(String customerName) {
+		Customer customer = customerRepository.findCustomerByCustomerName(customerName);
+		if(customer != null) {
+			return customer;
 		}
 		throw new RuntimeException("Unknown Customer with name: " + customerName);
 	}
@@ -67,11 +67,11 @@ public class CustomerServiceImpl implements CustomerService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public CustomerEntity findCustomerByCustomerId(int customerId) {
-		CustomerEntity customerEntity = customerRepository.findCustomerByCustomerId(customerId);
+	public Customer findCustomerByCustomerId(int customerId) {
+		Customer customer = customerRepository.findCustomerByCustomerId(customerId);
 		
-		if(customerEntity != null) {
-			return customerEntity;
+		if(customer != null) {
+			return customer;
 		}
 		throw new RuntimeException("Unknown Customer with id: " + customerId);
 		

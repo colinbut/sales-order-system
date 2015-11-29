@@ -5,7 +5,6 @@
  */
 package com.mycompany.sos.model;
 
-import org.hibernate.annotations.Loader;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@link CustomerEntity} class
+ * {@link Customer} class
  * 
  * Customer entity
  * 
@@ -29,7 +28,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "customer")
-public class CustomerEntity {
+public class Customer {
 
 	private int customerId;
 	
@@ -57,14 +56,14 @@ public class CustomerEntity {
 
 	// M : 1
 	@Valid
-	private AddressEntity address;
+	private Address address;
 	
 	// 1 : 1
 	@Valid
-	private CustomerPaymentDetailEntity customerPaymentDetail;
+	private CustomerPaymentDetail customerPaymentDetail;
 	
 	// 1 : M
-	private Set<OrderEntity> orders = new HashSet<>(0);
+	private Set<Order> orders = new HashSet<>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -117,35 +116,35 @@ public class CustomerEntity {
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "customer_address_id")
-	public AddressEntity getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 	
-	public void setAddress(AddressEntity address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "customer", cascade = {CascadeType.ALL})
-	public CustomerPaymentDetailEntity getCustomerPaymentDetail() {
+	public CustomerPaymentDetail getCustomerPaymentDetail() {
 		return customerPaymentDetail;
 	}
 
-	public void setCustomerPaymentDetail(CustomerPaymentDetailEntity customerPaymentDetail) {
+	public void setCustomerPaymentDetail(CustomerPaymentDetail customerPaymentDetail) {
 		this.customerPaymentDetail = customerPaymentDetail;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-	public Set<OrderEntity> getOrders() {
+	public Set<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Set<OrderEntity> orders) {
+	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
 
 	@Override
 	public String toString() {
-		return "CustomerEntity [customerId=" + customerId + ", firstName="
+		return "Customer [customerId=" + customerId + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", dateOfBirth="
 				+ dateOfBirth + ", email=" + email + ", address=" + address
 				+ ", customerPaymentDetail=" + customerPaymentDetail
