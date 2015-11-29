@@ -105,7 +105,7 @@ public class Customer {
 	}
 
 	@Lob
-	@Column(name = "customer_email_address", nullable = false)
+	@Column(name = "customer_email_address", nullable = false, columnDefinition = "TEXT")
 	public String getEmail() {
 		return email;
 	}
