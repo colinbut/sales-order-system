@@ -1,12 +1,13 @@
 # Sales Order System
 
-A very contrived sample of a web application using the following technologies
+A very small sample of a web application using the following technologies:
 
 ### Technology Stack
 
-* Spring Framework 
+* Spring Framework:
   * Spring Web MVC
-  * Spring Data JPA (to be introduced)
+  * Spring Data JPA
+  * Spring Test Context Framework
 * JPA
 * Hibernate ORM
 * JTA
@@ -22,6 +23,8 @@ A very contrived sample of a web application using the following technologies
 * JUnit
 * Mockito
 * Cucumber-JVM
+* Spring Test Context Framework - Integration Testing
+* HyperSQL embedded database
 
 ### Build
 
