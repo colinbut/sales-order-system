@@ -9,8 +9,8 @@ import com.mycompany.sos.model.Order;
 import com.mycompany.sos.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -40,6 +40,7 @@ public class OrderServiceImpl implements OrderService {
 	 * {@inheritDoc}
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public List<Order> getOrders() {
 		return orderRepository.findAll();
 	}
