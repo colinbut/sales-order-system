@@ -7,6 +7,7 @@ A very small sample of a web application using the following technologies:
 * Spring Framework:
   * Spring Web MVC
   * Spring Data JPA
+  * Spring Security
   * Spring Test Context Framework
 * JPA
 * Hibernate ORM

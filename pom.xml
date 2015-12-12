@@ -7,10 +7,11 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>SalesOrderSystem</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
+        <spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>
 		<servlet.version>3.1.0</servlet.version>
@@ -30,9 +31,9 @@
 		<h2.version>1.4.187</h2.version>
 		<derby.version>10.11.1.1</derby.version>
 	</properties>
-	
+
 	<dependencies>
-		
+
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -40,7 +41,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Mockito -->
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -66,13 +67,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-orm</artifactId>
     		<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -97,6 +98,19 @@
 			<version>1.9.1.RELEASE</version>
 		</dependency>
 
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
 
 		<!-- Java EE Servlet API -->
 		<dependency>
@@ -105,14 +119,14 @@
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		
+
 		<!-- Bean Validation -->
  	     <dependency>
             <groupId>javax.validation</groupId>
@@ -148,14 +162,14 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>${hibernate.c3po.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate Validator (Bean Validation RI) -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate.validator.version}</version>
 		</dependency>
-		
+
 
 		<!-- slf4j-log4j -->
 		<dependency>
@@ -164,14 +178,14 @@
 			<version>${slf4j-log4j12.version}</version>
 		</dependency>
 
-		
+
 		<!-- Dandelion DataTables -->
 		<dependency>
   			<groupId>com.github.dandelion</groupId>
   			<artifactId>datatables-jsp</artifactId>
   			<version>${dandelion.datatables.version}</version>
 		</dependency>
-		
+
 		<!-- Cucumber-JVM -->
 		<dependency>
 			<groupId>info.cukes</groupId>
