@@ -26,6 +26,14 @@
         <!-- customer details page -->
         <intercept-url pattern="/customers/{customerId}" access="ROLE_TEST_USER,ROLE_ADMIN" />
 
+        <form-login
+            login-page="/login"
+            default-target-url="/"
+            authentication-failure-url="/login?error"
+            username-parameter="username"
+            password-parameter="password"
+        />
+
     </http>
 
     <authentication-manager>
