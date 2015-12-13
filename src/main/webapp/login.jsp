@@ -1,7 +1,7 @@
 <%@ include file="meta.jsp" %>
 
     <!-- Custom styles for this template -->
-        <link href="<c:url value="/css/signin.css" />" rel="stylesheet">
+        <link href="<c:url value="/css/login.css" />" rel="stylesheet">
 
     <title>Login</title>
 
@@ -32,6 +32,7 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
       </form>
 
     </div> <!-- /container -->

@@ -34,6 +34,10 @@
             password-parameter="password"
         />
 
+        <logout logout-success-url="/login?logout" />
+
+        <csrf/>
+
     </http>
 
     <authentication-manager>

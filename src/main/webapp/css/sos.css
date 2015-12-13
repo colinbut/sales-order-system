@@ -16,6 +16,7 @@ body {
 
 #header h1 {
 	margin:0px;
+	float:left;
 }
 
 #navigation {
