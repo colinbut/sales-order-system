@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.controller;
@@ -22,11 +22,10 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 /**
  * {@link ItemControllerIntegrationTest} test class
- * 
+ *
  * @author colin
  *
  */
@@ -44,15 +43,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ItemControllerIntegrationTest {
 
 	private MockMvc mockMvc;
-		
+
 	@Autowired
 	private WebApplicationContext webApplicationContext;
-	
+
 	@Before
 	public void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
-	
+
 	@Test
 	public void testShowItemsList() throws Exception {
 		mockMvc.perform(get("/items"))

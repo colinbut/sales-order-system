@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.repository;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Integration test class for {@link ItemRepositoryImpl}
+ * Integration test class for {@link ItemRepository}
  *
  * @author colin
  */
@@ -45,7 +45,7 @@ public class ItemRepositoryIT {
      */
     @Test
     public void testGetItems() {
-        List<Item> items = itemRepository.getItems();
+        List<Item> items = itemRepository.findAll();
         assertTrue(!items.isEmpty());
         assertTrue(items.size() == 1);
         assertEquals("test-item", items.get(0).getItemName());
