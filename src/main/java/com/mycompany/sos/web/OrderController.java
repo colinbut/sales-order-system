@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.web;
@@ -30,69 +30,69 @@ import java.util.List;
 
 /**
  * {@link OrderController} class
- * 
+ *
  * @author colin
  */
 @Controller
 public class OrderController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
-	
+
 	@Autowired
 	@Qualifier("orderServiceImpl")
 	private OrderService orderService;
-	
+
 	@Autowired
 	@Qualifier("customerServiceImpl")
 	private CustomerService customerService;
-	
+
 	@Autowired
 	@Qualifier("itemServiceImpl")
 	private ItemService itemService;
-	
+
 	@Autowired
 	@Qualifier("orderFormValidator")
 	private OrderFormValidator orderFormValidator;
 
-	
+
 	/**
 	 * Shows the create order form page
-	 * 
+	 *
 	 * @param modelMap model
 	 * @return view name
 	 */
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
 	public String showCreateOrdersForm(ModelMap modelMap, @RequestParam("customerId") int customerId) {
-		
+
 		// get the customer
 		Customer customer = customerService.findCustomerByCustomerId(customerId);
 		Order order = new Order();
 		order.setCustomer(customer);
-		
+
 		// get list of all available items
 		List<Item> items = itemService.getItems();
-		
+
 		modelMap.addAttribute("createOrderForm", order);
 		modelMap.addAttribute("itemsList", items);
-		
-		return "orders-createOrder";
+
+		return "orders/orders-createOrder";
 	}
-	
+
 	/**
 	 * Handles the submission of orders creation
-	 * 
+	 *
 	 * @param createOrderForm the form backing object
 	 * @param result Spring Framework's binding result object
 	 * @return model and view
 	 */
 	@RequestMapping(value = "orders/createOrder", method = RequestMethod.POST)
 	public ModelAndView createOrder(@ModelAttribute("createOrderForm") Order order, BindingResult result) {
-		
+
 		ModelAndView modelAndView = new ModelAndView();
-		
+
 		// custom validation
 		orderFormValidator.validate(order, result);
-		
+
 		if(result.hasErrors()) {
 			modelAndView.setViewName("orders-createOrder");
 		} else {
@@ -101,13 +101,13 @@ public class OrderController {
 			}
 			// TODO: need to decide what to do in event of unsuccessful order creation
 		}
-		
+
 		return modelAndView;
 	}
-	
+
 	/**
 	 * Handles the orders list page
-	 * 
+	 *
 	 * @param modelMap model
 	 * @return view name
 	 */
@@ -115,7 +115,7 @@ public class OrderController {
 	public String listOrders(ModelMap modelMap) {
 		List<Order> orders = orderService.getOrders();
 		modelMap.addAttribute("orders", orders);
-		return "orders";
+		return "orders/orders";
 	}
-	
+
 }
