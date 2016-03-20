@@ -14,7 +14,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Item Price (�):</td>
+				<td>Item Price (&pound;):</td>
 				<td>
 					<form:input path="itemPrice"/>
 				</td>
