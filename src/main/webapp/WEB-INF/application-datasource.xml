@@ -13,17 +13,24 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!-- uncomment out for use with MySQL database -->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/sales_order_system" />
         <property name="username" value="root" />
         <property name="password" value="" />
-    </bean>
+    </bean> -->
 
-    <jdbc:initialize-database ignore-failures="DROPS">
+    <!--<jdbc:initialize-database ignore-failures="DROPS">
         <jdbc:script location="file:src/main/resources/scripts/db-drop-tables.sql"/>
         <jdbc:script location="file:src/main/resources/scripts/db-create.sql"/>
-    </jdbc:initialize-database>
+    </jdbc:initialize-database>-->
+
+    <!-- by default uses in-memory database HSQL -->
+    <jdbc:embedded-database id="dataSource" type="HSQL">
+        <jdbc:script location="file:src/integration-test/resources/scripts/create.sql" />
+        <jdbc:script location="file:src/integration-test/resources/scripts/insert.sql" />
+    </jdbc:embedded-database>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="com.mycompany.sos.entitymanager" />
@@ -48,7 +55,7 @@
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 
 </beans>
