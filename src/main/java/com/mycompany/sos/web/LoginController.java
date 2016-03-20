@@ -22,8 +22,8 @@ public class LoginController {
     /**
      * Shows the login page
      *
-     * @param error
-     * @return
+     * @param error if there is an error
+     * @return model and view
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * {@link CustomerDetailsController} class
  *
  * @author colin
- *
  */
 @Controller
 public class CustomerDetailsController {
@@ -30,7 +29,7 @@ public class CustomerDetailsController {
 	 * Displaying of the customer details page
 	 *
 	 * @param customerId id identifying the customer
-	 * @param model
+	 * @param model Spring's framework model object
 	 * @return view name
 	 */
 	@RequestMapping(value = "customers/{customerId}", method = RequestMethod.GET)

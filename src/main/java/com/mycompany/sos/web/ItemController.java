@@ -30,7 +30,7 @@ import java.util.List;
 @Controller
 public class ItemController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ItemController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ItemController.class);
 
 	@Autowired
 	private ItemService itemService;
@@ -52,23 +52,21 @@ public class ItemController {
 	/**
 	 * Shows the create item form page
 	 *
-	 * @param modelMap
+	 * @param modelMap Spring's framework model map object containing the model data
 	 * @return view name
 	 */
 	@RequestMapping(value = "/items/create", method = RequestMethod.GET)
 	public String showCreateItemPage(ModelMap modelMap) {
 		modelMap.addAttribute("createItemForm", new Item());
-		LOGGER.info("Accessed Create Item page");
-		if(LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Retrieved createItemForm");
-		}
+		logger.info("Accessed Create Item page");
+		logger.debug("Retrieved createItemForm");
 		return "items/items-create";
 	}
 
 	/**
 	 * Handles the create item form submit
 	 *
-	 * @param item the form backing object
+	 * @param item the item entity (used as the form backing object also)
 	 * @param result Spring's framework binding result object
 	 * @return model and view object
 	 */
@@ -85,11 +83,11 @@ public class ItemController {
 		}
 
 		if(itemService.addItem(item)) {
-			LOGGER.info("Successfully added item");
+			logger.info("Successfully added item");
 			// should redirect back to items list page
 			modelAndView.setViewName("redirect:/items");
 		} else {
-			LOGGER.warn("Unable to add item");
+			logger.warn("Unable to add item");
 		}
 
 		return modelAndView;

@@ -32,12 +32,11 @@ import java.util.List;
  * {@link CustomerController} class
  *
  * @author colin
- *
  */
 @Controller
 public class CustomerController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
 	@Autowired
 	@Qualifier("customerServiceImpl")
@@ -54,23 +53,21 @@ public class CustomerController {
 	/**
 	 * Shows the create customer form page
 	 *
-	 * @param modelMap
+	 * @param modelMap Spring's framework model map object containing the model data
 	 * @return view name
 	 */
 	@RequestMapping(value = "/customers/create", method = RequestMethod.GET)
 	public String showCreateCustomerFormPage(ModelMap modelMap) {
 		modelMap.addAttribute("createCustomerForm", new Customer());
-		LOGGER.info("Accessed Create Customer page");
-		if(LOGGER.isDebugEnabled()) {
-			LOGGER.debug("Retrieved createCustomerForm");
-		}
+		logger.info("Accessed Create Customer page");
+		logger.debug("Retrieved createCustomerForm");
 		return "customers/customers-createCustomer";
 	}
 
 	/**
 	 * Handles the create customer form submit
 	 *
-	 * @param createCustomerForm the form backing object
+	 * @param customer the customer entity (used as form backing object also)
 	 * @param result Spring's framework binding result object
 	 * @return model and view object
 	 */
@@ -86,19 +83,17 @@ public class CustomerController {
 			return modelAndView;
 		}
 
-		if(LOGGER.isDebugEnabled()) {
-			LOGGER.debug(customer.toString());
-		}
+		logger.debug(customer.toString());
 
 		customer.getCustomerPaymentDetail().setCustomer(customer);
 
-		customerService.addCustomer(customer);
-		if(customer != null) {
-			LOGGER.info("Successfully added customer");
+		Customer customerAdded = customerService.addCustomer(customer);
+		if(customerAdded != null) {
+			logger.info("Successfully added customer");
 			modelAndView.addObject("submittedCustomerForm", customer);
 			modelAndView.setViewName("redirect:/customers/" + customer.getCustomerId());
 		} else {
-			LOGGER.warn("Unable to add customer");
+			logger.warn("Unable to add customer");
 		}
 
 		return modelAndView;
@@ -107,17 +102,14 @@ public class CustomerController {
 	/**
 	 * Handles customers list page
 	 *
-	 * @param modelMap model
+	 * @param modelMap Spring's framework model map object containing the model data
 	 * @return view name
 	 */
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public String listCustomers(ModelMap modelMap) {
-
-		LOGGER.info("Fetching customers list");
-
+		logger.info("Fetching customers list");
 		List<Customer> customers = customerService.getCustomers();
 		modelMap.addAttribute("customers", customers);
-
 		return "customers/customers";
 	}
 }

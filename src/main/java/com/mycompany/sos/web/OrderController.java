@@ -36,7 +36,7 @@ import java.util.List;
 @Controller
 public class OrderController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
 	@Autowired
 	@Qualifier("orderServiceImpl")
@@ -58,7 +58,7 @@ public class OrderController {
 	/**
 	 * Shows the create order form page
 	 *
-	 * @param modelMap model
+	 * @param modelMap Spring's framework model map object containing the model data
 	 * @return view name
 	 */
 	@RequestMapping(value = "/orders/create", method=RequestMethod.GET)
@@ -81,7 +81,7 @@ public class OrderController {
 	/**
 	 * Handles the submission of orders creation
 	 *
-	 * @param createOrderForm the form backing object
+	 * @param order the order entity (also used as the form backing object)
 	 * @param result Spring Framework's binding result object
 	 * @return model and view
 	 */
@@ -94,7 +94,7 @@ public class OrderController {
 		orderFormValidator.validate(order, result);
 
 		if(result.hasErrors()) {
-			modelAndView.setViewName("orders-createOrder");
+			modelAndView.setViewName("orders/orders-createOrder");
 		} else {
 			if(orderService.addOrder(order)) {
 				modelAndView.setViewName("orders-createOrderSuccess");
