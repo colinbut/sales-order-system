@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.web;
@@ -23,22 +23,22 @@ import java.util.List;
 
 /**
  * {@link ItemController} class
- * 
+ *
  * @author colin
  *
  */
 @Controller
 public class ItemController {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(ItemController.class);
-	
+
 	@Autowired
 	private ItemService itemService;
-	
-	
+
+
 	/**
 	 * Shows the items list page
-	 * 
+	 *
 	 * @param model the model
 	 * @return view name
 	 */
@@ -46,12 +46,12 @@ public class ItemController {
 	public String showItemsList(ModelMap model) {
 		List<Item> items = itemService.getItems();
 		model.addAttribute("items", items);
-		return "items";
+		return "items/items";
 	}
-	
+
 	/**
 	 * Shows the create item form page
-	 * 
+	 *
 	 * @param modelMap
 	 * @return view name
 	 */
@@ -62,12 +62,12 @@ public class ItemController {
 		if(LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Retrieved createItemForm");
 		}
-		return "items-create";
+		return "items/items-create";
 	}
-	
+
 	/**
 	 * Handles the create item form submit
-	 * 
+	 *
 	 * @param item the form backing object
 	 * @param result Spring's framework binding result object
 	 * @return model and view object
@@ -76,14 +76,14 @@ public class ItemController {
 	public ModelAndView createItem(
 			@Valid @ModelAttribute("createItemForm") Item item,
 			BindingResult result) {
-		
+
 		ModelAndView modelAndView = new ModelAndView();
-		
+
 		if(result.hasErrors()) {
 			modelAndView.setViewName("items-create");
 			return modelAndView;
 		}
-		
+
 		if(itemService.addItem(item)) {
 			LOGGER.info("Successfully added item");
 			// should redirect back to items list page
@@ -91,7 +91,7 @@ public class ItemController {
 		} else {
 			LOGGER.warn("Unable to add item");
 		}
-		
+
 		return modelAndView;
 	}
 }

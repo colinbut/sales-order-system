@@ -1,4 +1,4 @@
-<%@ include file="meta.jsp" %>
+<%@ include file="/common/meta.jsp" %>
 
     <!-- Custom styles for this template -->
         <link href="<c:url value="/css/login.css" />" rel="stylesheet">
@@ -12,7 +12,7 @@
     <div class="container">
 
       <form name="loginForm" class="form-signin"
-      action="<c:url value='j_spring_security_check' />" method="POST">
+      action="<c:url value='/j_spring_security_check' />" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
 
         <c:if test="${not empty error}">

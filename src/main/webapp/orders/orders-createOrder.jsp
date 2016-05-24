@@ -1,5 +1,5 @@
-<%@ include file="taglibs.jsp" %>
-<jsp:include page="header.jsp"></jsp:include>
+<%@ include file="/common/taglibs.jsp" %>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <div class="content">
 	<h3>Create Order</h3>
 	<form:form method="POST" modelAttribute="createOrderForm" action="createOrder">
@@ -35,4 +35,4 @@
 		</table>
 	</form:form>
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="/common/footer.jsp"></jsp:include>

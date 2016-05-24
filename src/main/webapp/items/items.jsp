@@ -1,7 +1,7 @@
 <%@ taglib prefix="datatables" uri="http://github.com/dandelion/datatables" %>
-<%@ include file="taglibs.jsp" %>
-<jsp:include page="header.jsp"></jsp:include>
-<jsp:include page="nav.jsp"></jsp:include>
+<%@ include file="/common/taglibs.jsp" %>
+<jsp:include page="/common/header.jsp"></jsp:include>
+<jsp:include page="/common/nav.jsp"></jsp:include>
 <div class="content">
 	<br />
 	<button id="createItemsButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/items/create'">
@@ -22,4 +22,4 @@
 	
 </div>
 
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="/common/footer.jsp"></jsp:include>

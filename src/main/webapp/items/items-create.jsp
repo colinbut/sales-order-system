@@ -1,5 +1,5 @@
-<%@ include file="taglibs.jsp" %>
-<jsp:include page="header.jsp"></jsp:include>
+<%@ include file="/common/taglibs.jsp" %>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <div class="content">
 	<h3>Create Item</h3>
 	<form:form method="POST" modelAttribute="createItemForm" action="createItem">
@@ -14,7 +14,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Item Price (£):</td>
+				<td>Item Price (&pound;):</td>
 				<td>
 					<form:input path="itemPrice"/>
 				</td>
@@ -32,4 +32,4 @@
 		</table>
 	</form:form>
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="/common/footer.jsp"></jsp:include>
