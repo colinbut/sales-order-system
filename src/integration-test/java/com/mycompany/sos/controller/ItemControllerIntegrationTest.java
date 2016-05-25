@@ -57,6 +57,6 @@ public class ItemControllerIntegrationTest {
 		mockMvc.perform(get("/items"))
 				.andExpect(status().isOk())
 				.andExpect(model().attributeExists("items"))
-				.andExpect(view().name("items"));
+				.andExpect(view().name("items/items"));
 	}
 }

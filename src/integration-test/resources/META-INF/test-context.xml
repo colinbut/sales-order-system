@@ -4,12 +4,14 @@
 	   xmlns:mvc="http://www.springframework.org/schema/mvc"
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	   xmlns:tx="http://www.springframework.org/schema/tx"
 	   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<!--
 		This dispatcher servlet definition file contains definition for the
@@ -86,7 +88,8 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
 
-
+    <!-- Enabling scanning of Spring Data JPA repositories -->
+    <jpa:repositories base-package="com.mycompany.sos.repository" />
 
 
 </beans>
