@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 			//"file:src/main/webapp/WEB-INF/application-context.xml",
 			// "file:src/main/webapp/WEB-INF/application-datasource.xml",
 			//"file:src/main/webapp/WEB-INF/application-web.xml"
-			"file:src/main/webapp/WEB-INF/test-context.xml"
+			"file:src/integration-test/resources/META-INF/test-context.xml"
 		}
 )
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)

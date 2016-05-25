@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -36,8 +38,20 @@ public class ItemRepositoryIT {
     @Autowired
     private ItemRepository itemRepository;
 
+
+    @Test
     public void testAddItem() {
-        throw new UnsupportedOperationException("Not Yet Implemented");
+        Item item = new Item();
+        item.setItemName("New Item");
+        item.setItemPrice(BigDecimal.valueOf(12.00));
+        item.setOrders(Collections.emptySet());
+
+        itemRepository.save(item);
+
+        List<Item> items = itemRepository.findAll();
+
+        assertTrue(items.size() == 2);
+
     }
 
     /**
