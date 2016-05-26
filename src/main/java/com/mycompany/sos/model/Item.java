@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.model;
@@ -13,51 +13,50 @@ import java.util.Set;
 
 /**
  * {@link Item} class
- * 
- * Item entity
- * 
- * @author colin
  *
+ * Item entity
+ *
+ * @author colin
  */
 @Entity
 @Table(name = "items")
 public class Item {
 
 	private int itemId;
-	
+
 	@NotNull(message = "{error.null.itemName}")
 	private String itemName;
-	
+
 	@NotNull(message = "{error.null.itemPrice}")
 	private BigDecimal itemPrice;
-	
+
 	private Set<Order> orders = new HashSet<>();
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id")
 	public int getItemId() {
 		return itemId;
 	}
-	
+
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
-	
+
 	@Column(name = "item_name", nullable = false, length = 255)
 	public String getItemName() {
 		return itemName;
 	}
-	
+
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-		
+
 	@Column(name = "item_price", nullable = false)
 	public BigDecimal getItemPrice() {
 		return itemPrice;
 	}
-	
+
 	public void setItemPrice(BigDecimal itemPrice) {
 		this.itemPrice = itemPrice;
 	}
@@ -73,11 +72,8 @@ public class Item {
 
 	@Override
 	public String toString() {
-		
-		String toString = "Items [itemId=" + itemId + ", itemName=" + itemName
+		return "Items [itemId=" + itemId + ", itemName=" + itemName
 				+ ", itemPrice=" + itemPrice + "]";
-		
-		return itemName + " " + itemPrice;
 	}
-	
+
 }
