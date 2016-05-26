@@ -28,8 +28,8 @@
 
     <!-- by default uses in-memory database HSQL -->
     <jdbc:embedded-database id="dataSource" type="HSQL">
-        <jdbc:script location="file:src/integration-test/resources/scripts/create.sql" />
-        <jdbc:script location="file:src/integration-test/resources/scripts/insert.sql" />
+        <jdbc:script location="file:src/main/resources/scripts/hsql/create.sql" />
+        <jdbc:script location="file:src/main/resources/scripts/hsql/insert.sql" />
     </jdbc:embedded-database>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
