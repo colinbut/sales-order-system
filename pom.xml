@@ -12,7 +12,7 @@
         <module>e2e-test-automation</module>
     </modules>
 
-    
+
     <build>
         <pluginManagement>
             <plugins>

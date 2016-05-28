@@ -15,19 +15,53 @@
 
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <spring.version>4.1.6.RELEASE</spring.version>
+        <cucumberJava.version>1.2.3</cucumberJava.version>
+        <cucumberJunit.version>1.2.3</cucumberJunit.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>com.mycompany.sos</groupId>
             <artifactId>online-application</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <version>4.12</version>
         </dependency>
+
+        <!-- Cucumber-JVM -->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumberJava.version}</version>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>1.2.3</version>
+            <scope>test</scope>
+        </dependency> -->
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumberJunit.version}</version>
+        </dependency>
+
+
     </dependencies>
 </project>

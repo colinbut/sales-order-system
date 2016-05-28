@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
         <groupId>com.mycompany.sos</groupId>
         <artifactId>salesordersystem</artifactId>
@@ -30,9 +30,6 @@
 		<hibernate.validator.version>5.2.1.Final</hibernate.validator.version>
 		<slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
 		<dandelion.datatables.version>1.0.0</dandelion.datatables.version>
-		<cucumberJava.version>1.2.3</cucumberJava.version>
-		<cucumberJunit.version>1.2.3</cucumberJunit.version>
-
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<h2.version>1.4.187</h2.version>
 		<derby.version>10.11.1.1</derby.version>
@@ -199,27 +196,6 @@
   			<version>${dandelion.datatables.version}</version>
 		</dependency>
 
-		<!-- Cucumber-JVM -->
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>${cucumberJava.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- <dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java8</artifactId>
-			<version>1.2.3</version>
-			<scope>test</scope>
-		</dependency> -->
-
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>${cucumberJunit.version}</version>
-			<scope>test</scope>
-		</dependency>
 
 		<!-- HyperSQL DB -->
 		<dependency>

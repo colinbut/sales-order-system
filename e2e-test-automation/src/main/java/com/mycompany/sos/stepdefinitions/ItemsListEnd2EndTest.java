@@ -3,9 +3,9 @@
  * | Copyright © 2015 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.sos.e2e.stepdefinitions;
+package com.mycompany.sos.stepdefinitions;
 
-import com.mycompany.sos.e2e.End2EndCategory;
+import com.mycompany.sos.End2EndCategory;
 import com.mycompany.sos.web.ItemController;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
