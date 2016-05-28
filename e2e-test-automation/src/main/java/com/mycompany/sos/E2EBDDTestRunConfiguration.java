@@ -16,6 +16,6 @@ import org.junit.runner.RunWith;
  *
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, features = "src/e2e-test/resources/items-list.feature")
+@CucumberOptions(plugin = {"pretty"}, features = "src/main/resources/items-list.feature")
 public class E2EBDDTestRunConfiguration {
 }
