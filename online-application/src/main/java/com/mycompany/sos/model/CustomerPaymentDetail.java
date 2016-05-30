@@ -109,13 +109,12 @@ public class CustomerPaymentDetail {
         return paymentDetailsId == that.paymentDetailsId &&
             Objects.equals(customerReference, that.customerReference) &&
             Objects.equals(cardNo, that.cardNo) &&
-            Objects.equals(cardExpiryDate, that.cardExpiryDate) &&
-            Objects.equals(customer, that.customer);
+            Objects.equals(cardExpiryDate, that.cardExpiryDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(paymentDetailsId, customerReference, cardNo, cardExpiryDate, customer);
+        return Objects.hash(paymentDetailsId, customerReference, cardNo, cardExpiryDate);
     }
 
     @Override
