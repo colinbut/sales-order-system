@@ -157,13 +157,12 @@ public class Customer {
             Objects.equals(dateOfBirth, customer.dateOfBirth) &&
             Objects.equals(email, customer.email) &&
             Objects.equals(address, customer.address) &&
-            Objects.equals(customerPaymentDetail, customer.customerPaymentDetail) &&
-            Objects.equals(orders, customer.orders);
+            Objects.equals(customerPaymentDetail, customer.customerPaymentDetail);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, dateOfBirth, email, address, customerPaymentDetail, orders);
+        return Objects.hash(customerId, firstName, lastName, dateOfBirth, email, address, customerPaymentDetail);
     }
 
     @Override

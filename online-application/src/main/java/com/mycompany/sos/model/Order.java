@@ -68,20 +68,17 @@ public class Order {
             return false;
         }
         Order order = (Order) o;
-        return orderId == order.orderId &&
-            Objects.equals(customer, order.customer) &&
-            Objects.equals(items, order.items);
+        return orderId == order.orderId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, customer, items);
+        return Objects.hash(orderId);
     }
 
     @Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", customer=" + customer
-				+ ", items=" + items + "]";
+		return "Order [orderId=" + orderId + ", items=" + items + "]";
 	}
 
 }
