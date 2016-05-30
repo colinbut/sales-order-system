@@ -13,7 +13,7 @@
 										row="order">
 		<datatables:column title="Order No."><c:out value="${order_rowIndex}"></c:out></datatables:column>
 		<datatables:column title="Customer">${order.customer}</datatables:column>
-		<datatables:column title="Address">${order.address}</datatables:column>
+		<datatables:column title="Address">${order.customer.address}</datatables:column>
 	</datatables:table>
 	
 </div>
