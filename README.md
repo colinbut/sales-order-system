@@ -1,5 +1,14 @@
 # Sales Order System
 
+## Table of Contents
+
+* [Summary/Overview](#summary-overview)
+* [Team Members](#team-members)
+* [Project Demo](#project-demo)
+* [Technology/Tool Stack](#tech-tool)
+
+### <a name="summary-overview"></a>Summary/Overview
+
 This is a very small full-stack web application that is used as a sample and for pure demonstration purposes.
 
 #### High Level Architecture
@@ -33,7 +42,7 @@ Spring Framework's annotation support (component scanning) is done to do this ta
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
 
-### Technology Stack
+### <a name="tech-tool"></a>Technology/Tool Stack
 
 * Spring Framework:
   * Spring Web MVC
