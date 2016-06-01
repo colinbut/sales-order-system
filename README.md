@@ -68,7 +68,7 @@ The application enables login/logout feature which was implemented using the bas
 * MySQL
 * SLF4j/Log4j
 
-### Testing
+##### Testing
 
 * JUnit
 * Mockito
@@ -76,7 +76,7 @@ The application enables login/logout feature which was implemented using the bas
 * Spring Test Context Framework - Integration Testing
 * HyperSQL embedded database
 
-### Build
+##### Build
 
 * Maven
 
