@@ -4,6 +4,7 @@
 
 * [Summary](#summary)
 * [Technical Overview](#technical-overview)
+  * [High Level Architecture] (#high-level-architecture)
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 * [Technology/Tool Stack](#tech-tool)
@@ -14,7 +15,7 @@ This is a very small full-stack web application that is used as a sample and for
 
 ### <a name="technical-overview"></a>Technical Overview
 
-#### High Level Architecture
+#### <a name="high-level-architecture"></a>High Level Architecture
 
 The application is just a simplistic monolithic application built with several layers. In summary, back-end is written in Java which connects to a back-end in-memory relational database (HSQL). Can also connect to other relational databases (MySQL). Application is scafolded by Spring Framework. Model-View-Controller (MVC) architectural pattern is used to separate the front-end from the back-end. This is achieved by Spring Web MVC. This application would then be deployed on an embedded web container (Apache Tomcat).
 
