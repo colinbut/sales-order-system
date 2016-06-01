@@ -2,14 +2,17 @@
 
 ## Table of Contents
 
-* [Summary/Overview](#summary-overview)
+* [Summary](#summary)
+* [Technical Overview](#technical-overview)
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 * [Technology/Tool Stack](#tech-tool)
 
-### <a name="summary-overview"></a>Summary/Overview
+### <a name="summary"></a>Summary
 
 This is a very small full-stack web application that is used as a sample and for pure demonstration purposes.
+
+### <a name="technical-overview"></a>Technical Overview
 
 #### High Level Architecture
 
