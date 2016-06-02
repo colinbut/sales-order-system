@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Summary](#summary)
+* [Running Locally](#running-locally)
 * [Technical Overview](#technical-overview)
   * [High Level Architecture] (#high-level-architecture)
     * [Back End] (#back-end)  
@@ -17,6 +18,37 @@
 ### <a name="summary"></a>Summary
 
 This is a very small full-stack web application that is used as a sample and for pure demonstration purposes.
+
+### <a name="running-locally"></a>Running Locally
+
+1) Checkout code
+```
+git clone https://github.com/colinbut/sales-order-system.git
+```
+
+2) Do a local build
+```
+mvn clean package
+```
+
+... will compile the sources, package up the war file
+
+3) Run application
+```
+mvn tomcat7:run-war
+```
+
+uses maven tomcat7 plugin to run the application within an embedded Apache Tomcat web container
+
+once the application loaded, navigate to:
+
+```
+http://localhost:8080/online-application/login
+```
+
+using some sample credentials below:
+
+
 
 ### <a name="technical-overview"></a>Technical Overview
 
