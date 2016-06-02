@@ -4,6 +4,9 @@
 
 * [Summary](#summary)
 * [Running Locally](#running-locally)
+* [Running Unit Tests](#running-unit-tests)
+* [Running Integration Tests](#running-integration-tests)
+* [Running End2End Tests](#running-e2e-tests)
 * [Technical Overview](#technical-overview)
   * [High Level Architecture] (#high-level-architecture)
     * [Back End] (#back-end)  
@@ -48,7 +51,29 @@ http://localhost:8080/online-application/login
 
 using some sample credentials below:
 
+### <a name="running-unit-tests"></a>Running Unit Tests
 
+```
+mvn test
+```
+
+... this will run all unit test within the suite of tests
+
+or
+
+from your IDE, just navigate to the unit test class and click on the IDE's 'run' button
+
+### <a name="running-integration-tests"></a>Running Integration Tests
+
+```
+mvn verify
+```
+
+... this will run all integration test within the suite of tests. 
+
+or
+
+from your IDE, just navigate to the integration test class and click on the IDE's 'run' button
 
 ### <a name="technical-overview"></a>Technical Overview
 
