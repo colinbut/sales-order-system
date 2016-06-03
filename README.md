@@ -20,7 +20,7 @@
 
 ### <a name="summary"></a>Summary
 
-This is a very small full-stack web application that is used as a sample and for pure demonstration purposes.
+This is a very small full-stack web application that is used as a sample and is for pure demonstration purposes.
 
 ### <a name="running-locally"></a>Running Locally
 
@@ -94,11 +94,11 @@ The application is just a simplistic monolithic application built with several l
 
 The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this.  
 
-#### <a name="application-patterns"></a>SummaryApplication Patterns
+#### <a name="application-patterns"></a>Application Patterns
 
 ##### Transaction Script Pattern
 
-This application is very simple. It is a web application that currently provides basic CRUD operations. Everything operation view as a business transaction is executed down through various layers. Therefore, an anemic domain model is used as opposed to a pure object-oriented domain model. This is sufficient and ideal because at this moment there is not much (if any) complex business logic processing that is required.
+This application is very simple. It is a web application that currently provides basic CRUD operations. Everything operational is viewed as a business transaction which is executed down through the various layers. Therefore, an anemic domain model is used as opposed to a pure object-oriented domain model. This is sufficient and ideal because at this moment there is not much (if any) complex business logic processing that is required.
 
 ##### Service Layer Pattern
 
