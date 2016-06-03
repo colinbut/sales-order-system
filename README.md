@@ -85,7 +85,7 @@ The application is just a simplistic monolithic application built with several l
 
 The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this.  
 
-#### Application Patterns
+#### <a name="application-patterns"></a>SummaryApplication Patterns
 
 ##### Transaction Script Pattern
 
@@ -100,13 +100,19 @@ Defining the application's boundary and setting the available operations from th
 
 An object-oriented view of the data store underneath providing an extra layer of abstraction (Spring Data JPA) in front of the data access capabilities of the Data Mapper pattern. Object Relational Mapping framework (Hibernate) is used to achieve this effect of mapping the differences between relational database tables and the domain model. JPA's entity manager encapsulates the data access element (Data Access Object pattern).
 
-#### Declarative Programming
+#### <a name="declarative-programming"></a>Declarative Programming
 
 Spring Framework's annotation support (component scanning) is done to do this taking advantage of Spring Framework's core abilities - Dependency Injection provided by the Inversion of Control (IOC) container.
 
-#### Security issues
+#### <a name="security-issues"></a>Security issues
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
+
+### <a name="team-members"></a>Team Members
+
+Me
+
+### <a name="project-demo"></a>Project Demo
 
 ### <a name="tech-tool"></a>Technology/Tool Stack
 
