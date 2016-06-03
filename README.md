@@ -81,7 +81,16 @@ from your IDE, just navigate to the integration test class and click on the IDE'
 
 The application is just a simplistic monolithic application built with several layers. In summary, back-end is written in Java which connects to a back-end in-memory relational database (HSQL). Can also connect to other relational databases (MySQL). Application is scafolded by Spring Framework. Model-View-Controller (MVC) architectural pattern is used to separate the front-end from the back-end. This is achieved by Spring Web MVC. This application would then be deployed on an embedded web container (Apache Tomcat).
 
-##### <a name="front-end"></a>Front-end
+#### <a name="back-end"></a>Back End
+
+* The back-end is completely built using Java. 
+* It is bootstrapped by Spring Framework. 
+* Database is a RDBMS (Relational Database Management System) - default in memory-db (HSQL), MySQL supported too.
+* Spring Data JPA provides the Data Access Abstraction
+  * Persistence done using JPA (Hibernate the implementation) 
+* JSP serves front-end html content...
+
+##### <a name="front-end"></a>Front End
 
 The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this.  
 
@@ -113,6 +122,8 @@ The application enables login/logout feature which was implemented using the bas
 Me
 
 ### <a name="project-demo"></a>Project Demo
+
+[TBD]
 
 ### <a name="tech-tool"></a>Technology/Tool Stack
 
