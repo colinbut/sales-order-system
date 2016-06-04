@@ -127,31 +127,18 @@ Me
 
 ### <a name="tech-tool"></a>Technology/Tool Stack
 
-* Spring Framework:
-  * Spring Web MVC
-  * Spring Data JPA
-  * Spring Security
-  * Spring Test Context Framework
-* JPA
-* Hibernate ORM
-* JTA
-* Bean Validation
-* JSP/ JSTL
-* Bootstrap 3 - HTML, CSS, JS
-* Dandelion DataTables
-* MySQL
-* SLF4j/Log4j
+| Front End            | Back End        | Database        | Testing             | Other          |
+| -------------------- | --------------- |---------------- | ------------------- |--------------- |
+| HTML                 | Java 8          | HSQL (HyperSQL) | JUnit               | SLF4j - Log4j  |
+| CSS                  | Spring Core     | MySQL           | Mockito             | Maven          |
+| JS                   | Spring Web MVC  | SQL             | Cucumber-JVM        | Tomcat         |
+| Bootstrap            | Spring Data JPA |                 | Spring Test Context |                |
+| JSP                  | Spring Security |                 |                     |                |
+| JSTL                 | JPA - Hibernate |                 |                     |                |
+| Dandelion DataTables | JTA             |                 |                     |                |
+|                      | Bean Validation |                 |                     |                |
 
-##### Testing
 
-* JUnit
-* Mockito
-* Cucumber-JVM
-* Spring Test Context Framework - Integration Testing
-* HyperSQL embedded database
 
-##### Build
-
-* Maven
 
 
