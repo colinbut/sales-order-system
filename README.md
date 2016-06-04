@@ -128,7 +128,7 @@ Me
 ### <a name="tech-tool"></a>Technology/Tool Stack
 
 | Front End            | Back End        | Database        | Testing             | Other          |
-| -------------------- | --------------- |---------------- | ------------------- |--------------- |
+|:-------------------- |:--------------- |:--------------- |:------------------- |:-------------- |
 | HTML                 | Java 8          | HSQL (HyperSQL) | JUnit               | SLF4j - Log4j  |
 | CSS                  | Spring Core     | MySQL           | Mockito             | Maven          |
 | JS                   | Spring Web MVC  | SQL             | Cucumber-JVM        | Tomcat         |
