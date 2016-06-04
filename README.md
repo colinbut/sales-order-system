@@ -83,9 +83,11 @@ The application is just a simplistic monolithic application built with several l
 
 ##### <a name="back-end"></a>Back End
 
-* The back-end is completely built using Java. 
-* It is bootstrapped by Spring Framework. 
-* Database is a RDBMS (Relational Database Management System) - default in memory-db (HSQL), MySQL supported too.
+* The back-end is completely built using Java
+* It is bootstrapped by Spring Framework
+* Database is a RDBMS (Relational Database Management System):
+  * default in memory-db (HSQL)
+  * MySQL supported too
 * Spring Data JPA provides the Data Access Abstraction
   * Persistence done using JPA (Hibernate the implementation) 
 * JSP serves front-end html content...
