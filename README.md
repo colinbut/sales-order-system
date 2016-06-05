@@ -106,10 +106,33 @@ This application is very simple. It is a web application that currently provides
 
 Defining the application's boundary and setting the available operations from the perspective of interfacing client layers (front-end). It encapsulates the application's business logic, controlling transactions and coor-dinating responses in the implementation of its operations.
 
+e.g.
+
+```java
+@Service("itemServiceImpl")
+@Transactional
+public class ItemServiceImpl implements ItemService {
+
+	@Autowired
+	private ItemRepository itemRepository;
+		
+	...
+
+}
+```
 
 ##### Repository Pattern
 
 An object-oriented view of the data store underneath providing an extra layer of abstraction (Spring Data JPA) in front of the data access capabilities of the Data Mapper pattern. Object Relational Mapping framework (Hibernate) is used to achieve this effect of mapping the differences between relational database tables and the domain model. JPA's entity manager encapsulates the data access element (Data Access Object pattern).
+
+e.g. of a Spring Data JPA Repository
+
+```java
+@Repository
+public interface ItemRepository extends JpaRepository<Item, Integer> {
+
+}
+```
 
 #### <a name="declarative-programming"></a>Declarative Programming
 
