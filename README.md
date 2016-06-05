@@ -138,6 +138,29 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 
 Spring Framework's annotation support (component scanning) is done to do this taking advantage of Spring Framework's core abilities - Dependency Injection provided by the Inversion of Control (IOC) container.
 
+```java
+@Controller
+public class OrderController {
+
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+
+	@Autowired
+	@Qualifier("orderServiceImpl")
+	private OrderService orderService;
+
+	@Autowired
+	@Qualifier("customerServiceImpl")
+	private CustomerService customerService;
+
+	@Autowired
+	@Qualifier("itemServiceImpl")
+	private ItemService itemService;
+
+	@Autowired
+	@Qualifier("orderFormValidator")
+	private OrderFormValidator orderFormValidator;
+```
+
 #### <a name="security-issues"></a>Security issues
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
