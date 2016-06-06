@@ -165,6 +165,53 @@ public class OrderController {
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
 
+The following application-security.xml Spring configuration file shows key security configurations:
+
+```xml
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <http auto-config="true">
+
+        <!-- items -->
+        <intercept-url pattern="/items" access="ROLE_TEST_USER,ROLE_ADMIN" />
+        <intercept-url pattern="/items/create" access="ROLE_TEST_USER,ROLE_ADMIN" />
+        <intercept-url pattern="/items/createItem" access="ROLE_TEST_USER,ROLE_ADMIN" />
+
+        ....
+
+        <form-login
+            login-page="/login"
+            default-target-url="/customers"
+            authentication-failure-url="/login?error"
+            username-parameter="username"
+            password-parameter="password"
+        />
+
+        <logout logout-success-url="/login?logout" />
+
+        <csrf/>
+
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <!-- hard coding application user credentials - switch to DB or LDAP -->
+                <user name="testUser" password="password" authorities="ROLE_TEST_USER" />
+                <user name="admin" password="password" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>
+```
+
 ### <a name="team-members"></a>Team Members
 
 Me
