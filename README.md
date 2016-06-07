@@ -14,6 +14,9 @@
   * [Application Patterns] (#application-patterns)
   * [Declarative Programming] (#declarative-programming)
   * [Security Issues] (#security-issues)
+  * [Testing] (#Testing)
+  	* [Integration Testing] (#integration-testing)
+	* [End 2 End Testing] (#e2e-testing)
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 * [Technology/Tool Stack](#tech-tool)
@@ -211,10 +214,16 @@ The following application-security.xml Spring configuration file shows key secur
 
 </beans:beans>
 ```
+#### <a name="integration-testing"></a>Integration Testing
+
+#### <a name="end2end-testing"></a>End 2 End Testing
+
+End 2 End Testing (Acceptance Testing) is done using Cucumber-JVM. This is available under the test-automation sub module. The intent of this is to provide end to end automation of the full stack web application. Maybe, can integrate Selenium in the future which would allow automation of the web application on web browsers. But for now, cucumber tests are written in the back-end code. Acceptance criterias are written in the .feature files using the Gherkin language. This area needs improvement.
+Note that End 2 End testing for this project is still WIP.
 
 ### <a name="team-members"></a>Team Members
 
-Me
+ME 
 
 ### <a name="project-demo"></a>Project Demo
 
