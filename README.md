@@ -14,6 +14,9 @@
   * [Application Patterns] (#application-patterns)
   * [Declarative Programming] (#declarative-programming)
   * [Security Issues] (#security-issues)
+  * [Testing] (#testing)
+  	* [Integration Testing] (#integration-testing)
+	* [End 2 End Testing] (#e2e-testing)
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 * [Technology/Tool Stack](#tech-tool)
@@ -106,22 +109,123 @@ This application is very simple. It is a web application that currently provides
 
 Defining the application's boundary and setting the available operations from the perspective of interfacing client layers (front-end). It encapsulates the application's business logic, controlling transactions and coor-dinating responses in the implementation of its operations.
 
+e.g.
+
+```java
+@Service("itemServiceImpl")
+@Transactional
+public class ItemServiceImpl implements ItemService {
+
+	@Autowired
+	private ItemRepository itemRepository;
+		
+	...
+
+}
+```
 
 ##### Repository Pattern
 
 An object-oriented view of the data store underneath providing an extra layer of abstraction (Spring Data JPA) in front of the data access capabilities of the Data Mapper pattern. Object Relational Mapping framework (Hibernate) is used to achieve this effect of mapping the differences between relational database tables and the domain model. JPA's entity manager encapsulates the data access element (Data Access Object pattern).
 
+e.g. of a Spring Data JPA Repository
+
+```java
+@Repository
+public interface ItemRepository extends JpaRepository<Item, Integer> {
+
+}
+```
+
 #### <a name="declarative-programming"></a>Declarative Programming
 
 Spring Framework's annotation support (component scanning) is done to do this taking advantage of Spring Framework's core abilities - Dependency Injection provided by the Inversion of Control (IOC) container.
+
+```java
+@Controller
+public class OrderController {
+
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+
+	@Autowired
+	@Qualifier("orderServiceImpl")
+	private OrderService orderService;
+
+	@Autowired
+	@Qualifier("customerServiceImpl")
+	private CustomerService customerService;
+
+	@Autowired
+	@Qualifier("itemServiceImpl")
+	private ItemService itemService;
+
+	@Autowired
+	@Qualifier("orderFormValidator")
+	private OrderFormValidator orderFormValidator;
+```
 
 #### <a name="security-issues"></a>Security issues
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
 
+The following application-security.xml Spring configuration file shows key security configurations:
+
+```xml
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <http auto-config="true">
+
+        <!-- items -->
+        <intercept-url pattern="/items" access="ROLE_TEST_USER,ROLE_ADMIN" />
+        <intercept-url pattern="/items/create" access="ROLE_TEST_USER,ROLE_ADMIN" />
+        <intercept-url pattern="/items/createItem" access="ROLE_TEST_USER,ROLE_ADMIN" />
+
+        ....
+
+        <form-login
+            login-page="/login"
+            default-target-url="/customers"
+            authentication-failure-url="/login?error"
+            username-parameter="username"
+            password-parameter="password"
+        />
+
+        <logout logout-success-url="/login?logout" />
+
+        <csrf/>
+
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <!-- hard coding application user credentials - switch to DB or LDAP -->
+                <user name="testUser" password="password" authorities="ROLE_TEST_USER" />
+                <user name="admin" password="password" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>
+```
+#### <a name="testing"></a>Testing
+
+##### <a name="integration-testing"></a>Integration Testing
+
+##### <a name="e2e-testing"></a>End 2 End Testing
+
+End 2 End Testing (Acceptance Testing) is done using Cucumber-JVM. This is available under the test-automation sub module. The intent of this is to provide end to end automation of the full stack web application. Maybe, can integrate Selenium in the future which would allow automation of the web application on web browsers. But for now, cucumber tests are written in the back-end code. Acceptance criterias are written in the .feature files using the Gherkin language. This area needs improvement.
+Note that End 2 End testing for this project is still WIP.
+
 ### <a name="team-members"></a>Team Members
 
-Me
+ME 
 
 ### <a name="project-demo"></a>Project Demo
 
