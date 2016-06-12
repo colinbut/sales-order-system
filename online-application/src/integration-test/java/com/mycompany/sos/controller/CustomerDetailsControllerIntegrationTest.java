@@ -52,7 +52,7 @@ public class CustomerDetailsControllerIntegrationTest {
         mockMvc.perform(get("/customers/{customerId}", "1"))
             .andDo(print())
             .andExpect(status().isOk())
-            .andExpect(model().attributeExists("customer"))
+            .andExpect(model().attributeExists("custo"))
             .andExpect(view().name("customers/customerDetails"));
     }
 }
