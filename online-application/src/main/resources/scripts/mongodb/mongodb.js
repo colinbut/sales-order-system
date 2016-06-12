@@ -4,6 +4,8 @@ db.adminCommand('listDatatbases')
 
 printjson(db.getCollectionNames())
 
+db.customers.drop()
+
 db.customers.insert({
     firstname : 'firstname1',
     lastname : 'lastname1',
