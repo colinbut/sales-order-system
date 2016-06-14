@@ -6,6 +6,8 @@ printjson(db.getCollectionNames())
 
 db.customers.drop()
 
+db.createCollection("customers")
+
 db.customers.insertMany([
     {
         firstname : 'firstname1',
