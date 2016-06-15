@@ -47,7 +47,7 @@ public class ItemControllerIntegrationTest {
 	private WebApplicationContext webApplicationContext;
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 

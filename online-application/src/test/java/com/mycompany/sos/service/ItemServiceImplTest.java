@@ -37,7 +37,7 @@ public class ItemServiceImplTest {
 	private ItemService itemService = new ItemServiceImpl();
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 

@@ -40,7 +40,7 @@ public class CustomerServiceImplTest {
 	private CustomerService customerService = new CustomerServiceImpl();
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 

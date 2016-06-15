@@ -36,7 +36,7 @@ public class CustomerDetailsControllerTest {
 
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

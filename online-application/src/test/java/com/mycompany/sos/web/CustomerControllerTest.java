@@ -38,7 +38,7 @@ public class CustomerControllerTest {
     private CustomerController customerController = new CustomerController();
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

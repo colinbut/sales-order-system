@@ -34,7 +34,7 @@ public class OrderServiceImplTest {
 	private OrderService orderService = new OrderServiceImpl();
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 

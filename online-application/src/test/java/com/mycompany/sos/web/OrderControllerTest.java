@@ -55,7 +55,7 @@ public class OrderControllerTest {
     private OrderController orderController = new OrderController();
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

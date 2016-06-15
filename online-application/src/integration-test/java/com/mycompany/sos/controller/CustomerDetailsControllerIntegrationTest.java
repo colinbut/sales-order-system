@@ -43,7 +43,7 @@ public class CustomerDetailsControllerIntegrationTest {
     private WebApplicationContext webApplicationContext;
 
     @Before
-    public void setup() {
+    public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 

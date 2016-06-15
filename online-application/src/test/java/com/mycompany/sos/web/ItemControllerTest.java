@@ -37,7 +37,7 @@ public class ItemControllerTest {
 	private ItemController itemController = new ItemController();
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 
