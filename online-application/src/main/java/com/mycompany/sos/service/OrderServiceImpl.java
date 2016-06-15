@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.service;
@@ -15,11 +15,10 @@ import java.util.List;
 
 /**
  * {@link OrderServiceImpl} class
- * 
- * implementation of the {@link OrderService} interface 
- * 
- * @author colin
  *
+ * implementation of the {@link OrderService} interface
+ *
+ * @author colin
  */
 @Service("orderServiceImpl")
 @Transactional
@@ -27,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	private OrderRepository orderRepository;
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

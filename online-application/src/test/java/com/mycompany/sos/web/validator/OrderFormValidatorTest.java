@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.web.validator;
@@ -15,15 +15,14 @@ import org.springframework.validation.Errors;
 
 /**
  * {@link OrderFormValidatorTest} test class
- * 
- * @author colin
  *
+ * @author colin
  */
 @Category(UnitTestCategory.class)
 public class OrderFormValidatorTest {
 
 	private OrderFormValidator orderFormValidator = new OrderFormValidator();
-	
+
 	@Test
 	@Ignore
 	public void testValidate() {

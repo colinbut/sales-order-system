@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.service;
@@ -11,36 +11,39 @@ import com.mycompany.sos.repository.OrderRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
 
 /**
  * {@link OrderServiceImplTest} test class
- * 
- * @author colin
  *
+ * @author colin
  */
 @Category(UnitTestCategory.class)
 public class OrderServiceImplTest {
-	
+
 	@Mock
 	private OrderRepository orderRepository;
-	
+
 	@InjectMocks
 	private OrderService orderService = new OrderServiceImpl();
-	
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
 	public void testAddOrder() {
 		Order order = new Order();
 		Mockito.when(orderRepository.save(Matchers.any(Order.class))).thenReturn(order);
 		assertTrue(orderService.addOrder(order));
 	}
-	
-	
+
+
 }

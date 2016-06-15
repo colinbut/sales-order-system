@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.service;
@@ -18,21 +18,20 @@ import java.util.List;
 
 /**
  * {@link CustomerServiceImpl} class
- * 
- * implementation of the {@link CustomerService} interface
- * 
- * @author colin
  *
+ * implementation of the {@link CustomerService} interface
+ *
+ * @author colin
  */
 @Service("customerServiceImpl")
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
-	
+
 	@Autowired
 	private CustomerRepository customerRepository;
-		
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -72,12 +71,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Transactional(readOnly = true)
 	public Customer findCustomerByCustomerId(int customerId) {
 		Customer customer = customerRepository.findOne(customerId);
-		
+
 		if(customer != null) {
 			return customer;
 		}
 		throw new RuntimeException("Unknown Customer with id: " + customerId);
-		
+
 	}
 
 }

@@ -25,7 +25,6 @@ import java.util.List;
  * {@link ItemController} class
  *
  * @author colin
- *
  */
 @Controller
 public class ItemController {

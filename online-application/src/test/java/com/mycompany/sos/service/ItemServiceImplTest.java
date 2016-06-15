@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.service;
@@ -11,7 +11,11 @@ import com.mycompany.sos.repository.ItemRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,31 +24,30 @@ import static org.junit.Assert.*;
 
 /**
  * {@link ItemServiceImplTest} test class
- * 
- * @author colin
  *
+ * @author colin
  */
 @Category(UnitTestCategory.class)
 public class ItemServiceImplTest {
 
 	@Mock
 	private ItemRepository itemRepository;
-	
+
 	@InjectMocks
 	private ItemService itemService = new ItemServiceImpl();
-	
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
 	public void testAddItem() {
 		Mockito.when(itemRepository.save(Matchers.any(Item.class))).thenReturn(new Item());
 		boolean result = itemService.addItem(new Item());
 		assertTrue(result);
 	}
-	
+
 	@Test
 	public void testGetItems() {
 		List<Item> itemEntities = new ArrayList<>();

@@ -16,7 +16,6 @@ import static org.junit.Assert.assertEquals;
  * {@link LoginControllerTest} test class
  *
  * @author colin
- *
  */
 @Category(UnitTestCategory.class)
 public class LoginControllerTest {

@@ -1,6 +1,6 @@
 /*
  * |-------------------------------------------------
- * | Copyright © 2015 Colin But. All rights reserved. 
+ * | Copyright © 2015 Colin But. All rights reserved.
  * |-------------------------------------------------
  */
 package com.mycompany.sos.web.validator;
@@ -15,9 +15,8 @@ import org.springframework.validation.Validator;
 
 /**
  * {@link OrderFormValidator} class
- * 
- * @author colin
  *
+ * @author colin
  */
 @Component("orderFormValidator")
 public class OrderFormValidator implements Validator{
@@ -32,9 +31,9 @@ public class OrderFormValidator implements Validator{
 
 	@Override
 	public void validate(Object object, Errors errors) {
-		
+
 		Order order = (Order) object;
-		
+
 		String customer = order.getCustomer().toString();
 
 		LOGGER.debug(customer);
