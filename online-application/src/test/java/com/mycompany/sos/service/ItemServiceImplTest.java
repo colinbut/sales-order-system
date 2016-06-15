@@ -20,7 +20,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * {@link ItemServiceImplTest} test class
@@ -44,16 +44,17 @@ public class ItemServiceImplTest {
 	@Test
 	public void testAddItem() {
 		Mockito.when(itemRepository.save(Matchers.any(Item.class))).thenReturn(new Item());
-		boolean result = itemService.addItem(new Item());
-		assertTrue(result);
+		assertThat(itemService.addItem(new Item())).isTrue();
 	}
 
 	@Test
 	public void testGetItems() {
 		List<Item> itemEntities = new ArrayList<>();
 		itemEntities.add(new Item());
+
 		Mockito.when(itemRepository.findAll()).thenReturn(itemEntities);
-		List<Item> items = itemService.getItems();
-		assertFalse(items.isEmpty());
+
+        List<Item> items = itemService.getItems();
+		assertThat(items).isNotEmpty();
 	}
 }

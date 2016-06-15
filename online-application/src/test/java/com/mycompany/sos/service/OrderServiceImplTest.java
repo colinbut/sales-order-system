@@ -17,7 +17,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * {@link OrderServiceImplTest} test class
@@ -42,7 +42,7 @@ public class OrderServiceImplTest {
 	public void testAddOrder() {
 		Order order = new Order();
 		Mockito.when(orderRepository.save(Matchers.any(Order.class))).thenReturn(order);
-		assertTrue(orderService.addOrder(order));
+		assertThat(orderService.addOrder(order)).isTrue();
 	}
 
 
