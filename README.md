@@ -238,7 +238,7 @@ ME
 | HTML                 | Java 8          | HSQL (HyperSQL) | JUnit               | SLF4j - Log4j  |
 | CSS                  | Spring Core     | MySQL           | Mockito             | Maven          |
 | JS                   | Spring Web MVC  | SQL             | Cucumber-JVM        | Tomcat         |
-| Bootstrap            | Spring Data JPA |                 | Spring Test Context |                |
+| Bootstrap            | Spring Data JPA |                 | Spring Test Context | SonarQube      |
 | JSP                  | Spring Security |                 |                     |                |
 | JSTL                 | JPA - Hibernate |                 |                     |                |
 | Dandelion DataTables | JTA             |                 |                     |                |
