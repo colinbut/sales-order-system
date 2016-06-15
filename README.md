@@ -236,10 +236,10 @@ ME
 | Front End            | Back End        | Database        | Testing             | Other          |
 |:-------------------- |:--------------- |:--------------- |:------------------- |:-------------- |
 | HTML                 | Java 8          | HSQL (HyperSQL) | JUnit               | SLF4j - Log4j  |
-| CSS                  | Spring Core     | MySQL           | Mockito             | Maven          |
-| JS                   | Spring Web MVC  | SQL             | Cucumber-JVM        | Tomcat         |
-| Bootstrap            | Spring Data JPA |                 | Spring Test Context | SonarQube      |
-| JSP                  | Spring Security |                 |                     |                |
+| CSS                  | Spring Core     | MySQL           | AssertJ             | Maven          |
+| JS                   | Spring Web MVC  | MongoDB         | Mockito             | Tomcat         |
+| Bootstrap            | Spring Data JPA |                 | Cucumber-JV	 | SonarQube      |
+| JSP                  | Spring Security |                 | Spring Test Context |                |
 | JSTL                 | JPA - Hibernate |                 |                     |                |
 | Dandelion DataTables | JTA             |                 |                     |                |
 |                      | Bean Validation |                 |                     |                |
