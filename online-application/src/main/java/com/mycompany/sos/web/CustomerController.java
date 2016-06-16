@@ -79,7 +79,7 @@ public class CustomerController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		if(result.hasErrors()) {
-			modelAndView.setViewName("customers-createCustomer");
+			modelAndView.setViewName("customers/customers-createCustomer");
 			return modelAndView;
 		}
 
