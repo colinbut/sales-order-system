@@ -17,8 +17,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
+        <spring.data.version>1.9.1.RELEASE</spring.data.version>
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<junit.version>4.12</junit.version>
+        <assertj.version>3.4.1</assertj.version> <!-- use 2.4.1 for Java 7 projects -->
 		<mockito.version>1.10.19</mockito.version>
 		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
@@ -33,6 +35,7 @@
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<h2.version>1.4.187</h2.version>
 		<derby.version>10.11.1.1</derby.version>
+        <lombok.version>1.16.8</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -48,8 +51,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <!-- use 2.4.1 for Java 7 projects -->
-            <version>3.4.1</version>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -106,7 +108,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.9.1.RELEASE</version>
+			<version>${spring.data.version}</version>
 		</dependency>
 
         <!-- Spring Security -->
@@ -229,7 +231,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.8</version>
+            <version>${lombok.version}</version>
             <!--<scope>provided</scope>-->
         </dependency>
 
