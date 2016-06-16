@@ -43,12 +43,12 @@ public class ItemControllerTest {
 
 	@Test
 	public void testShowItemsList() {
-		assertEquals("items", itemController.showItemsList(new ModelMap()));
+		assertEquals("items/items", itemController.showItemsList(new ModelMap()));
 	}
 
 	@Test
 	public void testShowCreateItemPage() {
-		assertEquals("items-create", itemController.showCreateItemPage(new ModelMap()));
+		assertEquals("items/items-create", itemController.showCreateItemPage(new ModelMap()));
 	}
 
 	@Test

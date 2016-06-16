@@ -25,6 +25,6 @@ public class LoginControllerTest {
     @Test
     public void testLogin() {
         ModelAndView modelAndView = loginController.login(null,null);
-        assertEquals("login", modelAndView.getViewName());
+        assertEquals("login/login", modelAndView.getViewName());
     }
 }
