@@ -5,6 +5,12 @@
  */
 package com.mycompany.sos.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +23,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -29,66 +34,27 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(exclude = {"customer", "items"})
+@ToString(exclude = "customer")
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
 	private int orderId;
-	private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "customer_id", nullable = false) private Customer customer;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "orders_items",
+        joinColumns = { @JoinColumn(name = "order_id", nullable = false, updatable = false)},
+        inverseJoinColumns = { @JoinColumn(name = "item_id", nullable = false, updatable = false)}
+    )
 	private Set<Item> items = new HashSet<>(0);
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "order_id")
-	public int getOrderId() {
-		return orderId;
-	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "customer_id", nullable = false)
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "orders_items",
-		joinColumns = { @JoinColumn(name = "order_id", nullable = false, updatable = false)},
-		inverseJoinColumns = { @JoinColumn(name = "item_id", nullable = false, updatable = false)}
-			)
-	public Set<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(Set<Item> items) {
-		this.items = items;
-	}
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Order order = (Order) o;
-        return orderId == order.orderId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(orderId);
-    }
-
-    @Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", items=" + items + "]";
-	}
 
 }

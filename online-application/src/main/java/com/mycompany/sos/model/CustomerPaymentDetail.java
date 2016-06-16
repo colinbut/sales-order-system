@@ -5,6 +5,11 @@
  */
 package com.mycompany.sos.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,7 +29,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * {@link CustomerPaymentDetail} class
@@ -35,14 +39,23 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "customer_payment_details")
+@Getter
+@Setter
+@ToString(exclude = "customer")
+@EqualsAndHashCode(exclude = "customer")
+@NoArgsConstructor
 public class CustomerPaymentDetail {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_payment_details_id")
 	private int paymentDetailsId;
 
 	@NotNull(message = "{error.null.customerReference}")
 	@NotBlank(message = "{error.blank.customerReference}")
 	@NotEmpty(message = "{error.empty.customerReference}")
 	@Size(min = 1, max = 20, message = "{error.size.customerReference}")
+    @Column(name = "customer_reference", nullable = false, length = 255)
 	private String customerReference;
 
 	@NotNull(message = "{error.null.cardNo}")
@@ -50,89 +63,17 @@ public class CustomerPaymentDetail {
 	@NotEmpty(message = "{error.empty.cardNo}")
 	@Size(max = 16, min = 16, message = "{error.invalid.size.cardNo}")
 	@Pattern(regexp = "[0-9]*", message = "{error.invalid.cardNo}")
+    @Column(name = "customer_card_number", nullable = false, length = 16)
 	private String cardNo;
 
 	@NotNull(message = "{error.null.expDate}")
 	@Future(message = "{error.future.expDate}")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "customer_card_expiry_date", nullable = false, length = 5)
 	private Date cardExpiryDate;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
 	private Customer customer;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "customer_payment_details_id")
-	public int getPaymentDetailsId() {
-		return paymentDetailsId;
-	}
-
-	public void setPaymentDetailsId(int paymentDetailsId) {
-		this.paymentDetailsId = paymentDetailsId;
-	}
-
-	@Column(name = "customer_reference", nullable = false, length = 255)
-	public String getCustomerReference() {
-		return customerReference;
-	}
-
-	public void setCustomerReference(String customerReference) {
-		this.customerReference = customerReference;
-	}
-
-	@Column(name = "customer_card_number", nullable = false, length = 16)
-	public String getCardNo() {
-		return cardNo;
-	}
-
-	public void setCardNo(String cardNo) {
-		this.cardNo = cardNo;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "customer_card_expiry_date", nullable = false, length = 5)
-	public Date getCardExpiryDate() {
-		return cardExpiryDate;
-	}
-
-	public void setCardExpiryDate(Date cardExpiryDate) {
-		this.cardExpiryDate = cardExpiryDate;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "customer_id", nullable = false)
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        CustomerPaymentDetail that = (CustomerPaymentDetail) o;
-        return paymentDetailsId == that.paymentDetailsId &&
-            Objects.equals(customerReference, that.customerReference) &&
-            Objects.equals(cardNo, that.cardNo) &&
-            Objects.equals(cardExpiryDate, that.cardExpiryDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentDetailsId, customerReference, cardNo, cardExpiryDate);
-    }
-
-    @Override
-	public String toString() {
-		return "CustomerPaymentDetails [paymentDetailsId=" + paymentDetailsId
-				+ ", customerReference=" + customerReference + ", cardNo="
-				+ cardNo + ", cardExpiryDate=" + cardExpiryDate + "]";
-	}
-
 
 }
