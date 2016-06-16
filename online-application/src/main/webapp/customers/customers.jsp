@@ -4,7 +4,7 @@
 <jsp:include page="/common/nav.jsp"></jsp:include>
 <div class="content">
 	<br />
-	<button id="createCustomerButton" onclick="location.href='http://localhost:8080/SalesOrderSystem/customers/create'">
+	<button id="createCustomerButton" onclick="location.href='http://localhost:8080/online-application/customers/create'">
 		Create Customer
 	</button>
 	<br />
