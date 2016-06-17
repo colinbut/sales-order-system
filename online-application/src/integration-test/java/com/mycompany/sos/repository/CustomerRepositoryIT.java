@@ -43,33 +43,30 @@ public class CustomerRepositoryIT {
 
     @Test
     public void testAddCustomer() {
-        customerRepository.save(getTestCustomer());
+        customerRepository.saveAndFlush(getTestCustomer());
         List<Customer> customers = customerRepository.findAll();
-        assertTrue(customers.size() == 1);
+        assertTrue(customers.size() == 2);
     }
 
     @Test
     public void testFindByFirstNameAndLastName() {
-        customerRepository.save(getTestCustomer());
-        Customer customer = customerRepository.findByFirstNameAndLastName("Joe", "Bloggs");
+        Customer customer = customerRepository.findByFirstNameAndLastName("firstname1", "lastname1");
         assertNotNull(customer);
-        assertEquals("joe.bloggs@hotmail.co.uk", customer.getEmail());
+        assertEquals("firstname1.lastname1@email.com", customer.getEmail());
     }
 
 
     @Test
     public void testGetCustomers() {
-        customerRepository.save(getTestCustomer());
         List<Customer> customers = customerRepository.findAll();
         assertTrue(customers.size() == 1);
     }
 
     @Test
     public void testFindCustomerById() {
-        customerRepository.save(getTestCustomer());
         Customer customer = customerRepository.findOne(1);
         assertNotNull(customer);
-        assertEquals("Joe", customer.getFirstName());
+        assertEquals("firstname1", customer.getFirstName());
     }
 
     private Customer getTestCustomer() {
@@ -84,6 +81,7 @@ public class CustomerRepositoryIT {
         address.setCity("City");
         address.setCountry("Country");
         address.setHouseFlatNo(12);
+        address.setPostCode("HG34HY");
 
         customer.setAddress(address);
 
