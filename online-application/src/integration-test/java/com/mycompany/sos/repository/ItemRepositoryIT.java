@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -56,15 +57,16 @@ public class ItemRepositoryIT {
 
     /**
      * Test the getting of items
+     * //TODO fix this test (too many asserts)
      */
     @Test
     public void testGetItems() {
         List<Item> items = itemRepository.findAll();
         assertTrue(!items.isEmpty());
         assertTrue(items.size() == 1);
-        assertEquals("test-item", items.get(0).getItemName());
+        assertEquals("test-item1", items.get(0).getItemName());
         assertEquals(23.20, items.get(0).getItemPrice().doubleValue(), 1);
         assertEquals(1, items.get(0).getItemId());
-        assertTrue(items.get(0).getOrders().isEmpty());
+        assertFalse(items.get(0).getOrders().isEmpty());
     }
 }
