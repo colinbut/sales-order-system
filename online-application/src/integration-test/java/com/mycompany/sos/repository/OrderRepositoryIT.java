@@ -17,6 +17,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -39,38 +40,38 @@ public class OrderRepositoryIT {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    @Autowired
+    private ItemRepository itemRepository;
+
     @Test
     public void testGetOrders() {
-        orderRepository.save(buildTestOrder());
         List<Order> orders = orderRepository.findAll();
         assertTrue(orders.size() == 1);
     }
 
     @Test
     public void testAddOrders() {
-        orderRepository.save(buildTestOrder());
+        orderRepository.saveAndFlush(buildTestOrder());
         List<Order> orders = orderRepository.findAll();
-        assertTrue(orders.size() == 1);
+        assertTrue(orders.size() == 2); // because there's already 1 order setup by the sql script...
     }
 
     private Order buildTestOrder() {
         Order order = new Order();
-        Customer customer = new Customer();
-        customer.setFirstName("Johnny");
-        customer.setLastName("Rainbow");
-        customer.setDateOfBirth(new Date());
-        customer.setEmail("johnny.rainbow@hotmail.co.uk");
 
+        Customer customer = customerRepository.findOne(1);
         order.setCustomer(customer);
 
-        Item item = new Item();
-        item.setItemName("Item1");
-        item.setItemPrice(BigDecimal.valueOf(2.3));
-
-        Set<Item> items = new HashSet<>();
-        items.add(item);
-
+        Set<Item> items = new HashSet<>(itemRepository.findAll()); // should be one
         order.setItems(items);
+
+        Set<Order> orders = new HashSet<>();
+        orders.add(order);
+        customer.setOrders(orders);
+
         return order;
     }
 }
