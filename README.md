@@ -82,6 +82,10 @@ or
 
 from your IDE, just navigate to the integration test class and click on the IDE's 'run' button
 
+#### <a name="running-e2e-tests"></a>Running End2End Tests
+
+[TBD]
+
 #### <a name="code-quality-analysis"></a>Sonar - Code Quality Analysis
 
 Use Sonar (SonarQube) to run code quality analysis on the project. A sonar-project.properties file provided.
@@ -269,6 +273,8 @@ The following application-security.xml Spring configuration file shows key secur
 #### <a name="testing"></a>Testing
 
 ##### <a name="integration-testing"></a>Integration Testing
+
+[TBD]
 
 ##### <a name="e2e-testing"></a>End 2 End Testing
 
