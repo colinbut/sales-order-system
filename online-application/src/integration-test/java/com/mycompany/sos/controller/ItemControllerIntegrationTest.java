@@ -58,4 +58,12 @@ public class ItemControllerIntegrationTest {
 				.andExpect(model().attributeExists("items"))
 				.andExpect(view().name("items/items"));
 	}
+
+    @Test
+    public void testShowCreateItemPage() throws Exception {
+        mockMvc.perform(get("/items/create"))
+            .andExpect(status().isOk())
+            .andExpect(model().attributeExists("createItemForm"))
+            .andExpect(view().name("items/items-create"));
+    }
 }
