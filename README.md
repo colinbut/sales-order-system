@@ -3,10 +3,12 @@
 ## Table of Contents
 
 * [Summary](#summary)
-* [Running Locally](#running-locally)
-* [Running Unit Tests](#running-unit-tests)
-* [Running Integration Tests](#running-integration-tests)
-* [Running End2End Tests](#running-e2e-tests)
+* [Development](#development)
+	* [Running Locally](#running-locally)
+	* [Running Unit Tests](#running-unit-tests)
+	* [Running Integration Tests](#running-integration-tests)
+	* [Running End2End Tests](#running-e2e-tests)
+	* [Code Quality Analysis - SonarQube](#code-quality-analysis)
 * [Technical Overview](#technical-overview)
   * [High Level Architecture] (#high-level-architecture)
     * [Back End] (#back-end)  
@@ -25,7 +27,9 @@
 
 This is a very small full-stack web application that is used as a sample and is for pure demonstration purposes.
 
-### <a name="running-locally"></a>Running Locally
+### <a name="development"></a>Development
+
+#### <a name="running-locally"></a>Running Locally
 
 1) Checkout code
 ```
@@ -54,7 +58,7 @@ http://localhost:8080/online-application/login
 
 using some sample credentials below:
 
-### <a name="running-unit-tests"></a>Running Unit Tests
+#### <a name="running-unit-tests"></a>Running Unit Tests
 
 ```
 mvn test
@@ -66,7 +70,7 @@ or
 
 from your IDE, just navigate to the unit test class and click on the IDE's 'run' button
 
-### <a name="running-integration-tests"></a>Running Integration Tests
+#### <a name="running-integration-tests"></a>Running Integration Tests
 
 ```
 mvn verify
@@ -77,6 +81,20 @@ mvn verify
 or
 
 from your IDE, just navigate to the integration test class and click on the IDE's 'run' button
+
+#### <a name="code-quality-analysis"></a>Sonar - Code Quality Analysis
+
+Use Sonar (SonarQube) to run code quality analysis on the project. A sonar-project.properties file provided.
+Will need SonarQube server and Sonar Runner so need to download them both from the SonarQube website and follow the installation instructions. 
+
+Assuming Sonar is installed (with Sonar Runner on the environment path), on CLI run:
+
+1. Start the SonarQube Server
+2. Navigate to project root directory and execute:
+
+```
+sonar-runner
+```
 
 ### <a name="technical-overview"></a>Technical Overview
 
