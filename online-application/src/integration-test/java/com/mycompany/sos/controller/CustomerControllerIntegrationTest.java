@@ -47,6 +47,14 @@ public class CustomerControllerIntegrationTest {
     }
 
     @Test
+    public void testShowCreateCustomerFormPage() throws Exception {
+        mockMvc.perform(get("/customers/create"))
+            .andExpect(status().isOk())
+            .andExpect(model().attributeExists("createCustomerForm"))
+            .andExpect(view().name("customers/customers-createCustomer"));
+    }
+
+    @Test
     public void testListCustomers() throws Exception {
         mockMvc.perform(get("/customers"))
             .andExpect(status().isOk())
