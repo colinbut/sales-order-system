@@ -164,6 +164,40 @@ public class OrderController {
 	private OrderFormValidator orderFormValidator;
 ```
 
+Another example from the Customer model object:
+
+```java
+@Entity
+@Table(name = "customer")
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode(exclude = "orders")
+@ToString
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
+    private int customerId;
+
+	@NotNull(message = "{error.null.firstname}")
+	@NotBlank(message = "{error.blank.firstname}")
+	@NotEmpty(message = "{error.empty.firstname}")
+	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.firstname}")
+    @Column(name = "customer_firstname", nullable = false, length = 50)
+	private String firstName;
+
+	@NotNull(message = "{error.null.lastname}")
+	@NotBlank(message = "{error.blank.lastname}")
+	@NotEmpty(message = "{error.empty.lastname}")
+	@Pattern(regexp = "[a-zA-Z]*", message = "{error.invalid.lastname}")
+    @Column(name = "customer_lastname", nullable = false, length = 50)
+	private String lastName;
+```
+
+Lombok Project used to generate getters/setters/toString/equals and hashcode to remove the boilerplate code
+
 #### <a name="security-issues"></a>Security issues
 
 The application enables login/logout feature which was implemented using the basic features of the Spring Security module of the Spring Framework. 
