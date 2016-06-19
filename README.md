@@ -9,6 +9,7 @@
 	* [Running Integration Tests](#running-integration-tests)
 	* [Running End2End Tests](#running-e2e-tests)
 	* [Code Quality Analysis - SonarQube](#code-quality-analysis)
+	* [Running with MongoDB](#running-with-mongodb)
 * [Technical Overview](#technical-overview)
   * [High Level Architecture] (#high-level-architecture)
     * [Back End] (#back-end)  
@@ -98,6 +99,25 @@ Assuming Sonar is installed (with Sonar Runner on the environment path), on CLI 
 
 ```
 sonar-runner
+```
+
+#### <a name="running-with-mongodb"></a>Running with MongoDB
+
+Assumming MongoDB is installed on system. If not, can download it from MongoDB website and follow installation instructions.
+
+Start up MongoDB Database Server:
+```
+./mongod
+```
+
+Open up MongoDB Database client:
+```
+./mongo
+```
+
+Load the mongodb javascript file which populates some sample data
+```
+load("mongodb.js")
 ```
 
 ### <a name="technical-overview"></a>Technical Overview
