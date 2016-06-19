@@ -317,7 +317,7 @@ ME
 | CSS                  | Spring Core     | MySQL           | AssertJ             | Maven          |
 | JS                   | Spring Web MVC  | MongoDB         | Mockito             | Tomcat         |
 | Bootstrap            | Spring Data JPA |                 | Cucumber-JV	 | SonarQube      |
-| JSP                  | Spring Security |                 | Spring Test Context |                |
+| JSP                  | Spring Security |                 | Spring Test Context | Lombok         |
 | JSTL                 | JPA - Hibernate |                 |                     |                |
 | Dandelion DataTables | JTA             |                 |                     |                |
 |                      | Bean Validation |                 |                     |                |
