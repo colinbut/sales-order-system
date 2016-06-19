@@ -4,20 +4,31 @@ db.adminCommand('listDatatbases')
 
 printjson(db.getCollectionNames())
 
+db.orders.drop()
 db.items.drop()
 db.customers.drop()
 
 db.createCollection("items")
 db.createCollection("customers")
+db.createCollection("orders")
+
+itemId1 = ObjectId()
+itemId2 = ObjectId()
+itemId3 = ObjectId()
+itemId4 = ObjectId()
+itemId5 = ObjectId()
+itemId6 = ObjectId()
+itemId7 = ObjectId()
+
 
 db.items.insertMany([
-    {itemName : 'test-items1', itemPrice : 23.2},
-    {itemName : 'test-items2', itemPrice : 25.2},
-    {itemName : 'test-items3', itemPrice : 12.2},
-    {itemName : 'test-items4', itemPrice : 67.2},
-    {itemName : 'test-items5', itemPrice : 34.2},
-    {itemName : 'test-items6', itemPrice : 09.2},
-    {itemName : 'test-items7', itemPrice : 18.2}
+    {_id : itemId1, itemName : 'test-items1', itemPrice : 23.2},
+    {_id : itemId2, itemName : 'test-items2', itemPrice : 25.2},
+    {_id : itemId3, itemName : 'test-items3', itemPrice : 12.2},
+    {_id : itemId4, itemName : 'test-items4', itemPrice : 67.2},
+    {_id : itemId5, itemName : 'test-items5', itemPrice : 34.2},
+    {_id : itemId6, itemName : 'test-items6', itemPrice : 09.2},
+    {_id : itemId7, itemName : 'test-items7', itemPrice : 18.2}
 ])
 
 db.customers.insertMany([
@@ -163,3 +174,61 @@ db.customers.insertMany([
     }
 
 ])
+
+orderId1 = ObjectId()
+orderId2 = ObjectId()
+orderId3 = ObjectId()
+orderId4 = ObjectId()
+orderId5 = ObjectId()
+orderId6 = ObjectId()
+
+db.orders.insertMany([
+    {
+        _id : orderId1,
+        item : [itemId1, itemId2, itemId3]
+    },
+    {
+        _id : orderId2,
+        item : [itemId4, itemId5, itemId6]
+    },
+    {
+        _id : orderId3
+    },
+    {
+        _id : orderId4
+    },
+    {
+        _id : orderId5
+    },
+    {
+        _id : orderId6
+    }
+])
+
+
+// updates to Customer collection to link references to Orders...
+
+db.customers.findAndModify({
+    query : { firstname : 'firstname1' },
+    update : { $set : { orders: [orderId1,orderId2] } }
+})
+
+db.customers.findAndModify({
+    query : { firstname : 'firstname2' },
+    update : { $set : { orders: [orderId3] } }
+})
+
+db.customers.findAndModify({
+    query : { firstname : 'firstname3' },
+    update : { $set : { orders: [orderId4] } }
+})
+
+db.customers.findAndModify({
+    query : { firstname : 'firstname4' },
+    update : { $set : { orders: [orderId5] } }
+})
+
+db.customers.findAndModify({
+    query : { firstname : 'firstname5' },
+    update : { $set : { orders: [orderId6] } }
+})
