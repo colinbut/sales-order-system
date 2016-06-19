@@ -4,9 +4,21 @@ db.adminCommand('listDatatbases')
 
 printjson(db.getCollectionNames())
 
+db.items.drop()
 db.customers.drop()
 
+db.createCollection("items")
 db.createCollection("customers")
+
+db.items.insertMany([
+    {itemName : 'test-items1', itemPrice : 23.2},
+    {itemName : 'test-items2', itemPrice : 25.2},
+    {itemName : 'test-items3', itemPrice : 12.2},
+    {itemName : 'test-items4', itemPrice : 67.2},
+    {itemName : 'test-items5', itemPrice : 34.2},
+    {itemName : 'test-items6', itemPrice : 09.2},
+    {itemName : 'test-items7', itemPrice : 18.2}
+])
 
 db.customers.insertMany([
     {
