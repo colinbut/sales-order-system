@@ -55,4 +55,12 @@ public class OrderControllerIntegrationTest {
             .andExpect(view().name("orders/orders-createOrder"));
     }
 
+    @Test
+    public void testListOrders() throws Exception {
+        mockMvc.perform(get("/orders"))
+            .andExpect(status().isOk())
+            .andExpect(model().attributeExists("orders"))
+            .andExpect(view().name("orders/orders"));
+    }
+
 }
