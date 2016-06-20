@@ -105,7 +105,26 @@ sonar-runner
 
 It is also possible to run with MySQL. You need MySQL to be installed. Download from the MySQL website and follow installation instructions. 
 
-Start up MySQL server on your system
+1. Start up MySQL server on your system
+2. Configure Spring's application-datasource.xml configuration file to connect to MySQL:
+
+Uncomment below as specified:
+
+```xml
+    <!-- uncomment out for use with MySQL database -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/sales_order_system" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
+    </bean>
+
+    <jdbc:initialize-database ignore-failures="DROPS">
+        <jdbc:script location="file:src/main/resources/scripts/db-drop-tables.sql"/>
+        <jdbc:script location="file:src/main/resources/scripts/db-create.sql"/>
+    </jdbc:initialize-database>
+```
+
 
 #### <a name="running-with-mongodb"></a>Running with MongoDB
 
