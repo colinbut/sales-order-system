@@ -9,6 +9,7 @@
 	* [Running Integration Tests](#running-integration-tests)
 	* [Running End2End Tests](#running-e2e-tests)
 	* [Code Quality Analysis - SonarQube](#code-quality-analysis)
+	* [Running with MySQL](#running-with-mysql)
 	* [Running with MongoDB](#running-with-mongodb)
 * [Technical Overview](#technical-overview)
   * [High Level Architecture] (#high-level-architecture)
@@ -57,7 +58,7 @@ once the application loaded, navigate to:
 http://localhost:8080/online-application/login
 ```
 
-using some sample credentials below:
+some sample credentials can be found configured in Spring's application-security.xml configuration file.
 
 #### <a name="running-unit-tests"></a>Running Unit Tests
 
@@ -100,6 +101,11 @@ Assuming Sonar is installed (with Sonar Runner on the environment path), on CLI 
 ```
 sonar-runner
 ```
+#### <a name="running-with-mysql"></a>Running with MySQL
+
+It is also possible to run with MySQL. You need MySQL to be installed. Download from the MySQL website and follow installation instructions. 
+
+Start up MySQL server on your system
 
 #### <a name="running-with-mongodb"></a>Running with MongoDB
 
