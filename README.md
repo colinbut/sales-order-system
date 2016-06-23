@@ -153,7 +153,7 @@ The application is just a simplistic monolithic application built with several l
 
 ##### <a name="back-end"></a>Back End
 
-* The back-end is completely built using Java
+* The back-end is completely built using Java (Java  8 compiled)
 * It is bootstrapped by Spring Framework
 * Database is a RDBMS (Relational Database Management System):
   * default in memory-db (HSQL)
