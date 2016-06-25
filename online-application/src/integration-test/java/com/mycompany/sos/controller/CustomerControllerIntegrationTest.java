@@ -6,6 +6,7 @@
 package com.mycompany.sos.controller;
 
 import com.mycompany.sos.IntegrationTestCategory;
+import com.mycompany.sos.model.Customer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -19,6 +20,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -60,5 +62,14 @@ public class CustomerControllerIntegrationTest {
             .andExpect(status().isOk())
             .andExpect(model().attributeExists("customers"))
             .andExpect(view().name("customers/customers"));
+    }
+
+
+    @Test
+    public void testCreateCustomer_hasErrorsOnForm() throws Exception {
+        mockMvc.perform(post("/customers/createCustomer")
+            .sessionAttr("createCustomerForm",new Customer()))
+            .andExpect(view().name("customers/customers-createCustomer"))
+            .andExpect(status().isOk());
     }
 }
