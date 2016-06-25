@@ -319,7 +319,7 @@ The following application-security.xml Spring configuration file shows key secur
 
 ##### <a name="integration-testing"></a>Integration Testing
 
-[TBD]
+Integration Testing is implemented using Spring's Test Context Framework. An in-memory Database (HSQL) is used. 
 
 ##### <a name="e2e-testing"></a>End 2 End Testing
 
