@@ -328,7 +328,7 @@ Note that End 2 End testing for this project is still WIP.
 
 ### <a name="team-members"></a>Team Members
 
-ME 
+ME (colin.but@outlook.com)
 
 ### <a name="project-demo"></a>Project Demo
 
