@@ -15,6 +15,7 @@
   * [High Level Architecture] (#high-level-architecture)
     * [Back End] (#back-end)  
     * [Front End] (#front-end)
+  * [Database Design] (#database-design)
   * [Application Patterns] (#application-patterns)
   * [Declarative Programming] (#declarative-programming)
   * [Security Issues] (#security-issues)
@@ -151,6 +152,10 @@ load("mongodb.js")
 
 The application is just a simplistic monolithic application built with several layers. In summary, back-end is written in Java which connects to a back-end in-memory relational database (HSQL). Can also connect to other relational databases (MySQL). Application is scafolded by Spring Framework. Model-View-Controller (MVC) architectural pattern is used to separate the front-end from the back-end. This is achieved by Spring Web MVC. This application would then be deployed on an embedded web container (Apache Tomcat).
 
+##### <a name="front-end"></a>Front End
+
+The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this. 
+
 ##### <a name="back-end"></a>Back End
 
 * The back-end is completely built using Java (Java  8 compiled)
@@ -162,9 +167,9 @@ The application is just a simplistic monolithic application built with several l
   * Persistence done using JPA (Hibernate the implementation) 
 * JSP serves front-end html content...
 
-##### <a name="front-end"></a>Front End
+#### <a name="database-design"></a>Databse Design
 
-The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this.  
+[TBD]
 
 #### <a name="application-patterns"></a>Application Patterns
 
