@@ -47,6 +47,9 @@ mvn clean package
 ... will compile the sources, package up the war file
 
 3) Run application
+
+go into the online-application directory and execute following command:
+
 ```
 mvn tomcat7:run-war
 ```
