@@ -1,5 +1,7 @@
 # Sales Order System
 
+[![Build Status](https://travis-ci.org/colinbut/sales-order-system.svg?branch=master)](https://travis-ci.org/colinbut/sales-order-system)
+
 ## Table of Contents
 
 * [Summary](#summary)
