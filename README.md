@@ -1,5 +1,7 @@
 # Sales Order System
 
+[![Build Status](https://travis-ci.org/colinbut/sales-order-system.svg?branch=master)](https://travis-ci.org/colinbut/sales-order-system)
+
 ## Table of Contents
 
 * [Summary](#summary)
@@ -12,15 +14,16 @@
 	* [Running with MySQL](#running-with-mysql)
 	* [Running with MongoDB](#running-with-mongodb)
 * [Technical Overview](#technical-overview)
-  * [High Level Architecture] (#high-level-architecture)
-    * [Back End] (#back-end)  
-    * [Front End] (#front-end)
-  * [Application Patterns] (#application-patterns)
-  * [Declarative Programming] (#declarative-programming)
-  * [Security Issues] (#security-issues)
-  * [Testing] (#testing)
-  	* [Integration Testing] (#integration-testing)
-	* [End 2 End Testing] (#e2e-testing)
+  * [High Level Architecture](#high-level-architecture)
+    * [Back End](#back-end)  
+    * [Front End](#front-end)
+  * [Database Design](#database-design)
+  * [Application Patterns](#application-patterns)
+  * [Declarative Programming](#declarative-programming)
+  * [Security Issues](#security-issues)
+  * [Testing](#testing)
+  	* [Integration Testing](#integration-testing)
+	* [End 2 End Testing](#e2e-testing)
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 * [Technology/Tool Stack](#tech-tool)
@@ -46,6 +49,9 @@ mvn clean package
 ... will compile the sources, package up the war file
 
 3) Run application
+
+go into the online-application directory and execute following command:
+
 ```
 mvn tomcat7:run-war
 ```
@@ -153,6 +159,11 @@ The application is just a simplistic monolithic application built with several l
 
 ![Image of High Level Architecture](etc/SOS_Architecture.png)
 
+
+##### <a name="front-end"></a>Front End
+
+The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this. 
+
 ##### <a name="back-end"></a>Back End
 
 * The back-end is completely built using Java (Java  8 compiled)
@@ -164,9 +175,9 @@ The application is just a simplistic monolithic application built with several l
   * Persistence done using JPA (Hibernate the implementation) 
 * JSP serves front-end html content...
 
-##### <a name="front-end"></a>Front End
+#### <a name="database-design"></a>Databse Design
 
-The front-end is plainly JSP with a bit of JSTL here and there. Dandelion Databases also used to implement tables in the UI. Basic CSS for styling. Bootstrap provides the front-end framework for this.  
+[TBD]
 
 #### <a name="application-patterns"></a>Application Patterns
 
@@ -330,7 +341,7 @@ Note that End 2 End testing for this project is still WIP.
 
 ### <a name="team-members"></a>Team Members
 
-ME 
+ME (colin.but@outlook.com)
 
 ### <a name="project-demo"></a>Project Demo
 
