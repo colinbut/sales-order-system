@@ -151,6 +151,8 @@ load("mongodb.js")
 
 The application is just a simplistic monolithic application built with several layers. In summary, back-end is written in Java which connects to a back-end in-memory relational database (HSQL). Can also connect to other relational databases (MySQL). Application is scafolded by Spring Framework. Model-View-Controller (MVC) architectural pattern is used to separate the front-end from the back-end. This is achieved by Spring Web MVC. This application would then be deployed on an embedded web container (Apache Tomcat).
 
+![Image of High Level Architecture](etc/SOS_Architecture.png)
+
 ##### <a name="back-end"></a>Back End
 
 * The back-end is completely built using Java (Java  8 compiled)
