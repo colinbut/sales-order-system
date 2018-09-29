@@ -34,3 +34,5 @@ target/*
 ehthumbs.db
 Thumbs.db
 /target/
+
+ cucumber-html-reports/*
