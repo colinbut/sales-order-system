@@ -10,12 +10,12 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 /**
- * {@link E2EBDDTestRunConfiguration} class
+ * {@link E2EBDDTestRunConfigurationTest} class
  * 
  * @author colin
  *
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, features = "src/main/resources/items-list.feature")
-public class E2EBDDTestRunConfiguration {
+//@CucumberOptions(plugin = {"pretty"}, features = "items-list.feature")
+public class E2EBDDTestRunConfigurationTest {
 }

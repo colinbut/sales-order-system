@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  * @author colin
  *
  */
-@Category(End2EndCategory.class)
+//@Category(End2EndCategory.class)
 public class ItemsListEnd2EndTest {
 
 	ItemController itemController = new ItemController();
