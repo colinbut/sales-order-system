@@ -38,7 +38,7 @@
         <property name="packagesToScan" value="com.mycompany.sos.model" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="showSql" value="true" />
+                <property name="showSql" value="false" />
                 <property name="generateDdl" value="false"/>
                 <property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             </bean>
@@ -47,8 +47,8 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">validate</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
                 <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
             </props>
         </property>
