@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
  * {@link E2EBDDTestRunConfigurationTest} class
  * 
  * @author colin
- *
  */
 @RunWith(Cucumber.class)
-//@CucumberOptions(plugin = {"pretty"}, features = "items-list.feature")
+@CucumberOptions(format = { "pretty","html:cucumber-html-reports",
+    "json:cucumber-html-reports/cucumber.json" }, glue = "com.mycompany.sos.stepdefinitions", features = {"src/test/resources/items-list.feature"})
 public class E2EBDDTestRunConfigurationTest {
 }
