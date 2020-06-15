@@ -29,7 +29,7 @@
 		<hibernate.core.version>4.3.10.Final</hibernate.core.version>
 		<hibernate.entitymanager.version>4.3.10.Final</hibernate.entitymanager.version>
 		<hibernate.c3po.version>4.3.10.Final</hibernate.c3po.version>
-		<hibernate.validator.version>5.2.1.Final</hibernate.validator.version>
+		<hibernate.validator.version>5.3.5.Final</hibernate.validator.version>
 		<slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
 		<dandelion.datatables.version>1.0.0</dandelion.datatables.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
