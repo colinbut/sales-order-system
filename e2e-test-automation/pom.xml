@@ -16,7 +16,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <spring.version>4.1.6.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
         <cucumberJava.version>1.2.3</cucumberJava.version>
         <cucumberJunit.version>1.2.3</cucumberJunit.version>
         <online.application.version>1.0-SNAPSHOT</online.application.version>
