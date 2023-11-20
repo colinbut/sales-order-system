@@ -34,7 +34,7 @@
 		<dandelion.datatables.version>1.0.0</dandelion.datatables.version>
 		<hsqldb.version>2.7.1</hsqldb.version>
 		<h2.version>2.2.220</h2.version>
-		<derby.version>10.14.2.0</derby.version>
+		<derby.version>10.17.1.0</derby.version>
         <lombok.version>1.16.8</lombok.version>
 	</properties>
 
